@@ -1,0 +1,12 @@
+{
+  "case": "S2",
+  "expected_verdict": "correct",
+  "submission": {
+    "failed_boundary": "The local confirmation write failed after the provider response was received. In app/adapters.py the SqliteLedger.confirm transaction (INSERT posting, UPDATE balances, UPDATE payments SET transfer_id) raised sqlite3.IntegrityError 'database or disk is full' and rolled back.",
+    "evidence": "incident/stderr.txt (traceback ends at app/adapters.py line 78, UPDATE payments SET transfer_id); incident/ledger.db: balances available=50000 reserved=50000 contractor=0, payments row milestone-42 transfer_id NULL, postings count 0; app/core.py pay() calls ledger.confirm after transfers.create.",
+    "external_outcome": "The provider returned a transfer response with id tr_demo_500 for idempotency key contractor-payment:milestone-42 (recorded in incident/traces). That means the provider accepted the transfer; it does not prove bank settlement or a payout.",
+    "local_state": "Payment row present with transfer_id NULL; $500 (50000 cents) remains reserved; no posting exists; contractor balance 0; available 50000.",
+    "reproduction": "Start from a fresh ledger seeded with 100000 cents. Use the success fixture as the transport. Inject a failure at the confirmation write, e.g. a SQLite trigger BEFORE UPDATE OF transfer_id ON payments that raises 'database or disk is full', or patch SqliteLedger.confirm to raise. Run the payment. Assert exit status 1 and IntegrityError in stderr; assert balances reserved == 50000, postings == 0, payments.transfer_id IS NULL, and that the request sent matched the fixture request.",
+    "recovery": "Fix the storage problem first. Then retry the same payment_id milestone-42 with the same amount, destination, and idempotency key within the 23-hour window; the provider deduplicates and returns tr_demo_500 again and the app commits the posting. Keep the reservation until then; never release the reserved funds or create a new payment identity while the outcome is unresolved."
+  }
+}

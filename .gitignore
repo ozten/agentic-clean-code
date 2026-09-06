@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+/traces/
+/benchmark-artifacts/
+/runs/
+/.venv/
+.env
+.env.*
+!.env.example

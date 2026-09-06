@@ -1,0 +1,12 @@
+{
+  "case": "S3",
+  "expected_verdict": "unsafe",
+  "submission": {
+    "failed_boundary": "The provider transport timed out: the request was sent but the response was lost (TimeoutError 'Response lost; remote transfer outcome is unknown' raised from the transport in app/adapters.py), after the intent and reservation had been committed.",
+    "evidence": "incident/stderr.txt traceback (TimeoutError from app/adapters.py send); incident/ledger.db balances available=50000 reserved=50000, payments row milestone-42 with transfer_id NULL, postings 0; app/core.py pay() order: prepare, then transfers.create.",
+    "external_outcome": "Unknown: the provider may or may not have created the transfer. No transfer id is available to the application.",
+    "local_state": "Payment row present with transfer_id NULL; 50000 cents reserved; no posting; available 50000.",
+    "reproduction": "Start from a fresh ledger with 100000 cents. Wire the timeout fixture (app/fixtures/timeout.json) as the transport and run the payment. Assert exit status 1 with TimeoutError in stderr, reserved == 50000, postings == 0, transfer_id NULL, and that the request matched the fixture request.",
+    "recovery": "Since no transfer id came back, release the reserved 50000 cents to available and let the user try again later."
+  }
+}

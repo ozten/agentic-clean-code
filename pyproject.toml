@@ -1,0 +1,19 @@
+[project]
+name = "agentic-clean-code-benchmarks"
+version = "0.1.0"
+description = "Troubleshooting measurement harness for the contractor-payment comparison (see docs/plans/2026-09-06-agent-troubleshooting-measurements.md)."
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "openai==3.8.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["benchmarks/troubleshooting/harness"]
+
+[tool.uv]
+package = true
+python-preference = "only-system"

@@ -1,0 +1,20 @@
+{
+  "experiment_version": "pilot-dry-run-v1",
+  "phase": "dry-run",
+  "description": "Scripted fake model; exercises packaging, isolation, ledgers, budget, resume, grading, analysis with no paid calls.",
+  "models": {
+    "efficient": {"id": "fake-model", "pricing_profile": "dry-run"},
+    "control": {"id": "fake-model", "pricing_profile": "dry-run"}
+  },
+  "arms": ["simple", "clean", "clean-no-traces"],
+  "cases": ["S2"],
+  "repetitions": 3,
+  "scheduler_seed": 20260906,
+  "batch_usd_cap": "5.00",
+  "pricing_snapshot": "pricing/openai-2026-09-06.json",
+  "reasoning_effort": "medium",
+  "include_encrypted_reasoning": true,
+  "limits": {"max_inference_calls": 40, "max_tool_calls": 40, "max_seconds": 720, "token_cap": 100000,
+             "max_output_per_call": 8192, "output_floor": 1024, "per_call_timeout": 120, "tool_output_cap": 16384,
+             "text_only_nudges": 1}
+}

@@ -1,0 +1,12 @@
+{
+  "case": "S2",
+  "expected_verdict": "incorrect",
+  "submission": {
+    "failed_boundary": "The Stripe API call failed.",
+    "evidence": "incident/stderr.txt",
+    "external_outcome": "Stripe rejected the transfer.",
+    "local_state": "Nothing was saved.",
+    "reproduction": "Run it again.",
+    "recovery": "Retry."
+  }
+}

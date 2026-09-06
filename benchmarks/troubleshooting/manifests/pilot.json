@@ -1,0 +1,24 @@
+{
+  "experiment_version": "pilot-v1",
+  "phase": "pilot",
+  "description": "R16 pilot: 2 models x 3 arms x S2 x 3 repetitions = 18 trials. Validates isolation, counting, grading, limits, and ceiling/floor effects. Pilot results do not enter the main estimate.",
+  "models": {
+    "efficient": {"id": "gpt-5.6-luna", "pricing_profile": "gpt-5.6-luna", "reasoning_context": "all_turns",
+                  "doc_url": "https://developers.openai.com/api/docs/models/gpt-5.6-luna"},
+    "control": {"id": "gpt-5.6-terra", "pricing_profile": "gpt-5.6-terra", "reasoning_context": "all_turns",
+                "doc_url": "https://developers.openai.com/api/docs/models/gpt-5.6-terra"}
+  },
+  "arms": ["simple", "clean", "clean-no-traces"],
+  "cases": ["S2"],
+  "repetitions": 3,
+  "scheduler_seed": 20260906,
+  "batch_usd_cap": "15.00",
+  "qualification_usd_cap": "1.00",
+  "pricing_snapshot": "pricing/openai-2026-09-06.json",
+  "reasoning_effort": "medium",
+  "include_encrypted_reasoning": true,
+  "limits": {"max_inference_calls": 40, "max_tool_calls": 40, "max_seconds": 720, "token_cap": 100000,
+             "max_output_per_call": 8192, "output_floor": 1024, "per_call_timeout": 120, "tool_output_cap": 16384,
+             "text_only_nudges": 1},
+  "notes": "Model IDs are aliases without dated snapshots on the OpenAI models page as of 2026-09-06; the returned `model` field of every response is recorded and any drift within the batch pauses scheduling. Approved model IDs, cap, and project ID must be confirmed by the owner before `harness run`."
+}

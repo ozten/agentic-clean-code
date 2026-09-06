@@ -1,0 +1,12 @@
+{
+  "case": "S2",
+  "expected_verdict": "partial",
+  "submission": {
+    "failed_boundary": "The local confirmation write failed after the provider response was received. In app/adapters.py the SqliteLedger.confirm transaction (INSERT posting, UPDATE balances, UPDATE payments SET transfer_id) raised sqlite3.IntegrityError 'database or disk is full' and rolled back.",
+    "evidence": "incident/stderr.txt (traceback ends at app/adapters.py line 78, UPDATE payments SET transfer_id); incident/ledger.db: balances available=50000 reserved=50000 contractor=0, payments row milestone-42 transfer_id NULL, postings count 0; app/core.py pay() calls ledger.confirm after transfers.create.",
+    "external_outcome": "The provider returned a transfer response with id tr_demo_500 for idempotency key contractor-payment:milestone-42 (recorded in incident/traces). That means the provider accepted the transfer; it does not prove bank settlement or a payout.",
+    "local_state": "Payment row present with transfer_id NULL; $500 (50000 cents) remains reserved; no posting exists; contractor balance 0; available 50000.",
+    "reproduction": "Write a regression test for this.",
+    "recovery": "Investigate the disk and restart the service."
+  }
+}

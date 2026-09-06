@@ -1,0 +1,12 @@
+{
+  "case": "S1",
+  "expected_verdict": "correct",
+  "submission": {
+    "failed_boundary": "Durable preparation failed before any provider request: the initial ledger transaction that records the payment intent and reservation (INSERT INTO payments after UPDATE balances) raised 'database or disk is full' and rolled back.",
+    "evidence": "incident/stderr.txt traceback ends at app/app.py line 56 INSERT INTO payments; incident/ledger.db balances available=100000 reserved=0, no payments row, no postings.",
+    "external_outcome": "No provider request was made; the failure happened before the transport was called, so nothing exists at the provider.",
+    "local_state": "Nothing was committed: no payment row, no reservation, 100000 cents available, no posting; the ledger is unchanged.",
+    "reproduction": "Start from a fresh ledger seeded with 100000 cents and the success fixture. Inject a failure on INSERT INTO payments (a trigger raising 'database or disk is full') and run the payment. Assert exit status 1 with IntegrityError in stderr, balances unchanged (available 100000, reserved 0), zero payment rows, and that the fixture transport was never called.",
+    "recovery": "Fix storage, then simply retry the same payment_id with the same parameters; because no reservation or request exists there is nothing to reconcile. Do not mark the payment as sent."
+  }
+}

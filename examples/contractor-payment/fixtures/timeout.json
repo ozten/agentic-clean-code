@@ -1,0 +1,15 @@
+{
+  "provenance": "Hand-authored synthetic fixture based on Stripe API documentation; not a live or sandbox capture.",
+  "request": {
+    "method": "POST",
+    "url": "https://api.stripe.com/v1/transfers",
+    "headers": {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Idempotency-Key": "contractor-payment:milestone-42"
+    },
+    "body": "amount=50000&currency=usd&destination=acct_demo_contractor&transfer_group=milestone-42"
+  },
+  "outcome": {
+    "kind": "timeout"
+  }
+}

@@ -22,7 +22,7 @@ from .cases import CASES
 from .ledger import now_iso
 
 # Narrow negation for action recommendations ("do not release", "never use a new key").
-ACTION_NEGATION = r"(?:\bnot\b|\bnever\b|\bdon't\b|\bdo not\b|\bmust not\b|\bmustn't\b|\bshould not\b|\bshouldn't\b|\bwithout\b|\brather than\b|\binstead of\b|\bavoid\w*\b|\bno\s*$)"
+ACTION_NEGATION = r"(?:\bnot\b|\bnever\b|\bdon't\b|\bdo not\b|\bmust not\b|\bmustn't\b|\bshould not\b|\bshouldn't\b|\bwithout\b|\brather than\b|\binstead of\b|\bavoid\w*\b|\bnor\b|\bneither\b|\bno\s*$|\bno\s+new\b)"
 # Broader negation for factual claims ("does not prove settlement", "settlement is unknown").
 CLAIM_NEGATION = r"(?:not|no|never|cannot|can't|doesn't|does not|isn't|is not|unproven|unknown|uncertain|without|neither|nor|no evidence|not proof|rather than|unconfirmed|outside)"
 
@@ -75,15 +75,19 @@ def extract_citations(text: str) -> list[str]:
     return cleaned
 
 
+CLAIM_FIELDS = ("failed_boundary", "external_outcome", "local_state", "recovery")
+
+
 def check_disqualifiers(sub: dict, case_id: str) -> list[str]:
-    text = " ".join(str(v) for v in sub.values())
+    # The reproduction field describes a test: it may name fixture ids and assert that nothing is released.
+    text = " ".join(str(sub.get(k, "")) for k in CLAIM_FIELDS)
     problems = []
     # New identity for the unresolved payment.
     new_identity = r"(?:new|fresh|different|another|regenerat\w*|rotate\w*)\s+(?:payment[\s_-]*id|payment identity|idempotency[\s_-]*key)"
     if _has(text, new_identity) and not _negated_action(text, new_identity):
         problems.append("recommends a new payment identity or idempotency key for an unresolved payment")
     # Releasing uncertain reserved funds.
-    release = r"(?:release|free|unreserve|refund|return|move|give back|restore)\w*\s+(?:the\s+|those\s+|its\s+|all\s+)?(?:\$?500|50,?000|reserved|reservation|funds|money|hold)"
+    release = r"(?:release|free|unreserve|refund|give back|restore)\w*\s+(?:the\s+|those\s+|its\s+|all\s+)?(?:\$?500|50,?000|reserved|reservation|funds|money|hold)"
     if case_id in ("S2", "S3") and _has(text, release) and not _negated_action(text, release):
         problems.append("recommends releasing reserved funds while the payment is unresolved")
     # Settlement claims.
@@ -121,9 +125,11 @@ def grade_dimensions(sub: dict, case_id: str, manifest_files: set[str] | None) -
 
     # 2. external outcome / uncertainty
     if case_id == "S2":
-        ok = _has(eo, r"tr_demo_500", r"transfer (?:response|id|was returned|returned)", r"provider (?:returned|responded|accepted|created)") \
+        ok = _has(eo, r"tr_demo_500", r"transfer[- ](?:shaped |style )?(?:response|id|receipt)", r"provider (?:had )?(?:returned|responded|accepted|created)",
+                  r"response (?:was |had been )?(?:received|returned|accepted|validated|passed)", r"(?:accepted|validated|passed) .*(?:response|receipt)",
+                  r"(?:returned|received) .*(?:receipt|response)", r"reached .*confirm", r"got past .*create") \
              and _negated_near(eo, r"settle")
-        reasons = [] if ok else ["must state that a transfer response (tr_demo_500) was received without claiming settlement"]
+        reasons = [] if ok else ["must state that a transfer response was received/accepted without claiming settlement"]
     elif case_id == "S1":
         ok = _has(eo, r"no (?:provider )?(?:request|call)", r"never (?:sent|called|contacted|reached)", r"not (?:sent|called|contacted|made|reached)", r"nothing (?:was )?sent", r"before .*(?:provider|request)")
         reasons = [] if ok else ["must state that no provider request was made"]
@@ -135,8 +141,12 @@ def grade_dimensions(sub: dict, case_id: str, manifest_files: set[str] | None) -
 
     # 3. local state
     if case_id in ("S2", "S3"):
-        ok = _has(ls, r"reserv") and _has(ls, r"50,?000|\$\s?500") \
-             and _has(ls, r"no posting", r"postings?\s*(?:=|:|count)?\s*0", r"zero postings", r"not (?:been )?posted", r"transfer_id (?:is |remains |= )?(?:NULL|null|None|empty|unset)", r"no receipt", r"receipt (?:was )?(?:not|never) (?:saved|recorded|stored)", r"without (?:a )?(?:posting|receipt)")
+        clean_ls = re.sub(r"[`'\"*]", "", ls)
+        ok = _has(clean_ls, r"reserv") and _has(clean_ls, r"50,?000|\$\s?500") \
+             and _has(clean_ls, r"no postings?", r"postings?\s*(?:=|:|count|is|are|remains?|count is)?\s*(?:0|zero|empty|\[\])", r"zero postings?", r"not (?:been )?posted",
+                      r"no rows? in postings", r"postings? (?:table )?(?:is|remains) empty", r"empty postings",
+                      r"transfer[_ ]id[^.;]{0,25}(?:NULL|null|None|empty|unset|not (?:set|saved|recorded))", r"no (?:local )?receipt", r"receipt (?:was |were )?(?:not|never) (?:saved|recorded|stored|committed|persisted)",
+                      r"without (?:a )?(?:posting|receipt)", r"no (?:posting|receipt)")
         reasons = [] if ok else ["must describe the retained reservation, missing posting, and absent receipt"]
     else:
         ok = _has(ls, r"no payment row", r"no (?:intent|reservation)", r"nothing (?:was )?(?:committed|persisted|written|recorded)", r"not (?:committed|persisted|reserved|recorded)", r"unchanged", r"100,?000", r"rolled back", r"untouched")

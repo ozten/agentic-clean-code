@@ -1,0 +1,202 @@
+{
+  "trials": [
+    {
+      "order": 1,
+      "trial_id": "09436aa6-1a81-4c08-96da-5ff657d73b98",
+      "block_id": "control-S2-r3",
+      "model_role": "control",
+      "model": "gpt-5.6-terra",
+      "case": "S2",
+      "repetition": 3,
+      "arm": "simple",
+      "replaces": null
+    },
+    {
+      "order": 2,
+      "trial_id": "26200c8f-b8d0-4a73-b9f1-36296b333c25",
+      "block_id": "control-S2-r3",
+      "model_role": "control",
+      "model": "gpt-5.6-terra",
+      "case": "S2",
+      "repetition": 3,
+      "arm": "clean-no-traces",
+      "replaces": null
+    },
+    {
+      "order": 3,
+      "trial_id": "73d39b6c-4643-4fcf-a731-023435dab6aa",
+      "block_id": "control-S2-r3",
+      "model_role": "control",
+      "model": "gpt-5.6-terra",
+      "case": "S2",
+      "repetition": 3,
+      "arm": "clean",
+      "replaces": null
+    },
+    {
+      "order": 4,
+      "trial_id": "561ef3b9-d1b3-4a58-abe7-b37100ebd677",
+      "block_id": "control-S2-r1",
+      "model_role": "control",
+      "model": "gpt-5.6-terra",
+      "case": "S2",
+      "repetition": 1,
+      "arm": "clean",
+      "replaces": null
+    },
+    {
+      "order": 5,
+      "trial_id": "ad50f729-6451-4ad2-8be4-febce4e8a62b",
+      "block_id": "control-S2-r1",
+      "model_role": "control",
+      "model": "gpt-5.6-terra",
+      "case": "S2",
+      "repetition": 1,
+      "arm": "simple",
+      "replaces": null
+    },
+    {
+      "order": 6,
+      "trial_id": "7221e33e-a6f7-40f8-9fe2-33181b72e51b",
+      "block_id": "control-S2-r1",
+      "model_role": "control",
+      "model": "gpt-5.6-terra",
+      "case": "S2",
+      "repetition": 1,
+      "arm": "clean-no-traces",
+      "replaces": null
+    },
+    {
+      "order": 7,
+      "trial_id": "3657819c-9dd6-4e7e-940a-956c75cc8882",
+      "block_id": "efficient-S2-r3",
+      "model_role": "efficient",
+      "model": "gpt-5.6-luna",
+      "case": "S2",
+      "repetition": 3,
+      "arm": "clean-no-traces",
+      "replaces": null
+    },
+    {
+      "order": 8,
+      "trial_id": "ead8c1e6-119e-466a-a62f-16da0e49d1f9",
+      "block_id": "efficient-S2-r3",
+      "model_role": "efficient",
+      "model": "gpt-5.6-luna",
+      "case": "S2",
+      "repetition": 3,
+      "arm": "clean",
+      "replaces": null
+    },
+    {
+      "order": 9,
+      "trial_id": "5e396f15-f7e5-4bc4-8aab-b1b0ccb0a0be",
+      "block_id": "efficient-S2-r3",
+      "model_role": "efficient",
+      "model": "gpt-5.6-luna",
+      "case": "S2",
+      "repetition": 3,
+      "arm": "simple",
+      "replaces": null
+    },
+    {
+      "order": 10,
+      "trial_id": "52c0417b-c011-4d0a-9c44-181b28c95dfd",
+      "block_id": "control-S2-r2",
+      "model_role": "control",
+      "model": "gpt-5.6-terra",
+      "case": "S2",
+      "repetition": 2,
+      "arm": "clean",
+      "replaces": null
+    },
+    {
+      "order": 11,
+      "trial_id": "0be6f48e-2a38-427b-bdd0-8df86146b206",
+      "block_id": "control-S2-r2",
+      "model_role": "control",
+      "model": "gpt-5.6-terra",
+      "case": "S2",
+      "repetition": 2,
+      "arm": "clean-no-traces",
+      "replaces": null
+    },
+    {
+      "order": 12,
+      "trial_id": "3fd7af1a-98ff-4570-8c4d-b13e9da91673",
+      "block_id": "control-S2-r2",
+      "model_role": "control",
+      "model": "gpt-5.6-terra",
+      "case": "S2",
+      "repetition": 2,
+      "arm": "simple",
+      "replaces": null
+    },
+    {
+      "order": 13,
+      "trial_id": "1a63dde7-2d7d-40f0-98cb-27698937af70",
+      "block_id": "efficient-S2-r1",
+      "model_role": "efficient",
+      "model": "gpt-5.6-luna",
+      "case": "S2",
+      "repetition": 1,
+      "arm": "simple",
+      "replaces": null
+    },
+    {
+      "order": 14,
+      "trial_id": "ce283ad1-d849-4b00-9fbd-2a6505c0b7be",
+      "block_id": "efficient-S2-r1",
+      "model_role": "efficient",
+      "model": "gpt-5.6-luna",
+      "case": "S2",
+      "repetition": 1,
+      "arm": "clean-no-traces",
+      "replaces": null
+    },
+    {
+      "order": 15,
+      "trial_id": "96b5724c-70c0-453c-9ac7-da9edad9e80d",
+      "block_id": "efficient-S2-r1",
+      "model_role": "efficient",
+      "model": "gpt-5.6-luna",
+      "case": "S2",
+      "repetition": 1,
+      "arm": "clean",
+      "replaces": null
+    },
+    {
+      "order": 16,
+      "trial_id": "29524498-074c-4b5f-927b-e26c5003864e",
+      "block_id": "efficient-S2-r2",
+      "model_role": "efficient",
+      "model": "gpt-5.6-luna",
+      "case": "S2",
+      "repetition": 2,
+      "arm": "clean-no-traces",
+      "replaces": null
+    },
+    {
+      "order": 17,
+      "trial_id": "5feca5c1-3a16-4737-bcff-c5a2f13561d2",
+      "block_id": "efficient-S2-r2",
+      "model_role": "efficient",
+      "model": "gpt-5.6-luna",
+      "case": "S2",
+      "repetition": 2,
+      "arm": "simple",
+      "replaces": null
+    },
+    {
+      "order": 18,
+      "trial_id": "702517bb-7554-4b81-adcb-00bc911819d4",
+      "block_id": "efficient-S2-r2",
+      "model_role": "efficient",
+      "model": "gpt-5.6-luna",
+      "case": "S2",
+      "repetition": 2,
+      "arm": "clean",
+      "replaces": null
+    }
+  ]
+}

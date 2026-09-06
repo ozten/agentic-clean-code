@@ -1,0 +1,74 @@
+{
+  "arm": "clean",
+  "case": "S2",
+  "case_version": 1,
+  "case_digest": "d5f8cb4a89a1ef5f",
+  "built_at": 1788736915.980149,
+  "files": {
+    "README.md": {
+      "sha256": "47c34e868cb76e7d26ab2b4d5f91a348507ab64e585c973fd413d7c87b0424e2",
+      "bytes": 3671
+    },
+    "app/adapters.py": {
+      "sha256": "deaf52244333f894be9ab122c24f6855bd78888f179410e41d7c8b82e46b39e8",
+      "bytes": 6766
+    },
+    "app/core.py": {
+      "sha256": "f01f1cba8cb639009ef0eebcec130bfb8947b78d3e9de8a27e4325b1a3ac00f1",
+      "bytes": 1841
+    },
+    "app/fixtures/success.json": {
+      "sha256": "d312e7316fa913fd83ee24161aebb73da3a7373f89d336f2b9734ae279ec9516",
+      "bytes": 794
+    },
+    "app/fixtures/timeout.json": {
+      "sha256": "032c960826839db3c443dbefcb2ffb50435f98e3af4d2fbaf073f4b369fb558d",
+      "bytes": 497
+    },
+    "app/main.py": {
+      "sha256": "0593df7269ea5df259b5b14f750ec50cc8de52c9dfc26fa5475afd1a9dfccaa3",
+      "bytes": 2612
+    },
+    "app/tracing.py": {
+      "sha256": "c29b1ca050c72daa4702a13a1e9579a054e88448d50e6fd71c3aa6de0925a596",
+      "bytes": 3190
+    },
+    "incident/exit-code.txt": {
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2
+    },
+    "incident/ledger.db": {
+      "sha256": "57cb0883af1a461baf815ee4c2765974686d82095f71898f1f1722ff08fb97ac",
+      "bytes": 28672
+    },
+    "incident/report.md": {
+      "sha256": "fa2566bc4e748f601989141eebfe1b9109c2c2ec44b7537b974e0cace0912acd",
+      "bytes": 1235
+    },
+    "incident/stderr.txt": {
+      "sha256": "c6fccfa4bb6318d921cedb9d60d477f917837ad6f6e22d3831e57e9eacc0eb34",
+      "bytes": 1059
+    },
+    "incident/stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "incident/traces/trace-2f020521-fc45-40ca-ac22-20819ea5c026/trace.json": {
+      "sha256": "e3d62f40dda8ffc50e5ec72f61d95123189317bd3d5b2c5bdaa858496eb75ecf",
+      "bytes": 901
+    },
+    "incident/traces/trace-da9fd600-d947-4161-9752-ce616f35804b/trace.json": {
+      "sha256": "82b5660fd785db59c36bad90017a02051087e7a6a0d991569dfae1c92da10481",
+      "bytes": 668
+    },
+    "incident/traces/trace-e97be463-fa1e-4eb4-a22f-7c6f0638b076/trace.json": {
+      "sha256": "32a31a60fae7f4bf7b74f1a2096cd3c21e2fe82cd9f80a6294220f8cd69cc107",
+      "bytes": 558
+    }
+  },
+  "inclusion_policy": "production modules + entry point + shared fixtures; no README/demo/tests/faults",
+  "path_normalization": {
+    "workspace": "/workspace",
+    "python_prefix": "/python"
+  }
+}

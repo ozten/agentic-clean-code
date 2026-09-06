@@ -1,0 +1,69 @@
+{
+  "trial_id": "5feca5c1-3a16-4737-bcff-c5a2f13561d2",
+  "case": "S2",
+  "machine": {
+    "verdict": "partial",
+    "correct": false,
+    "free_text_submission": false,
+    "dimensions": {
+      "failed_boundary": {
+        "passed": true,
+        "reasons": []
+      },
+      "external_outcome": {
+        "passed": false,
+        "reasons": [
+          "must state that a transfer response was received/accepted without claiming settlement"
+        ]
+      },
+      "local_state": {
+        "passed": true,
+        "reasons": []
+      },
+      "evidence": {
+        "passed": true,
+        "reasons": []
+      },
+      "reproducibility": {
+        "passed": true,
+        "reasons": []
+      },
+      "recovery": {
+        "passed": true,
+        "reasons": []
+      }
+    },
+    "passed": [
+      "failed_boundary",
+      "local_state",
+      "evidence",
+      "reproducibility",
+      "recovery"
+    ],
+    "failed": [
+      "external_outcome"
+    ],
+    "disqualifiers": [],
+    "citations": [
+      "incident/report.md",
+      "app/app.py",
+      "incident/ledger.db",
+      "app/fixtures/success.json",
+      "incident/stderr.txt"
+    ],
+    "graded_at": "2026-09-06T23:36:27.677275+00:00",
+    "grader": "machine-rubric-v1"
+  },
+  "human": {
+    "correct": true,
+    "notes": "Human-style review of full submission: failed boundary = confirmation write after provider response; evidence cites existing artifacts and DB rows; remote outcome kept uncertain without settlement claim; reservation/no-posting state correct; reproduction names inputs, fault boundary, assertions; recovery preserves identity and reservation. Machine flags, where present, were pattern false positives (negated lists, normal reserved-to-contractor posting description, test fixture ids).",
+    "reviewer": "claude-fable-5.1 (session reviewer)",
+    "reviewed_at": "2026-09-06T23:35:38.710614+00:00"
+  },
+  "final": {
+    "correct": true,
+    "source": "human",
+    "verdict": "correct",
+    "disagrees_with_machine": true
+  }
+}

@@ -1,0 +1,2347 @@
+{
+  "tables": {
+    "attempted": [
+      {
+        "model": "gpt-5.6-luna",
+        "case": "S2",
+        "arm": "clean",
+        "planned": 3,
+        "completed": 3,
+        "needs_review": 0,
+        "pending": 0,
+        "correct": 0,
+        "telemetry_incomplete": 0,
+        "stop_reasons": {
+          "token_limit": 3
+        }
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "case": "S2",
+        "arm": "clean-no-traces",
+        "planned": 3,
+        "completed": 3,
+        "needs_review": 0,
+        "pending": 0,
+        "correct": 2,
+        "telemetry_incomplete": 0,
+        "stop_reasons": {
+          "token_limit": 1,
+          "submitted": 2
+        }
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "case": "S2",
+        "arm": "simple",
+        "planned": 3,
+        "completed": 3,
+        "needs_review": 0,
+        "pending": 0,
+        "correct": 3,
+        "telemetry_incomplete": 0,
+        "stop_reasons": {
+          "submitted": 3
+        }
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "case": "S2",
+        "arm": "clean",
+        "planned": 3,
+        "completed": 3,
+        "needs_review": 0,
+        "pending": 0,
+        "correct": 0,
+        "telemetry_incomplete": 0,
+        "stop_reasons": {
+          "token_limit": 3
+        }
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "case": "S2",
+        "arm": "clean-no-traces",
+        "planned": 3,
+        "completed": 3,
+        "needs_review": 0,
+        "pending": 0,
+        "correct": 2,
+        "telemetry_incomplete": 0,
+        "stop_reasons": {
+          "submitted": 2,
+          "token_limit": 1
+        }
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "case": "S2",
+        "arm": "simple",
+        "planned": 3,
+        "completed": 3,
+        "needs_review": 0,
+        "pending": 0,
+        "correct": 3,
+        "telemetry_incomplete": 0,
+        "stop_reasons": {
+          "submitted": 3
+        }
+      }
+    ],
+    "correct_consumption": [
+      {
+        "model": "gpt-5.6-luna",
+        "case": "S2",
+        "arm": "clean",
+        "n": 0,
+        "median_tokens": null,
+        "min": null,
+        "max": null,
+        "median_input": null,
+        "median_output": null,
+        "median_cached": null,
+        "median_reasoning": null,
+        "median_seconds": null,
+        "median_tool_calls": null
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "case": "S2",
+        "arm": "clean-no-traces",
+        "n": 2,
+        "median_tokens": 91625.5,
+        "min": 84665,
+        "max": 98586,
+        "median_input": 88947.5,
+        "median_output": 2678.0,
+        "median_cached": 76884.0,
+        "median_reasoning": 889.0,
+        "median_seconds": 54.755,
+        "median_tool_calls": 15.0
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "case": "S2",
+        "arm": "simple",
+        "n": 3,
+        "median_tokens": 66295,
+        "min": 58825,
+        "max": 67844,
+        "median_input": 63446,
+        "median_output": 2635,
+        "median_cached": 57143,
+        "median_reasoning": 794,
+        "median_seconds": 47.468,
+        "median_tool_calls": 13
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "case": "S2",
+        "arm": "clean",
+        "n": 0,
+        "median_tokens": null,
+        "min": null,
+        "max": null,
+        "median_input": null,
+        "median_output": null,
+        "median_cached": null,
+        "median_reasoning": null,
+        "median_seconds": null,
+        "median_tool_calls": null
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "case": "S2",
+        "arm": "clean-no-traces",
+        "n": 2,
+        "median_tokens": 73670.5,
+        "min": 73284,
+        "max": 74057,
+        "median_input": 70258.5,
+        "median_output": 3412.0,
+        "median_cached": 59977.5,
+        "median_reasoning": 1233.5,
+        "median_seconds": 59.646,
+        "median_tool_calls": 13.0
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "case": "S2",
+        "arm": "simple",
+        "n": 3,
+        "median_tokens": 77355,
+        "min": 67902,
+        "max": 77726,
+        "median_input": 73181,
+        "median_output": 3954,
+        "median_cached": 65969,
+        "median_reasoning": 1490,
+        "median_seconds": 64.916,
+        "median_tool_calls": 15
+      }
+    ],
+    "unsuccessful": [
+      {
+        "model": "gpt-5.6-terra",
+        "case": "S2",
+        "arm": "clean",
+        "trial": "73d39b6c-4643-4fcf-a731-023435dab6aa",
+        "verdict": "no_submission",
+        "stop_reason": "token_limit",
+        "tokens": 94754,
+        "lower_bound": 94754,
+        "telemetry": "complete",
+        "status": "completed"
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "case": "S2",
+        "arm": "clean",
+        "trial": "561ef3b9-d1b3-4a58-abe7-b37100ebd677",
+        "verdict": "no_submission",
+        "stop_reason": "token_limit",
+        "tokens": 94488,
+        "lower_bound": 94488,
+        "telemetry": "complete",
+        "status": "completed"
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "case": "S2",
+        "arm": "clean-no-traces",
+        "trial": "3657819c-9dd6-4e7e-940a-956c75cc8882",
+        "verdict": "no_submission",
+        "stop_reason": "token_limit",
+        "tokens": 93428,
+        "lower_bound": 93428,
+        "telemetry": "complete",
+        "status": "completed"
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "case": "S2",
+        "arm": "clean",
+        "trial": "ead8c1e6-119e-466a-a62f-16da0e49d1f9",
+        "verdict": "no_submission",
+        "stop_reason": "token_limit",
+        "tokens": 89836,
+        "lower_bound": 89836,
+        "telemetry": "complete",
+        "status": "completed"
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "case": "S2",
+        "arm": "clean",
+        "trial": "52c0417b-c011-4d0a-9c44-181b28c95dfd",
+        "verdict": "no_submission",
+        "stop_reason": "token_limit",
+        "tokens": 94751,
+        "lower_bound": 94751,
+        "telemetry": "complete",
+        "status": "completed"
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "case": "S2",
+        "arm": "clean-no-traces",
+        "trial": "0be6f48e-2a38-427b-bdd0-8df86146b206",
+        "verdict": "no_submission",
+        "stop_reason": "token_limit",
+        "tokens": 88647,
+        "lower_bound": 88647,
+        "telemetry": "complete",
+        "status": "completed"
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "case": "S2",
+        "arm": "clean",
+        "trial": "96b5724c-70c0-453c-9ac7-da9edad9e80d",
+        "verdict": "no_submission",
+        "stop_reason": "token_limit",
+        "tokens": 91806,
+        "lower_bound": 91806,
+        "telemetry": "complete",
+        "status": "completed"
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "case": "S2",
+        "arm": "clean",
+        "trial": "702517bb-7554-4b81-adcb-00bc911819d4",
+        "verdict": "no_submission",
+        "stop_reason": "token_limit",
+        "tokens": 90524,
+        "lower_bound": 90524,
+        "telemetry": "complete",
+        "status": "completed"
+      }
+    ],
+    "per_completion": [
+      {
+        "model": "gpt-5.6-luna",
+        "case": "S2",
+        "arm": "clean",
+        "attempts": 3,
+        "correct": 0,
+        "consumed": 272166,
+        "per_correct": "undefined"
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "case": "S2",
+        "arm": "clean-no-traces",
+        "attempts": 3,
+        "correct": 2,
+        "consumed": 276679,
+        "per_correct": 138339.5
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "case": "S2",
+        "arm": "simple",
+        "attempts": 3,
+        "correct": 3,
+        "consumed": 192964,
+        "per_correct": 64321.333333333336
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "case": "S2",
+        "arm": "clean",
+        "attempts": 3,
+        "correct": 0,
+        "consumed": 283993,
+        "per_correct": "undefined"
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "case": "S2",
+        "arm": "clean-no-traces",
+        "attempts": 3,
+        "correct": 2,
+        "consumed": 235988,
+        "per_correct": 117994.0
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "case": "S2",
+        "arm": "simple",
+        "attempts": 3,
+        "correct": 3,
+        "consumed": 222983,
+        "per_correct": 74327.66666666667
+      }
+    ],
+    "pairs": [
+      {
+        "model": "gpt-5.6-luna",
+        "case": "S2",
+        "comparison": "clean - simple",
+        "pairs": 0,
+        "blocks": 3,
+        "median_difference": null,
+        "median_ratio": null
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "case": "S2",
+        "comparison": "clean - clean-no-traces",
+        "pairs": 0,
+        "blocks": 3,
+        "median_difference": null,
+        "median_ratio": null
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "case": "S2",
+        "comparison": "clean-no-traces - simple",
+        "pairs": 2,
+        "blocks": 3,
+        "median_difference": 24556.0,
+        "median_ratio": 1.3675084580336447
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "case": "S2",
+        "comparison": "clean - simple",
+        "pairs": 0,
+        "blocks": 3,
+        "median_difference": null,
+        "median_ratio": null
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "case": "S2",
+        "comparison": "clean - clean-no-traces",
+        "pairs": 0,
+        "blocks": 3,
+        "median_difference": null,
+        "median_ratio": null
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "case": "S2",
+        "comparison": "clean-no-traces - simple",
+        "pairs": 2,
+        "blocks": 3,
+        "median_difference": 856.5,
+        "median_ratio": 1.0160285033098793
+      }
+    ]
+  },
+  "known_cost_usd": "0.67923179",
+  "timelines": {
+    "09436aa6-1a81-4c08-96da-5ff657d73b98": {
+      "arm": "simple",
+      "case": "S2",
+      "model": "gpt-5.6-terra",
+      "correct": true,
+      "timeline": [
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 1434,
+          "delivered_bytes": 381,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 3038,
+          "delivered_bytes": 1277,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 5024,
+          "delivered_bytes": 7441,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 8938,
+          "delivered_bytes": 578,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 13050,
+          "delivered_bytes": 983,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 17532,
+          "delivered_bytes": 602,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "query_local_state",
+          "cumulative_tokens": 22432,
+          "delivered_bytes": 176,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 27588,
+          "delivered_bytes": 481,
+          "exit_code": 1
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 32994,
+          "delivered_bytes": 98,
+          "exit_code": 1
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 38594,
+          "delivered_bytes": 342,
+          "exit_code": 0
+        },
+        {
+          "tool": "reproduce_incident",
+          "kind": "reproduce",
+          "cumulative_tokens": 44351,
+          "delivered_bytes": 797,
+          "exit_code": 1
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 51006,
+          "delivered_bytes": 308,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 57804,
+          "delivered_bytes": 4076,
+          "exit_code": 0
+        },
+        {
+          "tool": "submit_diagnosis",
+          "kind": "submit",
+          "cumulative_tokens": 67902,
+          "delivered_bytes": null,
+          "exit_code": 0
+        }
+      ]
+    },
+    "26200c8f-b8d0-4a73-b9f1-36296b333c25": {
+      "arm": "clean-no-traces",
+      "case": "S2",
+      "model": "gpt-5.6-terra",
+      "correct": true,
+      "timeline": [
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 1434,
+          "delivered_bytes": 464,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 3070,
+          "delivered_bytes": 1278,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 5089,
+          "delivered_bytes": 729,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 7345,
+          "delivered_bytes": 2219,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 10288,
+          "delivered_bytes": 7858,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 15255,
+          "delivered_bytes": 3053,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 21092,
+          "delivered_bytes": 3729,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 28042,
+          "delivered_bytes": 398,
+          "exit_code": 0
+        },
+        {
+          "tool": "reproduce_incident",
+          "kind": "reproduce",
+          "cumulative_tokens": 35134,
+          "delivered_bytes": 927,
+          "exit_code": 1
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 42511,
+          "delivered_bytes": 4077,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 51150,
+          "delivered_bytes": 2034,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 60951,
+          "delivered_bytes": 729,
+          "exit_code": 0
+        },
+        {
+          "tool": "submit_diagnosis",
+          "kind": "submit",
+          "cumulative_tokens": 73284,
+          "delivered_bytes": null,
+          "exit_code": 0
+        }
+      ]
+    },
+    "73d39b6c-4643-4fcf-a731-023435dab6aa": {
+      "arm": "clean",
+      "case": "S2",
+      "model": "gpt-5.6-terra",
+      "correct": false,
+      "timeline": [
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 1434,
+          "delivered_bytes": 962,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 3281,
+          "delivered_bytes": 1403,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 5538,
+          "delivered_bytes": 2219,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 8482,
+          "delivered_bytes": 7858,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 13450,
+          "delivered_bytes": 3053,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 19272,
+          "delivered_bytes": 3729,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 26122,
+          "delivered_bytes": 1199,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 33370,
+          "delivered_bytes": 1132,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 41105,
+          "delivered_bytes": 871,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 49255,
+          "delivered_bytes": 712,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "query_local_state",
+          "cumulative_tokens": 57867,
+          "delivered_bytes": 101,
+          "exit_code": 1
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 66635,
+          "delivered_bytes": 241,
+          "exit_code": 0
+        },
+        {
+          "tool": "reproduce_incident",
+          "kind": "reproduce",
+          "cumulative_tokens": 75519,
+          "delivered_bytes": 1598,
+          "exit_code": 1
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 84987,
+          "delivered_bytes": 1002,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 94754,
+          "delivered_bytes": 4077,
+          "exit_code": 0
+        }
+      ]
+    },
+    "561ef3b9-d1b3-4a58-abe7-b37100ebd677": {
+      "arm": "clean",
+      "case": "S2",
+      "model": "gpt-5.6-terra",
+      "correct": false,
+      "timeline": [
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 1436,
+          "delivered_bytes": 962,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 3297,
+          "delivered_bytes": 1403,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 5568,
+          "delivered_bytes": 2219,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 8526,
+          "delivered_bytes": 7858,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 13508,
+          "delivered_bytes": 3053,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 19344,
+          "delivered_bytes": 3729,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 26208,
+          "delivered_bytes": 1199,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 33447,
+          "delivered_bytes": 9,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 40761,
+          "delivered_bytes": 869,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 48496,
+          "delivered_bytes": 1132,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 56728,
+          "delivered_bytes": 712,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 65358,
+          "delivered_bytes": 390,
+          "exit_code": 0
+        },
+        {
+          "tool": "reproduce_incident",
+          "kind": "reproduce",
+          "cumulative_tokens": 74124,
+          "delivered_bytes": 1598,
+          "exit_code": 1
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 83397,
+          "delivered_bytes": 4077,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 94488,
+          "delivered_bytes": 1655,
+          "exit_code": 0
+        }
+      ]
+    },
+    "ad50f729-6451-4ad2-8be4-febce4e8a62b": {
+      "arm": "simple",
+      "case": "S2",
+      "model": "gpt-5.6-terra",
+      "correct": true,
+      "timeline": [
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 1436,
+          "delivered_bytes": 381,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 3042,
+          "delivered_bytes": 1277,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 5031,
+          "delivered_bytes": 578,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 7215,
+          "delivered_bytes": 7441,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 11356,
+          "delivered_bytes": 983,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 15867,
+          "delivered_bytes": 602,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "query_local_state",
+          "cumulative_tokens": 20777,
+          "delivered_bytes": 167,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 25956,
+          "delivered_bytes": 1131,
+          "exit_code": 0
+        },
+        {
+          "tool": "reproduce_incident",
+          "kind": "reproduce",
+          "cumulative_tokens": 31470,
+          "delivered_bytes": 797,
+          "exit_code": 1
+        },
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 37401,
+          "delivered_bytes": 194,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 43637,
+          "delivered_bytes": 1293,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 50809,
+          "delivered_bytes": 59,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 58067,
+          "delivered_bytes": 4076,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 66555,
+          "delivered_bytes": 186,
+          "exit_code": 0
+        },
+        {
+          "tool": "submit_diagnosis",
+          "kind": "submit",
+          "cumulative_tokens": 77726,
+          "delivered_bytes": null,
+          "exit_code": 0
+        }
+      ]
+    },
+    "7221e33e-a6f7-40f8-9fe2-33181b72e51b": {
+      "arm": "clean-no-traces",
+      "case": "S2",
+      "model": "gpt-5.6-terra",
+      "correct": true,
+      "timeline": [
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 1434,
+          "delivered_bytes": 464,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 3070,
+          "delivered_bytes": 1278,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 5089,
+          "delivered_bytes": 729,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 7345,
+          "delivered_bytes": 2219,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 10288,
+          "delivered_bytes": 7858,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 15255,
+          "delivered_bytes": 3053,
+          "exit_code": 0
+        },
+        {
+          "tool": "reproduce_incident",
+          "kind": "reproduce",
+          "cumulative_tokens": 21084,
+          "delivered_bytes": 927,
+          "exit_code": 1
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 27276,
+          "delivered_bytes": 1572,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 33996,
+          "delivered_bytes": 4077,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 42555,
+          "delivered_bytes": 3729,
+          "exit_code": 0
+        },
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 52159,
+          "delivered_bytes": 423,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 61999,
+          "delivered_bytes": 1867,
+          "exit_code": 0
+        },
+        {
+          "tool": "submit_diagnosis",
+          "kind": "submit",
+          "cumulative_tokens": 74057,
+          "delivered_bytes": null,
+          "exit_code": 0
+        }
+      ]
+    },
+    "3657819c-9dd6-4e7e-940a-956c75cc8882": {
+      "arm": "clean-no-traces",
+      "case": "S2",
+      "model": "gpt-5.6-luna",
+      "correct": false,
+      "timeline": [
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 1434,
+          "delivered_bytes": 464,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 3069,
+          "delivered_bytes": 4077,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 5748,
+          "delivered_bytes": 1278,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 8809,
+          "delivered_bytes": 3053,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 12723,
+          "delivered_bytes": 2219,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 17324,
+          "delivered_bytes": 7858,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 23950,
+          "delivered_bytes": 3729,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 31619,
+          "delivered_bytes": 729,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 39528,
+          "delivered_bytes": 983,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 47807,
+          "delivered_bytes": 602,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 56416,
+          "delivered_bytes": 185,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 65212,
+          "delivered_bytes": 342,
+          "exit_code": 0
+        },
+        {
+          "tool": "reproduce_incident",
+          "kind": "reproduce",
+          "cumulative_tokens": 74166,
+          "delivered_bytes": 927,
+          "exit_code": 1
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 83670,
+          "delivered_bytes": 234,
+          "exit_code": 0
+        },
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 93428,
+          "delivered_bytes": 194,
+          "exit_code": 0
+        }
+      ]
+    },
+    "ead8c1e6-119e-466a-a62f-16da0e49d1f9": {
+      "arm": "clean",
+      "case": "S2",
+      "model": "gpt-5.6-luna",
+      "correct": false,
+      "timeline": [
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 1434,
+          "delivered_bytes": 962,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 3303,
+          "delivered_bytes": 1403,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 5582,
+          "delivered_bytes": 2219,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 8548,
+          "delivered_bytes": 7858,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 13538,
+          "delivered_bytes": 3053,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 19382,
+          "delivered_bytes": 3729,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 26256,
+          "delivered_bytes": 602,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 33369,
+          "delivered_bytes": 1199,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 40856,
+          "delivered_bytes": 0,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 48386,
+          "delivered_bytes": 9,
+          "exit_code": 0
+        },
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 55959,
+          "delivered_bytes": 456,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 63821,
+          "delivered_bytes": 712,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 72037,
+          "delivered_bytes": 870,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 80671,
+          "delivered_bytes": 1132,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "query_local_state",
+          "cumulative_tokens": 89836,
+          "delivered_bytes": 101,
+          "exit_code": 1
+        }
+      ]
+    },
+    "5e396f15-f7e5-4bc4-8aab-b1b0ccb0a0be": {
+      "arm": "simple",
+      "case": "S2",
+      "model": "gpt-5.6-luna",
+      "correct": true,
+      "timeline": [
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 1434,
+          "delivered_bytes": 381,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 3037,
+          "delivered_bytes": 4076,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 5684,
+          "delivered_bytes": 7441,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 10258,
+          "delivered_bytes": 1277,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 15215,
+          "delivered_bytes": 578,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 20370,
+          "delivered_bytes": 983,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 25895,
+          "delivered_bytes": 602,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 31764,
+          "delivered_bytes": 248,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 37826,
+          "delivered_bytes": 246,
+          "exit_code": 0
+        },
+        {
+          "tool": "reproduce_incident",
+          "kind": "reproduce",
+          "cumulative_tokens": 44007,
+          "delivered_bytes": 797,
+          "exit_code": 1
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 50486,
+          "delivered_bytes": 137,
+          "exit_code": 0
+        },
+        {
+          "tool": "submit_diagnosis",
+          "kind": "submit",
+          "cumulative_tokens": 58825,
+          "delivered_bytes": null,
+          "exit_code": 0
+        }
+      ]
+    },
+    "52c0417b-c011-4d0a-9c44-181b28c95dfd": {
+      "arm": "clean",
+      "case": "S2",
+      "model": "gpt-5.6-terra",
+      "correct": false,
+      "timeline": [
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 1436,
+          "delivered_bytes": 962,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 3299,
+          "delivered_bytes": 1403,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 5572,
+          "delivered_bytes": 2219,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 8532,
+          "delivered_bytes": 7858,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 13516,
+          "delivered_bytes": 3053,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 19354,
+          "delivered_bytes": 3729,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 26220,
+          "delivered_bytes": 1199,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 33486,
+          "delivered_bytes": 1131,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 41243,
+          "delivered_bytes": 870,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 49417,
+          "delivered_bytes": 713,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "query_local_state",
+          "cumulative_tokens": 58033,
+          "delivered_bytes": 101,
+          "exit_code": 1
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 66779,
+          "delivered_bytes": 137,
+          "exit_code": 0
+        },
+        {
+          "tool": "reproduce_incident",
+          "kind": "reproduce",
+          "cumulative_tokens": 75632,
+          "delivered_bytes": 1598,
+          "exit_code": 1
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 85034,
+          "delivered_bytes": 1002,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 94751,
+          "delivered_bytes": 983,
+          "exit_code": 0
+        }
+      ]
+    },
+    "0be6f48e-2a38-427b-bdd0-8df86146b206": {
+      "arm": "clean-no-traces",
+      "case": "S2",
+      "model": "gpt-5.6-terra",
+      "correct": false,
+      "timeline": [
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 1436,
+          "delivered_bytes": 464,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 3074,
+          "delivered_bytes": 1278,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 5095,
+          "delivered_bytes": 729,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 7353,
+          "delivered_bytes": 2219,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 10298,
+          "delivered_bytes": 7858,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 15267,
+          "delivered_bytes": 3053,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 21186,
+          "delivered_bytes": 406,
+          "exit_code": 0
+        },
+        {
+          "tool": "reproduce_incident",
+          "kind": "reproduce",
+          "cumulative_tokens": 27262,
+          "delivered_bytes": 927,
+          "exit_code": 1
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 33723,
+          "delivered_bytes": 1784,
+          "exit_code": 1
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 40686,
+          "delivered_bytes": 983,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 48319,
+          "delivered_bytes": 3729,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 57449,
+          "delivered_bytes": 486,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 67064,
+          "delivered_bytes": 993,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 77040,
+          "delivered_bytes": 4077,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 88647,
+          "delivered_bytes": 729,
+          "exit_code": 0
+        }
+      ]
+    },
+    "3fd7af1a-98ff-4570-8c4d-b13e9da91673": {
+      "arm": "simple",
+      "case": "S2",
+      "model": "gpt-5.6-terra",
+      "correct": true,
+      "timeline": [
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 1436,
+          "delivered_bytes": 381,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 3042,
+          "delivered_bytes": 1277,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 5030,
+          "delivered_bytes": 7441,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 8946,
+          "delivered_bytes": 578,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 13060,
+          "delivered_bytes": 983,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 17544,
+          "delivered_bytes": 602,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "query_local_state",
+          "cumulative_tokens": 22418,
+          "delivered_bytes": 101,
+          "exit_code": 1
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 27494,
+          "delivered_bytes": 886,
+          "exit_code": 0
+        },
+        {
+          "tool": "reproduce_incident",
+          "kind": "reproduce",
+          "cumulative_tokens": 32796,
+          "delivered_bytes": 797,
+          "exit_code": 1
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 38443,
+          "delivered_bytes": 1008,
+          "exit_code": 0
+        },
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 44553,
+          "delivered_bytes": 423,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 50948,
+          "delivered_bytes": 532,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 58007,
+          "delivered_bytes": 4076,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 66743,
+          "delivered_bytes": 578,
+          "exit_code": 0
+        },
+        {
+          "tool": "submit_diagnosis",
+          "kind": "submit",
+          "cumulative_tokens": 77355,
+          "delivered_bytes": null,
+          "exit_code": 0
+        }
+      ]
+    },
+    "1a63dde7-2d7d-40f0-98cb-27698937af70": {
+      "arm": "simple",
+      "case": "S2",
+      "model": "gpt-5.6-luna",
+      "correct": true,
+      "timeline": [
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 1434,
+          "delivered_bytes": 381,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 3037,
+          "delivered_bytes": 4076,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 5684,
+          "delivered_bytes": 7441,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 10258,
+          "delivered_bytes": 1277,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 15215,
+          "delivered_bytes": 578,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 20370,
+          "delivered_bytes": 602,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 25766,
+          "delivered_bytes": 983,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 31621,
+          "delivered_bytes": 204,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 37637,
+          "delivered_bytes": 144,
+          "exit_code": 0
+        },
+        {
+          "tool": "reproduce_incident",
+          "kind": "reproduce",
+          "cumulative_tokens": 43743,
+          "delivered_bytes": 797,
+          "exit_code": 1
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 50161,
+          "delivered_bytes": 137,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 57371,
+          "delivered_bytes": 578,
+          "exit_code": 0
+        },
+        {
+          "tool": "submit_diagnosis",
+          "kind": "submit",
+          "cumulative_tokens": 66295,
+          "delivered_bytes": null,
+          "exit_code": 0
+        }
+      ]
+    },
+    "ce283ad1-d849-4b00-9fbd-2a6505c0b7be": {
+      "arm": "clean-no-traces",
+      "case": "S2",
+      "model": "gpt-5.6-luna",
+      "correct": true,
+      "timeline": [
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 1434,
+          "delivered_bytes": 464,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 3070,
+          "delivered_bytes": 1278,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 5088,
+          "delivered_bytes": 3053,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 7959,
+          "delivered_bytes": 2219,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 11517,
+          "delivered_bytes": 7858,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 17100,
+          "delivered_bytes": 3729,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 23725,
+          "delivered_bytes": 729,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 30679,
+          "delivered_bytes": 204,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 37816,
+          "delivered_bytes": 150,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 45084,
+          "delivered_bytes": 602,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 52593,
+          "delivered_bytes": 983,
+          "exit_code": 0
+        },
+        {
+          "tool": "reproduce_incident",
+          "kind": "reproduce",
+          "cumulative_tokens": 60469,
+          "delivered_bytes": 927,
+          "exit_code": 1
+        },
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 68625,
+          "delivered_bytes": 194,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 76992,
+          "delivered_bytes": 4077,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 86968,
+          "delivered_bytes": 110,
+          "exit_code": 0
+        },
+        {
+          "tool": "submit_diagnosis",
+          "kind": "submit",
+          "cumulative_tokens": 98586,
+          "delivered_bytes": null,
+          "exit_code": 0
+        }
+      ]
+    },
+    "96b5724c-70c0-453c-9ac7-da9edad9e80d": {
+      "arm": "clean",
+      "case": "S2",
+      "model": "gpt-5.6-luna",
+      "correct": false,
+      "timeline": [
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 1434,
+          "delivered_bytes": 962,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 3299,
+          "delivered_bytes": 1403,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 5574,
+          "delivered_bytes": 2219,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 8536,
+          "delivered_bytes": 7858,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 13522,
+          "delivered_bytes": 3053,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 19362,
+          "delivered_bytes": 3729,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 26232,
+          "delivered_bytes": 602,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 33343,
+          "delivered_bytes": 983,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 40822,
+          "delivered_bytes": 1199,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 48676,
+          "delivered_bytes": 9,
+          "exit_code": 0
+        },
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 56573,
+          "delivered_bytes": 456,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 64750,
+          "delivered_bytes": 870,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 73351,
+          "delivered_bytes": 712,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 82309,
+          "delivered_bytes": 1131,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 91806,
+          "delivered_bytes": 101,
+          "exit_code": 1
+        }
+      ]
+    },
+    "29524498-074c-4b5f-927b-e26c5003864e": {
+      "arm": "clean-no-traces",
+      "case": "S2",
+      "model": "gpt-5.6-luna",
+      "correct": true,
+      "timeline": [
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 1434,
+          "delivered_bytes": 464,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 3069,
+          "delivered_bytes": 4077,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 5748,
+          "delivered_bytes": 1278,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 8809,
+          "delivered_bytes": 3053,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 12723,
+          "delivered_bytes": 2219,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 17324,
+          "delivered_bytes": 7858,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 23950,
+          "delivered_bytes": 3729,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 31617,
+          "delivered_bytes": 729,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 39555,
+          "delivered_bytes": 402,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 47639,
+          "delivered_bytes": 602,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 55964,
+          "delivered_bytes": 983,
+          "exit_code": 0
+        },
+        {
+          "tool": "reproduce_incident",
+          "kind": "reproduce",
+          "cumulative_tokens": 64659,
+          "delivered_bytes": 927,
+          "exit_code": 1
+        },
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 73627,
+          "delivered_bytes": 423,
+          "exit_code": 0
+        },
+        {
+          "tool": "submit_diagnosis",
+          "kind": "submit",
+          "cumulative_tokens": 84665,
+          "delivered_bytes": null,
+          "exit_code": 0
+        }
+      ]
+    },
+    "5feca5c1-3a16-4737-bcff-c5a2f13561d2": {
+      "arm": "simple",
+      "case": "S2",
+      "model": "gpt-5.6-luna",
+      "correct": true,
+      "timeline": [
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 1434,
+          "delivered_bytes": 381,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 3037,
+          "delivered_bytes": 4076,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 5684,
+          "delivered_bytes": 7441,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 10258,
+          "delivered_bytes": 1277,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 15215,
+          "delivered_bytes": 578,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 20465,
+          "delivered_bytes": 1115,
+          "exit_code": 0
+        },
+        {
+          "tool": "reproduce_incident",
+          "kind": "reproduce",
+          "cumulative_tokens": 25984,
+          "delivered_bytes": 797,
+          "exit_code": 1
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 31767,
+          "delivered_bytes": 983,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 37920,
+          "delivered_bytes": 602,
+          "exit_code": 0
+        },
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 44581,
+          "delivered_bytes": 194,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 51679,
+          "delivered_bytes": 122,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 58990,
+          "delivered_bytes": 378,
+          "exit_code": 0
+        },
+        {
+          "tool": "submit_diagnosis",
+          "kind": "submit",
+          "cumulative_tokens": 67844,
+          "delivered_bytes": null,
+          "exit_code": 0
+        }
+      ]
+    },
+    "702517bb-7554-4b81-adcb-00bc911819d4": {
+      "arm": "clean",
+      "case": "S2",
+      "model": "gpt-5.6-luna",
+      "correct": false,
+      "timeline": [
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 1434,
+          "delivered_bytes": 962,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 3287,
+          "delivered_bytes": 1403,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 5550,
+          "delivered_bytes": 3053,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 8666,
+          "delivered_bytes": 2219,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 12469,
+          "delivered_bytes": 7858,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_source",
+          "cumulative_tokens": 18297,
+          "delivered_bytes": 3729,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 25168,
+          "delivered_bytes": 1199,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 32414,
+          "delivered_bytes": 9,
+          "exit_code": 0
+        },
+        {
+          "tool": "list_files",
+          "kind": "discover_files",
+          "cumulative_tokens": 39703,
+          "delivered_bytes": 456,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 47259,
+          "delivered_bytes": 870,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 55234,
+          "delivered_bytes": 712,
+          "exit_code": 0
+        },
+        {
+          "tool": "read_file",
+          "kind": "read_incident_evidence",
+          "cumulative_tokens": 63558,
+          "delivered_bytes": 1131,
+          "exit_code": 0
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 72428,
+          "delivered_bytes": 101,
+          "exit_code": 1
+        },
+        {
+          "tool": "run_shell",
+          "kind": "mixed",
+          "cumulative_tokens": 81431,
+          "delivered_bytes": 130,
+          "exit_code": 0
+        },
+        {
+          "tool": "reproduce_incident",
+          "kind": "reproduce",
+          "cumulative_tokens": 90524,
+          "delivered_bytes": 1598,
+          "exit_code": 1
+        }
+      ]
+    }
+  }
+}

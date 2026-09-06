@@ -1,0 +1,13 @@
+{
+  "order": 18,
+  "trial_id": "702517bb-7554-4b81-adcb-00bc911819d4",
+  "block_id": "efficient-S2-r2",
+  "model_role": "efficient",
+  "model": "gpt-5.6-luna",
+  "case": "S2",
+  "repetition": 2,
+  "arm": "clean",
+  "replaces": null,
+  "started_at": "2026-09-06T23:33:27.120864+00:00",
+  "dry_run": false
+}

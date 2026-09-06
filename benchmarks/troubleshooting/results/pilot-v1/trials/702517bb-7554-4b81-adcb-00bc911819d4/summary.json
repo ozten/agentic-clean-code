@@ -1,0 +1,53 @@
+{
+  "trial_id": "702517bb-7554-4b81-adcb-00bc911819d4",
+  "arm": "clean",
+  "case": "S2",
+  "model": "gpt-5.6-luna",
+  "stop_reason": "token_limit",
+  "stop_detail": "observed 90524 + pending input 9546 leaves fewer than 1024 output tokens under the 100000 cap",
+  "pause_batch": false,
+  "submitted": false,
+  "submitted_text": false,
+  "elapsed_seconds": 33.314,
+  "inference_calls": 15,
+  "tool_calls": 15,
+  "nudges": 0,
+  "reproductions": 1,
+  "telemetry_complete": true,
+  "usage_complete": true,
+  "exact_total_tokens": 90524,
+  "known_token_lower_bound": 90524,
+  "missing_attempt_ids": [],
+  "subtotals": {
+    "input_tokens": 89834,
+    "output_tokens": 690,
+    "cached_tokens": 74213,
+    "cache_write_tokens": 15576,
+    "reasoning_tokens": 74,
+    "ordinary_input": 45,
+    "non_reasoning_output": 616
+  },
+  "estimated_cost_usd": "0.00621526",
+  "known_cost_usd": "0.00621526",
+  "unresolved_reserve_usd": "0",
+  "pricing_profile_id": "openai-2026-09-06/gpt-5.6-luna",
+  "limits": {
+    "max_inference_calls": 40,
+    "max_tool_calls": 40,
+    "max_seconds": 720,
+    "token_cap": 100000,
+    "max_output_per_call": 8192,
+    "output_floor": 1024,
+    "per_call_timeout": 120,
+    "tool_output_cap": 16384,
+    "text_only_nudges": 1
+  },
+  "action_counts": {
+    "discover_files": 2,
+    "read_incident_evidence": 6,
+    "read_source": 4,
+    "mixed": 2,
+    "reproduce": 1
+  },
+  "finished_at": "2026-09-06T23:34:00.539610+00:00"
+}

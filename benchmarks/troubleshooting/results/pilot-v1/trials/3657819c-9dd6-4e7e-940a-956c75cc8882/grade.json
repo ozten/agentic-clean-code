@@ -1,0 +1,20 @@
+{
+  "trial_id": "3657819c-9dd6-4e7e-940a-956c75cc8882",
+  "case": "S2",
+  "machine": {
+    "verdict": "no_submission",
+    "correct": false,
+    "dimensions": {},
+    "disqualifiers": [],
+    "reason": "stop_reason=token_limit",
+    "graded_at": "2026-09-06T23:36:27.663983+00:00",
+    "grader": "machine-rubric-v1"
+  },
+  "human": null,
+  "final": {
+    "correct": false,
+    "source": "machine",
+    "verdict": "no_submission",
+    "disagrees_with_machine": false
+  }
+}

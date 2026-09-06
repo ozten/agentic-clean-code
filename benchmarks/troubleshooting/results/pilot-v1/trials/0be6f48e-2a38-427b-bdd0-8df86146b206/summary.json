@@ -1,0 +1,53 @@
+{
+  "trial_id": "0be6f48e-2a38-427b-bdd0-8df86146b206",
+  "arm": "clean-no-traces",
+  "case": "S2",
+  "model": "gpt-5.6-terra",
+  "stop_reason": "token_limit",
+  "stop_detail": "observed 88647 + pending input 11814 leaves fewer than 1024 output tokens under the 100000 cap",
+  "pause_batch": false,
+  "submitted": false,
+  "submitted_text": false,
+  "elapsed_seconds": 51.914,
+  "inference_calls": 15,
+  "tool_calls": 15,
+  "nudges": 0,
+  "reproductions": 1,
+  "telemetry_complete": true,
+  "usage_complete": true,
+  "exact_total_tokens": 88647,
+  "known_token_lower_bound": 88647,
+  "missing_attempt_ids": [],
+  "subtotals": {
+    "input_tokens": 86093,
+    "output_tokens": 2554,
+    "cached_tokens": 76461,
+    "cache_write_tokens": 9587,
+    "reasoning_tokens": 1492,
+    "ordinary_input": 45,
+    "non_reasoning_output": 1062
+  },
+  "estimated_cost_usd": "0.0699977",
+  "known_cost_usd": "0.0699977",
+  "unresolved_reserve_usd": "0",
+  "pricing_profile_id": "openai-2026-09-06/gpt-5.6-terra",
+  "limits": {
+    "max_inference_calls": 40,
+    "max_tool_calls": 40,
+    "max_seconds": 720,
+    "token_cap": 100000,
+    "max_output_per_call": 8192,
+    "output_floor": 1024,
+    "per_call_timeout": 120,
+    "tool_output_cap": 16384,
+    "text_only_nudges": 1
+  },
+  "action_counts": {
+    "discover_files": 1,
+    "read_incident_evidence": 2,
+    "read_source": 7,
+    "mixed": 4,
+    "reproduce": 1
+  },
+  "finished_at": "2026-09-06T23:28:19.103335+00:00"
+}

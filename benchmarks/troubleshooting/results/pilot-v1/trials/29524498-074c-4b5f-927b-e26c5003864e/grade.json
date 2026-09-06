@@ -1,0 +1,68 @@
+{
+  "trial_id": "29524498-074c-4b5f-927b-e26c5003864e",
+  "case": "S2",
+  "machine": {
+    "verdict": "correct",
+    "correct": true,
+    "free_text_submission": false,
+    "dimensions": {
+      "failed_boundary": {
+        "passed": true,
+        "reasons": []
+      },
+      "external_outcome": {
+        "passed": true,
+        "reasons": []
+      },
+      "local_state": {
+        "passed": true,
+        "reasons": []
+      },
+      "evidence": {
+        "passed": true,
+        "reasons": []
+      },
+      "reproducibility": {
+        "passed": true,
+        "reasons": []
+      },
+      "recovery": {
+        "passed": true,
+        "reasons": []
+      }
+    },
+    "passed": [
+      "failed_boundary",
+      "external_outcome",
+      "local_state",
+      "evidence",
+      "reproducibility",
+      "recovery"
+    ],
+    "failed": [],
+    "disqualifiers": [],
+    "citations": [
+      "incident/report.md",
+      "incident/stderr.txt",
+      "incident/ledger.db",
+      "app/fixtures/success.json",
+      "incident/reproductions/01/stderr.txt",
+      "app/core.py",
+      "app/adapters.py"
+    ],
+    "graded_at": "2026-09-06T23:36:27.660078+00:00",
+    "grader": "machine-rubric-v1"
+  },
+  "human": {
+    "correct": true,
+    "notes": "Human-style review of full submission: failed boundary = confirmation write after provider response; evidence cites existing artifacts and DB rows; remote outcome kept uncertain without settlement claim; reservation/no-posting state correct; reproduction names inputs, fault boundary, assertions; recovery preserves identity and reservation. Machine flags, where present, were pattern false positives (negated lists, normal reserved-to-contractor posting description, test fixture ids).",
+    "reviewer": "claude-fable-5.1 (session reviewer)",
+    "reviewed_at": "2026-09-06T23:35:38.514929+00:00"
+  },
+  "final": {
+    "correct": true,
+    "source": "human",
+    "verdict": "correct",
+    "disagrees_with_machine": false
+  }
+}

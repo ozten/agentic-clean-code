@@ -1,0 +1,89 @@
+{
+  "experiment_version": "pilot-v1",
+  "phase": "pilot",
+  "description": "R16 pilot: 2 models x 3 arms x S2 x 3 repetitions = 18 trials. Validates isolation, counting, grading, limits, and ceiling/floor effects. Pilot results do not enter the main estimate.",
+  "models": {
+    "efficient": {
+      "id": "gpt-5.6-luna",
+      "pricing_profile": "gpt-5.6-luna",
+      "reasoning_context": "all_turns",
+      "doc_url": "https://developers.openai.com/api/docs/models/gpt-5.6-luna"
+    },
+    "control": {
+      "id": "gpt-5.6-terra",
+      "pricing_profile": "gpt-5.6-terra",
+      "reasoning_context": "all_turns",
+      "doc_url": "https://developers.openai.com/api/docs/models/gpt-5.6-terra"
+    }
+  },
+  "arms": [
+    "simple",
+    "clean",
+    "clean-no-traces"
+  ],
+  "cases": [
+    "S2"
+  ],
+  "repetitions": 3,
+  "scheduler_seed": 20260906,
+  "batch_usd_cap": "15.00",
+  "qualification_usd_cap": "1.00",
+  "pricing_snapshot": "pricing/openai-2026-09-06.json",
+  "reasoning_effort": "medium",
+  "include_encrypted_reasoning": true,
+  "limits": {
+    "max_inference_calls": 40,
+    "max_tool_calls": 40,
+    "max_seconds": 720,
+    "token_cap": 100000,
+    "max_output_per_call": 8192,
+    "output_floor": 1024,
+    "per_call_timeout": 120,
+    "tool_output_cap": 16384,
+    "text_only_nudges": 1
+  },
+  "notes": "Model IDs are aliases without dated snapshots on the OpenAI models page as of 2026-09-06; the returned `model` field of every response is recorded and any drift within the batch pauses scheduling. Approved model IDs, cap, and project ID must be confirmed by the owner before `harness run`.",
+  "run_id": "pilot-v1",
+  "frozen_at": "2026-09-06T23:19:43.683841+00:00",
+  "manifest_source": "benchmarks/troubleshooting/manifests/pilot.json",
+  "harness_source_sha256": "ec764a13c486af0429bb51514f4c57b34f60a9c310d497faaca95f5c27038e5b",
+  "openai_sdk_version": "3.8.0",
+  "python_version": "3.12.4 (main, Jun  6 2024, 18:26:44) [Clang 15.0.0 (clang-1500.3.9.4)]",
+  "platform": "macOS-26.4.1-arm64-arm-64bit",
+  "machine": "arm64",
+  "sandbox": "macOS Seatbelt (sandbox-exec), deny-default profile per trial",
+  "cases_frozen": {
+    "S1": {
+      "slug": "preparation-failure",
+      "version": 1,
+      "digest": "2016149fb32f7122"
+    },
+    "S2": {
+      "slug": "confirmation-failure",
+      "version": 1,
+      "digest": "d5f8cb4a89a1ef5f"
+    },
+    "S3": {
+      "slug": "response-lost",
+      "version": 1,
+      "digest": "0ed06f3a1d713118"
+    }
+  },
+  "fixed_request_settings": {
+    "stream": false,
+    "store": false,
+    "background": false,
+    "service_tier": "default",
+    "parallel_tool_calls": false,
+    "truncation": "disabled"
+  },
+  "tool_schema_sha256": "f60e4427bcf0f8c91cfc8a068201450cc721fb452a797c398a8a34b8c35405de",
+  "instructions_sha256": "64143942ab889ac43578cd87c6d1a4741807505d064f1ddb452a435afed6440f",
+  "task_prompt_sha256": "29b09ece0f23311a70c3e7898d23d50450e4372e7aef6425736d3b725d5ed345",
+  "workspace_brief_sha256": "e52a8db97d8cab1f27e63a61594674329ffd0fa89d13c2d440ec6bab4c9bde93",
+  "pricing_snapshot_sha256": "fd2154c7766ba87c8915013dcd36e0c1e43be463151a9d2620d0ebf4ab4dbce3",
+  "openai_project_id": null,
+  "concurrency": 1,
+  "text_only_policy": "one reminder to call submit_diagnosis, then a second text-only turn ends the trial as submitted_text",
+  "manifest_sha256": "763c740d7ced6bd6570f09e9d9f0224401ce1dbfe7794db33b750da0cfd0a54a"
+}

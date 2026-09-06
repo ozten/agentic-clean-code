@@ -1,0 +1,13 @@
+{
+  "order": 1,
+  "trial_id": "09436aa6-1a81-4c08-96da-5ff657d73b98",
+  "block_id": "control-S2-r3",
+  "model_role": "control",
+  "model": "gpt-5.6-terra",
+  "case": "S2",
+  "repetition": 3,
+  "arm": "simple",
+  "replaces": null,
+  "started_at": "2026-09-06T23:19:52.772171+00:00",
+  "dry_run": false
+}

@@ -21,16 +21,22 @@ All arms use the same Python interpreter, amount, destination, idempotency key, 
 | S1 `preparation-failure` | Storage fault on the initial payment-intent write. | `database or disk is full` before any provider request; nothing committed. |
 | S2 `confirmation-failure` (smoke test) | Storage fault on the confirmation write. | Provider response received; `database or disk is full` saving it; reservation retained. |
 | S3 `response-lost` | Timeout fixture wired as the provider transport. | `Response lost; remote transfer outcome is unknown`; reservation retained. |
+| S4 `response-mismatch` (v2) | A 200 transfer response whose amount is 1% lower than requested. | Validation rejects the response (`Unconfirmed payment response` / `Response does not match the payment`); reservation retained. Only the traces arm can see the response body. |
+| S5 `stale-retry` (v2) | An earlier attempt 24 hours before the incident timed out; the operator retries. | `Payment is outside the automatic retry window`; no provider request in this run; the earlier attempt's outcome is unknown. |
 
-Cases are frozen in `harness/cases.py` with content digests recorded in every run manifest. The fault is a SQLite trigger applied to a vault copy of the ledger that the agent never sees; the supplied `incident/ledger.db` is a sanitized export of tables and rows only.
+Cases are frozen in `harness/cases.py` (version 2) with content digests recorded in every run manifest. Faults are SQLite triggers applied to a vault copy of the ledger that the agent never sees; the incident's provider fixture and any precursor run live in the vault too. The supplied `incident/ledger.db` is a sanitized export of tables and rows only. Expected results are balance deltas plus the incident payment's row, so a pre-incident history can exist; error wording is matched per arm because each app's ordinary message is part of its diagnostics (R02).
+
+## Pre-incident history (v2)
+
+`history.py` runs N earlier payments through the arm's own entry point before the incident (distinct ids, destinations, amounts, simulated times over 30 days; about 10% time out first and are retried successfully). The ledger therefore has many rows and the traces arm has hundreds of records; the incident's evidence must be found by correlation. Trace timestamps are set to the simulated clock so they agree with ledger `created_at` values, identically across arms. History is built once per (arm, profile, precursor) per run and copied into every trial. Packaged fixture copies carry a neutral provenance note in every arm (pilot-v1 agents had reasoned about the repository's "hand-authored synthetic" label instead of the incident).
 
 ## Commands
 
 ```sh
 uv sync --frozen                    # pinned openai SDK (3.8.0)
 make preflight                      # validate OPEN_AI_API_KEY with GET /v1/models; no completions
-make test                           # example tests + 69 harness tests; no network
-make parity                         # S1–S3 across all arms
+make test                           # example tests + harness tests; no network
+make parity                         # happy + S1–S5 across all arms, with a small history
 make leak-check                     # 46 adversarial isolation probes
 make estimate MANIFEST=benchmarks/troubleshooting/manifests/pilot.json
 make qualify MANIFEST=...           # R08 qualification exercise (paid)
@@ -72,7 +78,7 @@ Inclusion rules (R20): production modules, the entry point, and the shared fixtu
 
 ## Reproduction tool
 
-`reproduce_incident` resets a fresh ledger, applies the hidden environment, runs the operator's invocation, and writes sanitized output to `incident/reproductions/NN/`. It returns process output and exit status only. A recovery continuation (running the application against the post-incident ledger) is something the agent can do itself under `scratch/`; the tool always performs a fresh incident reproduction.
+`reproduce_incident` restores the immutable pre-incident snapshot (history included), applies the hidden environment, runs the operator's invocation, and writes sanitized output to `incident/reproductions/NN/`. It returns process output and exit status only. A recovery continuation (running the application against the post-incident ledger) is something the agent can do itself under `scratch/`; the tool always performs a fresh incident reproduction.
 
 ## Accounting
 

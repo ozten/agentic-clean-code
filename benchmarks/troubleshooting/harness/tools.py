@@ -16,8 +16,8 @@ from pathlib import Path
 
 from .apps import ARMS, app_arguments
 from .cases import CASES, INCIDENT_NOW, PAYMENT
-from .incident import (apply_fault, export_sanitized_database, initialize_database, path_normalizer,
-                       snapshot_state)
+from .incident import (apply_fault, export_sanitized_database, incident_fixture, path_normalizer,
+                       rewrite_new_trace_times, snapshot_state)
 from .isolation import Sandbox, python_for_sandbox
 
 TOOL_OUTPUT_CAP = 16 * 1024
@@ -235,14 +235,15 @@ class ToolExecutor:
         database = hidden / "ledger.db"
         if database.exists():
             database.unlink()
-        initialize_database(self.arm, database)
+        shutil.copyfile(self.vault / "pre-incident.db", database)     # immutable snapshot (R29)
         apply_fault(self.case, database)
+        fixture = incident_fixture(self.vault, self.case)
         traces_dir = out_dir / "traces" if self.arm.records_traces else None
         argv = self.arm.entry_command(self.python) + app_arguments(
-            PAYMENT, INCIDENT_NOW, str(database), f"app/fixtures/{self.case.fixture}",
-            str(traces_dir) if traces_dir else None)
-        sandbox = Sandbox(self.workspace, writable=(hidden, out_dir), home=hidden)
+            PAYMENT, INCIDENT_NOW, str(database), str(fixture), str(traces_dir) if traces_dir else None)
+        sandbox = Sandbox(self.workspace, writable=(hidden, out_dir), home=hidden, readable=(self.vault / fixture.name,))
         result = sandbox.run(argv, timeout=60)
+        rewrite_new_trace_times(traces_dir, set(), INCIDENT_NOW)
         stdout, stderr = self.normalize(result.stdout), self.normalize(result.stderr)
         (out_dir / "stdout.txt").write_text(stdout)
         (out_dir / "stderr.txt").write_text(stderr)

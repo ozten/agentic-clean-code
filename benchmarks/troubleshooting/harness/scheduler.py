@@ -33,6 +33,7 @@ from .env import REPO_ROOT, load_settings
 from .inference import FIXED_REQUEST_SETTINGS, ModelSettings
 from .ledger import now_iso
 from .loop import Limits, TrialContext, TrialRunner
+from .history import HistoryProfile
 from .packaging import BRIEF_TEMPLATE, TASK_PROMPT, build_trial_workspace
 from .tools import TOOL_SCHEMAS
 
@@ -77,6 +78,10 @@ def load_manifest(path: Path) -> dict:
 
 def limits_from(manifest: dict) -> Limits:
     return Limits(**{**Limits().as_dict(), **manifest.get("limits", {})})
+
+
+def history_from(manifest: dict) -> HistoryProfile:
+    return HistoryProfile(**manifest.get("history", {}))
 
 
 def build_plan(manifest: dict) -> list[dict]:
@@ -125,6 +130,7 @@ def plan_run(manifest_path: Path, run_id: str | None = None, runs_dir: Path | No
         "python_version": sys.version, "platform": platform.platform(), "machine": platform.machine(),
         "sandbox": "macOS Seatbelt (sandbox-exec), deny-default profile per trial",
         "cases_frozen": case_manifest(), "fixed_request_settings": FIXED_REQUEST_SETTINGS,
+        "history_profile": {**history_from(manifest).__dict__, "digest": history_from(manifest).digest()},
         "reasoning_effort": manifest.get("reasoning_effort", "medium"),
         "tool_schema_sha256": hashlib.sha256(json.dumps(TOOL_SCHEMAS, sort_keys=True).encode()).hexdigest(),
         "instructions_sha256": hashlib.sha256(instructions_text().encode()).hexdigest(),
@@ -201,7 +207,7 @@ def run_one_trial(run_dir: Path, frozen: dict, trial: dict, client, budget: Budg
     trial_dir = run_dir / "trials" / trial["trial_id"]
     trial_dir.mkdir(parents=True, exist_ok=True)
     (trial_dir / "trial.json").write_text(json.dumps({**trial, "started_at": now_iso(), "dry_run": dry_run}, indent=2))
-    build_trial_workspace(trial_dir, trial["arm"], trial["case"])
+    build_trial_workspace(trial_dir, trial["arm"], trial["case"], history_from(frozen), run_dir / "history-cache")
     limits = limits_from(frozen)
     settings = load_settings()
     ctx = TrialContext(

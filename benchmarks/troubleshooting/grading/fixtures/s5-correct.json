@@ -1,0 +1,12 @@
+{
+  "case": "S5",
+  "expected_verdict": "correct",
+  "submission": {
+    "failed_boundary": "The local retry-window policy fired before any provider request in this run: core.retry_key raised NeedsReconciliation('Payment is outside the automatic retry window') because the payment intent for milestone-42 was created 24 hours earlier by a previous attempt; prepare returned the existing intent and no transfer request was made.",
+    "evidence": "incident/stderr.txt traceback ends in app/core.py retry_key; incident/ledger.db payments row milestone-42 has created_at 1788620400 (24h before the operator's now 1788706800) and transfer_id NULL; balances available=50000 reserved=50000; incident/traces contains an http send record for milestone-42 from the earlier attempt with error_code TimeoutError, and this run's only trace is a ledger prepare record.",
+    "external_outcome": "No provider request was made in this run. The earlier attempt 24 hours ago sent the request and its response was lost (TimeoutError), so whether the provider created transfer milestone-42 is unknown.",
+    "local_state": "The payment row from the earlier attempt is still present with transfer_id NULL; 50000 cents have remained reserved since that attempt (created_at 24h earlier); no posting; available 50000.",
+    "reproduction": "Start from a fresh ledger with 100000 cents. Run the payment once with the timeout fixture at now = T-86400 and assert TimeoutError with reserved == 50000. Then run it again with the success fixture at now = T and assert exit 1 with 'outside the automatic retry window' in stderr, no provider call in the second run (a NoCalls transport or absent http trace), reserved still 50000, postings 0, transfer_id NULL.",
+    "recovery": "Do not bypass the retry window, do not release the reservation, and do not create a new payment identity. Reconcile manually with the provider using idempotency key contractor-payment:milestone-42: if the earlier transfer exists, record its receipt through the normal confirmation path; if it does not, an operator may explicitly re-authorize the same payment identity after the provider confirms nothing exists. Keep the 50000 reserved until then."
+  }
+}

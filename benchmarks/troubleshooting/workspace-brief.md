@@ -30,7 +30,7 @@ workspace; refer to files as `/workspace/...` or with paths relative to the work
 - `run_shell`: run a shell command in the workspace (no network; Python 3 and sqlite3 are
   available; writes only succeed under `scratch/`).
 - `reproduce_incident`: rerun the operator's exact invocation under the same environment,
-  starting from a freshly funded ledger. Output goes to a new directory under
+  starting from the ledger as it was immediately before that command. Output goes to a new directory under
   `incident/reproductions/`. This is observation of the failure, not an oracle.
 - `submit_diagnosis`: submit your final answer. The trial ends at your first submission.
 

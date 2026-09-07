@@ -22,8 +22,10 @@ import time
 from pathlib import Path
 
 from .apps import ARMS, EXCLUDED_NAME_PATTERNS, FIXTURE_FILES, FIXTURE_SOURCE, Arm
-from .cases import CASES, INCIDENT_NOW, INITIAL_CENTS, PAYMENT, Case
+from .cases import CASES, INCIDENT_NOW, PAYMENT, Case
 from .env import REPO_ROOT
+from .fixtures import neutralize
+from .history import HistoryProfile, cached_history
 from .incident import run_incident
 
 TASK_PROMPT = REPO_ROOT / "benchmarks" / "troubleshooting" / "task.md"
@@ -44,7 +46,9 @@ def build_app_package(workspace: Path, arm: Arm) -> Path:
             raise ValueError(f"{name} violates the inclusion policy")
         shutil.copyfile(arm.source_dir / name, app_dir / name)
     for name in FIXTURE_FILES:
-        shutil.copyfile(FIXTURE_SOURCE / name, app_dir / "fixtures" / name)
+        # Packaged copies carry a neutral provenance note, identically in every arm (owner decision 2026-09-06).
+        fixture = neutralize(json.loads((FIXTURE_SOURCE / name).read_text()))
+        (app_dir / "fixtures" / name).write_text(json.dumps(fixture, indent=2) + "\n")
     return app_dir
 
 
@@ -65,8 +69,8 @@ def incident_report(arm: Arm, exit_code: int | None) -> str:
     return f"""# Incident report
 
 An operator released an approved $500 contractor payment (payment `{PAYMENT['payment_id']}`,
-destination `{PAYMENT['destination']}`, {PAYMENT['cents']} cents) from a freshly funded ledger
-holding {INITIAL_CENTS} cents. The application reported a failure and exited with status {exit_code}.
+destination `{PAYMENT['destination']}`, {PAYMENT['cents']} cents) against the platform ledger
+`incident/ledger.db`. The application reported a failure and exited with status {exit_code}.
 
 The operator's command, run from the workspace root:
 
@@ -76,8 +80,8 @@ The operator's command, run from the workspace root:
 
 The provider transport was configured by the deployment environment; that configuration is
 not included here. Use the `reproduce_incident` tool to run the same invocation again under
-the same environment. Each reproduction starts from the freshly funded ledger and writes its
-own output directory under `incident/reproductions/`.
+the same environment. Each reproduction starts from the ledger exactly as it was immediately
+before the operator's command and writes its own output directory under `incident/reproductions/`.
 
 Artifacts captured from the failed run:
 
@@ -115,35 +119,46 @@ def make_read_only(path: Path) -> None:
         item.chmod(mode & ~(stat.S_IWUSR | stat.S_IWGRP | stat.S_IWOTH))
 
 
-def build_trial_workspace(trial_dir: Path, arm_id: str, case_id: str) -> dict:
+def build_trial_workspace(trial_dir: Path, arm_id: str, case_id: str, history: HistoryProfile | None = None,
+                          cache_root: Path | None = None) -> dict:
     """Build workspace + vault for one trial; returns the workspace manifest."""
     arm = ARMS[arm_id]
     case = CASES[case_id]
+    history = history or HistoryProfile()
     trial_dir = trial_dir.resolve()
     workspace = trial_dir / "workspace"
     vault = trial_dir / "vault"
     if workspace.exists():
         shutil.rmtree(workspace)
+    if vault.exists():
+        shutil.rmtree(vault)
     workspace.mkdir(parents=True)
     (workspace / "scratch").mkdir()
     build_app_package(workspace, arm)
-    result = run_incident(arm, case, workspace, vault, workspace / "incident")
-    ok, problems = result.matches(case)
+    traces_dir = workspace / "incident" / "traces" if arm.records_traces else None
+    history_result = cached_history(cache_root, arm, history, case.precursor, workspace, vault, traces_dir)
+    result = run_incident(arm, case, workspace, vault, workspace / "incident", pre_incident_db=vault / "pre-incident.db")
+    ok, problems = result.matches(case, arm_id)
     if not ok:
         raise RuntimeError(f"incident generation for {arm_id}/{case_id} did not match the frozen case: {problems}")
     (workspace / "incident" / "report.md").write_text(incident_report(arm, result.exit_code))
     (workspace / "README.md").write_text(workspace_brief(arm))
     (vault / "evaluator-result.json").write_text(json.dumps({
-        "arm": arm.id, "case": case.id, "state": result.state, "exit_code": result.exit_code,
-        "evaluator_summary": case.evaluator_summary, "external_outcome": case.external_outcome}, indent=2))
-    (vault / "case.json").write_text(json.dumps({"id": case.id, "slug": case.slug, "fixture": case.fixture}))
-    manifest = write_manifest(trial_dir, workspace, arm, case)
+        "arm": arm.id, "case": case.id, "before": result.before, "after": result.after, "delta": result.delta,
+        "exit_code": result.exit_code, "evaluator_summary": case.evaluator_summary,
+        "external_outcome": case.external_outcome, "history": {"payments": history_result.payments,
+        "runs": history_result.runs, "trace_count": history_result.trace_count}}, indent=2))
+    (vault / "case.json").write_text(json.dumps({"id": case.id, "slug": case.slug, "outcome": case.outcome}))
+    manifest = write_manifest(trial_dir, workspace, arm, case, extra={
+        "history": {**history.__dict__, "digest": history.digest(), "payments_generated": history_result.payments},
+        "incident_traces": result.trace_count, "total_traces": result.total_traces})
     return manifest
 
 
-def build_all_packages(output: Path | None = None) -> Path:
+def build_all_packages(output: Path | None = None, history_payments: int = 20) -> Path:
     root = (output or (REPO_ROOT / "runs" / "packages" / str(int(time.time())))).resolve()
     for case_id in CASES:
         for arm_id in ARMS:
-            build_trial_workspace(root / f"{case_id}-{arm_id}", arm_id, case_id)
+            build_trial_workspace(root / f"{case_id}-{arm_id}", arm_id, case_id, HistoryProfile(payments=history_payments),
+                                  root / "history-cache")
     return root

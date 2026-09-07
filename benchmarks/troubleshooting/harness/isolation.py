@@ -77,12 +77,14 @@ class SandboxResult:
 class Sandbox:
     workspace: Path
     writable: tuple[Path, ...] = ()
+    readable: tuple[Path, ...] = ()
     home: Path | None = None
     profile_path: Path | None = None
     extra_env: dict[str, str] = field(default_factory=dict)
 
     def profile(self) -> str:
         rules = "\n".join(f'(allow file-read* file-write* (subpath "{p.resolve()}"))' for p in self.writable)
+        rules += "".join(f'\n(allow file-read* (literal "{p.resolve()}"))' for p in self.readable)
         return PROFILE_TEMPLATE % {"workspace": self.workspace.resolve(), "writable_rules": rules}
 
     def environment(self) -> dict[str, str]:
@@ -126,7 +128,8 @@ FORBIDDEN_MARKERS = (
     "hidden_confirmation_fault", "hidden_preparation_fault", "fail_confirmation", "CREATE TRIGGER",
     "evaluator", "evaluator-result", "evaluator_summary", "preparation-failure", "confirmation-failure",
     "response-lost", "vault", "compare.py", "DiskFullOnConfirmation", "agent-troubleshooting-measurements",
-    "OPEN_AI_API_KEY", "sk-", "benchmark-artifacts", "best-architecture", "bad-code",
+    "OPEN_AI_API_KEY", "sk-", "benchmark-artifacts", "best-architecture", "bad-code", "response-mismatch",
+    "stale-retry", "hidden_", "history-fixtures", "incident-fixture", "pre-incident", "hand-authored", "synthetic",
 )
 
 
@@ -179,7 +182,9 @@ def run_leak_checks(output: Path | None = None, verbose: bool = False) -> dict:
     all_passed = True
     for arm_id in ("clean", "simple"):
         trial_dir = root / f"probe-{arm_id}"
-        build_trial_workspace(trial_dir, arm_id, "S2")
+        from .history import HistoryProfile
+
+        build_trial_workspace(trial_dir, arm_id, "S2", HistoryProfile(payments=5), root / "history-cache")
         workspace = trial_dir / "workspace"
         sandbox = Sandbox(workspace, writable=(workspace / "scratch",))
         home = os.path.expanduser("~")

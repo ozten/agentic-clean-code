@@ -1,0 +1,12 @@
+{
+  "case": "S4",
+  "expected_verdict": "correct",
+  "submission": {
+    "failed_boundary": "Provider response validation rejected the response after it was received: in app/adapters.py StripeTransfers.create compared the 200 response body to the payment and raised NeedsReconciliation('Response does not match the payment') before any confirmation write; core.pay never reached ledger.confirm.",
+    "evidence": "incident/stderr.txt traceback ends in app/adapters.py create() with 'Response does not match the payment'; incident/traces http send record shows the request for 50000 and a 200 body with amount 49500 and id tr_demo_500; incident/ledger.db balances available=50000 reserved=50000 contractor=0, payments row milestone-42 with transfer_id NULL, no postings.",
+    "external_outcome": "A 200 transfer response was returned (id tr_demo_500) but its amount 49500 does not match the requested 50000, so the application did not accept it. A transfer may exist at the provider for a different amount; the provider state is unknown until reconciled, and settlement is not established either way.",
+    "local_state": "Payment row present with transfer_id NULL; 50000 cents reserved; no posting; available 50000; the intent and idempotency identity are intact.",
+    "reproduction": "Start from the ledger state before the command (or a fresh ledger with 100000 cents). Wire a transport fixture whose 200 response carries amount 49500 for the same request; run the payment. Assert exit 1 with 'Response does not match the payment' in stderr, reserved == 50000, postings == 0, transfer_id NULL, and, with recording on, an http trace whose output body amount is 49500.",
+    "recovery": "Do not release the reservation or create a new payment identity. Reconcile manually with the provider using idempotency key contractor-payment:milestone-42 and transfer id tr_demo_500 to establish what was actually created; a blind retry with the same key would return the same mismatched response. Keep the 50000 reserved until the provider record is understood; then either complete the local posting for the verified amount through a controlled repair or reverse the transfer with the provider."
+  }
+}

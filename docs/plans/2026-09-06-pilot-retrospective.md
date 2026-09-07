@@ -111,3 +111,17 @@ cap's own terms, and the main protocol must revisit the limit before any efficie
 Isolation, traceback parity, fresh restart, OA01-OA07/V01-V12, limits, short-wrong-answer, settlement-claim, and
 no-paid-calls-in-tests are verified by tests and by this run (V10 by the qualification run and the 18/18 raw-sum check).
 Open before the main batch: the token-limit decision above, fixture provenance neutralization, and an owner review of grades.
+
+## Decisions taken after review (2026-09-06, owner)
+
+1. Cumulative token cap raised from 100,000 to 300,000 for the next experiment version (`pilot-v2`). Rationale: the
+   cap counts resent context on every call and truncated every traces-arm trial before submission.
+2. Packaged fixture copies carry a neutral provenance note in every arm; repository files keep their honest label.
+3. The pilot-v1 grades stand as reviewed by the session operator; the owner reviews the next run's disputed grades.
+4. Scope added: pre-incident payment history (120 payments) so incident evidence must be found by correlation, and two
+   cases whose traceback does not name the boundary: S4 `response-mismatch` (validation rejects a received response;
+   only the traces arm can see the body) and S5 `stale-retry` (a 24-hour-old timed-out attempt makes the retry-window
+   rule fire before any provider request). Case versions are now 2; pilot-v1 numbers are not comparable with v2.
+
+`pilot-v2` (manifest `benchmarks/troubleshooting/manifests/pilot-v2.json`): 2 models x 3 arms x 5 cases x 2 repetitions
+= 60 trials; rate-card worst case $119.30 (terra $3.60/trial at the 300k cap), expected about $4.50 at pilot-v1 cache ratios.

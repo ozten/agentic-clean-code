@@ -83,7 +83,7 @@ class WorkspaceTests(unittest.TestCase):
                 self.assertNotIn("hidden_", text)
 
     def test_case_digests_are_stable(self):
-        self.assertEqual(len({c.digest() for c in CASES.values()}), 3)
+        self.assertEqual(len({c.digest() for c in CASES.values()}), 5)
 
 
 class LeakCheckTests(unittest.TestCase):

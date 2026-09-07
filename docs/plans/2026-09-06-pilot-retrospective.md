@@ -125,3 +125,107 @@ Open before the main batch: the token-limit decision above, fixture provenance n
 
 `pilot-v2` (manifest `benchmarks/troubleshooting/manifests/pilot-v2.json`): 2 models x 3 arms x 5 cases x 2 repetitions
 = 60 trials; rate-card worst case $119.30 (terra $3.60/trial at the 300k cap), expected about $4.50 at pilot-v1 cache ratios.
+
+## Pilot-v2 (2026-09-06): history, S1-S5, 300k cap
+
+Run `runs/pilot-v2` (sanitized bundle `benchmarks/troubleshooting/results/pilot-v2/`): gpt-5.6-luna and gpt-5.6-terra, 3 arms x 5
+cases x 1 repetition = 30 trials, 120-payment history in every workspace, cumulative cap 300,000, batch cap $65.00.
+
+### Outcome
+
+All 30 trials completed with complete telemetry at a rate-card cost of $1.92 (expected estimate $2.48).
+25 trials submitted; all 25 were correct on review (details below). Five trials hit the 300k cap without submitting, and all
+five are the clean-with-traces arm (S4 both models, S1 control, S2 control, S5 efficient). The traces arm submitted in the other
+five of its ten trials (S3 both models, S1 efficient, S2 efficient, S5 control), all correct, at 244k-293k tokens. The simple
+arm submitted 10/10 and the no-trace clean arm 10/10.
+
+Raising the cap from 100k to 300k moved the traces arm from 0/6 submissions in pilot-v1 to 5/10 here, but the arm still runs
+about 2-3x the tokens of the other arms and sits at the edge of the new cap. The history made the trace directory large
+(about 360 records): a depth-4 `list_files` or a broad search over `incident/traces` returns the 16 KiB maximum, and that
+text is resent on every later call. Median cache-read share of input: 85%.
+
+| case | arm | submitted | correct | cap stops | tokens (efficient / control; * = cap) |
+| S1 | simple | 2/2 | 2/2 | 0 | 88526 / 112605 |
+| S1 | clean-no-traces | 2/2 | 2/2 | 0 | 125876 / 138038 |
+| S1 | clean | 1/2 | 1/2 | 1 | 268901 / 289651* |
+| S2 | simple | 2/2 | 2/2 | 0 | 90861 / 70838 |
+| S2 | clean-no-traces | 2/2 | 2/2 | 0 | 132204 / 100357 |
+| S2 | clean | 1/2 | 1/2 | 1 | 293072 / 284918* |
+| S3 | simple | 2/2 | 2/2 | 0 | 61460 / 81994 |
+| S3 | clean-no-traces | 2/2 | 2/2 | 0 | 88237 / 86931 |
+| S3 | clean | 2/2 | 2/2 | 0 | 243099 / 285460 |
+| S4 | simple | 2/2 | 2/2 | 0 | 75424 / 80516 |
+| S4 | clean-no-traces | 2/2 | 2/2 | 0 | 126695 / 114434 |
+| S4 | clean | 0/2 | 0/2 | 2 | 279461* / 284693* |
+| S5 | simple | 2/2 | 2/2 | 0 | 89123 / 73269 |
+| S5 | clean-no-traces | 2/2 | 2/2 | 0 | 138946 / 82253 |
+| S5 | clean | 1/2 | 1/2 | 1 | 296414* / 263953 |
+
+### What the harder cases showed
+
+- S4 (mismatched response): every arm that submitted identified response validation as the boundary. The no-trace arms said,
+  honestly, that the artifacts do not retain which field mismatched; only a traces-arm agent could have read the body, and
+  both traces-arm S4 trials ran out of budget after finding the right trace by correlating the global trace id.
+- S5 (stale retry): all six trials submitted and all were correct. The control model's traces-arm answer cited the earlier
+  attempt's TimeoutError trace directly; the no-trace arms inferred the earlier attempt from `created_at` being 24 hours old
+  and kept its outcome unknown. Reconstruction from state alone succeeded here.
+- S1 and S3 behaved as in pilot-v1; S2 remains at ceiling.
+- Correctness therefore stays at ceiling for every arm that finishes: 25/25. The experiment on these cases measures reading
+  and correlation cost, and the traces arm pays the most of it on this app.
+
+### Counting, packaging, grading
+
+- Independent raw-JSON sums equal summary totals in 30/30 trials; token-count preflight matched billed input on every
+  call (0 mismatches). Returned model/tier were as requested on every response.
+- Agents correctly read history rows as unrelated (e.g. "120 payments, 120 postings, none for milestone-42"), and used
+  `reproduce_incident` in every trial. No command touched anything outside the workspace.
+- The neutral fixture label removed the "this is a demo" reasoning seen in pilot-v1; agents now describe the fixtures as
+  recorded playback and still refuse to treat them as proof of live provider state, which is the intended behaviour.
+- Machine rubric vs. session review before calibration: 10 correct, 13 partial, 2 unsupported; every difference was a
+  pattern gap (a timeout branch mentioned as *not* taken, "no local posting", a transfer id cited from the fixture library,
+  a mangled trace GUID in one citation). After calibration the machine agrees with the human verdict on 17/25 trials.
+  Review was again by the session operator, not blind to arm. Flagged for owner review: trial #25 (S1, clean, efficient),
+  whose evidence cites one trace path with a mistyped GUID.
+
+### Per-trial record
+
+| # | model | case | arm | stop | calls | tokens | cached % | seconds | cost $ | machine | final |
+|---:|---|---|---|---|---:|---:|---:|---:|---:|---|---|
+| 1 | gpt-5.6-luna | S4 | simple | submitted | 11 | 75424 | 82 | 57 | 0.0080 | partial | correct |
+| 2 | gpt-5.6-luna | S4 | clean-no-traces | submitted | 15 | 126695 | 74 | 56 | 0.0130 | correct | correct |
+| 3 | gpt-5.6-luna | S4 | clean | token_limit | 15 | 279461 | 80 | 41 | 0.0201 | no_submission | no_submission |
+| 4 | gpt-5.6-luna | S3 | clean | submitted | 15 | 243099 | 90 | 48 | 0.0131 | correct | correct |
+| 5 | gpt-5.6-luna | S3 | simple | submitted | 11 | 61460 | 82 | 45 | 0.0061 | correct | correct |
+| 6 | gpt-5.6-luna | S3 | clean-no-traces | submitted | 13 | 88237 | 86 | 44 | 0.0070 | correct | correct |
+| 7 | gpt-5.6-terra | S2 | simple | submitted | 11 | 70838 | 81 | 71 | 0.0913 | correct | correct |
+| 8 | gpt-5.6-terra | S2 | clean-no-traces | submitted | 13 | 100357 | 85 | 61 | 0.0957 | partial | correct |
+| 9 | gpt-5.6-terra | S2 | clean | token_limit | 17 | 284918 | 84 | 49 | 0.1838 | no_submission | no_submission |
+| 10 | gpt-5.6-terra | S1 | clean | token_limit | 17 | 289651 | 92 | 53 | 0.1372 | no_submission | no_submission |
+| 11 | gpt-5.6-terra | S1 | clean-no-traces | submitted | 16 | 138038 | 89 | 84 | 0.1091 | correct | correct |
+| 12 | gpt-5.6-terra | S1 | simple | submitted | 14 | 112605 | 88 | 79 | 0.1098 | partial | correct |
+| 13 | gpt-5.6-terra | S5 | clean-no-traces | submitted | 12 | 82253 | 85 | 50 | 0.0807 | partial | correct |
+| 14 | gpt-5.6-terra | S5 | simple | submitted | 11 | 73269 | 85 | 54 | 0.0765 | correct | correct |
+| 15 | gpt-5.6-terra | S5 | clean | submitted | 16 | 263953 | 83 | 64 | 0.1937 | partial | correct |
+| 16 | gpt-5.6-terra | S3 | simple | submitted | 12 | 81994 | 87 | 49 | 0.0733 | correct | correct |
+| 17 | gpt-5.6-terra | S3 | clean | submitted | 17 | 285460 | 92 | 62 | 0.1433 | correct | correct |
+| 18 | gpt-5.6-terra | S3 | clean-no-traces | submitted | 13 | 86931 | 85 | 50 | 0.0806 | correct | correct |
+| 19 | gpt-5.6-luna | S5 | clean | token_limit | 16 | 296414 | 91 | 39 | 0.0138 | no_submission | no_submission |
+| 20 | gpt-5.6-luna | S5 | simple | submitted | 12 | 89123 | 82 | 50 | 0.0086 | correct | correct |
+| 21 | gpt-5.6-luna | S5 | clean-no-traces | submitted | 16 | 138946 | 78 | 58 | 0.0132 | correct | correct |
+| 22 | gpt-5.6-terra | S4 | clean | token_limit | 17 | 284693 | 83 | 50 | 0.1864 | no_submission | no_submission |
+| 23 | gpt-5.6-terra | S4 | clean-no-traces | submitted | 14 | 114434 | 88 | 71 | 0.0926 | correct | correct |
+| 24 | gpt-5.6-terra | S4 | simple | submitted | 12 | 80516 | 86 | 65 | 0.0881 | correct | correct |
+| 25 | gpt-5.6-luna | S1 | clean | submitted | 16 | 268901 | 91 | 69 | 0.0151 | unsupported | correct |
+| 26 | gpt-5.6-luna | S1 | clean-no-traces | submitted | 16 | 125876 | 82 | 55 | 0.0109 | correct | correct |
+| 27 | gpt-5.6-luna | S1 | simple | submitted | 13 | 88526 | 86 | 54 | 0.0083 | correct | correct |
+| 28 | gpt-5.6-luna | S2 | clean-no-traces | submitted | 16 | 132204 | 79 | 61 | 0.0129 | correct | correct |
+| 29 | gpt-5.6-luna | S2 | simple | submitted | 14 | 90861 | 87 | 55 | 0.0076 | partial | correct |
+| 30 | gpt-5.6-luna | S2 | clean | submitted | 18 | 293072 | 84 | 58 | 0.0196 | partial | correct |
+
+### Open decisions before P8
+
+1. The cumulative cap still truncates the traces arm on a small app with a large trace directory. Options: raise again,
+   budget per call, or summarize very large directories in `list_files` (arm-neutral tool change) so listing 360 trace
+   directories does not cost 16 KiB per subsequent call.
+2. Cases where correctness is not at ceiling remain to be designed; on S1-S5 both models are correct whenever they finish.
+3. Owner review of flagged trial #25 and a spot-check of the pilot-v2 packets under `runs/pilot-v2/review/`.

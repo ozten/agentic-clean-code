@@ -1,0 +1,62 @@
+{
+  "arm": "simple",
+  "case": "S3",
+  "case_version": 2,
+  "case_digest": "1b518173d2f7849c",
+  "built_at": 1788740629.104018,
+  "files": {
+    "README.md": {
+      "sha256": "13ffc42601badd9cba9b5589cf0e0e22f4865064731e320327833e4cd8d1e85e",
+      "bytes": 3699
+    },
+    "app/app.py": {
+      "sha256": "d90eabbd1da38ecc10b0f7f51c1256bab0852bf11151ebee605440efe0a1ddec",
+      "bytes": 6489
+    },
+    "app/fixtures/success.json": {
+      "sha256": "7ca9644b8296f5ee3e89230a66820b888fb328a3bd3fb8e4a6f9bf3c36d2d56f",
+      "bytes": 746
+    },
+    "app/fixtures/timeout.json": {
+      "sha256": "aad9d636c0330e14489854a961595c3a8baa79481ad3e8d2a58523244863b671",
+      "bytes": 449
+    },
+    "incident/exit-code.txt": {
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2
+    },
+    "incident/ledger.db": {
+      "sha256": "2371adbbd96adc0b899ba52fa8bab9af301d67901d6ec6fe13bd73b6a360925b",
+      "bytes": 36864
+    },
+    "incident/report.md": {
+      "sha256": "f515fe0237fd8fcc627578c25948ef8dc66041510f8c4058345f39efe572a28a",
+      "bytes": 1160
+    },
+    "incident/stderr.txt": {
+      "sha256": "d665bb48abe0cb4569b06ab2fcadf3622535c6a29147f343990a3d608518dfa0",
+      "bytes": 548
+    },
+    "incident/stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  },
+  "inclusion_policy": "production modules + entry point + shared fixtures; no README/demo/tests/faults",
+  "path_normalization": {
+    "workspace": "/workspace",
+    "python_prefix": "/python"
+  },
+  "history": {
+    "payments": 120,
+    "seed": 20260906,
+    "timeout_fraction": 0.1,
+    "span_seconds": 2592000,
+    "min_cents": 1000,
+    "max_cents": 40000,
+    "digest": "eb321e90f848",
+    "payments_generated": 120
+  },
+  "incident_traces": 0,
+  "total_traces": 0
+}

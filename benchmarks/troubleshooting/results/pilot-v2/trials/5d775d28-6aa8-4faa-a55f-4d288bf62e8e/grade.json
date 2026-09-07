@@ -1,0 +1,72 @@
+{
+  "trial_id": "5d775d28-6aa8-4faa-a55f-4d288bf62e8e",
+  "case": "S5",
+  "machine": {
+    "verdict": "partial",
+    "correct": false,
+    "free_text_submission": false,
+    "dimensions": {
+      "failed_boundary": {
+        "passed": false,
+        "reasons": [
+          "must identify the local retry-window rule firing before any provider request in this run"
+        ]
+      },
+      "external_outcome": {
+        "passed": true,
+        "reasons": []
+      },
+      "local_state": {
+        "passed": true,
+        "reasons": []
+      },
+      "evidence": {
+        "passed": true,
+        "reasons": []
+      },
+      "reproducibility": {
+        "passed": true,
+        "reasons": []
+      },
+      "recovery": {
+        "passed": true,
+        "reasons": []
+      }
+    },
+    "passed": [
+      "external_outcome",
+      "local_state",
+      "evidence",
+      "reproducibility",
+      "recovery"
+    ],
+    "failed": [
+      "failed_boundary"
+    ],
+    "disqualifiers": [],
+    "citations": [
+      "incident/report.md",
+      "incident/stderr.txt",
+      "incident/exit-code.txt",
+      "incident/reproductions/01/",
+      "incident/ledger.db",
+      "incident/reproductions/01/ledger.db",
+      "app/adapters.py",
+      "app/core.py"
+    ],
+    "graded_at": "2026-09-07T00:52:02.811898+00:00",
+    "grader": "machine-rubric-v1"
+  },
+  "human": {
+    "correct": true,
+    "notes": "Reviewed in full by the session operator (not blind to arm). Failed boundary, external uncertainty, local state, citations, reproduction, and recovery all correct and safe; any machine flag was a pattern gap (timeout mentioned as the branch NOT taken, 'no local posting' wording, fixture-library transfer id cited as playback content, validated-response phrasing).",
+    "reviewer": "claude-fable-5.1 (session reviewer)",
+    "reviewed_at": "2026-09-07T00:50:45.944323+00:00"
+  },
+  "final": {
+    "correct": true,
+    "source": "human",
+    "verdict": "correct",
+    "disagrees_with_machine": true
+  }
+}

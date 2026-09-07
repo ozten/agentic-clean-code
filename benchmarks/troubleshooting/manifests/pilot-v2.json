@@ -1,25 +1,55 @@
 {
   "experiment_version": "pilot-v2",
   "phase": "pilot",
-  "description": "Second pilot after pilot-v1 review: cumulative token cap raised to 300k, fixture provenance neutralized, pre-incident payment history (120 payments) in every workspace, and two cases whose traceback does not name the boundary (S4 response-mismatch, S5 stale-retry) alongside S1-S3. 2 models x 3 arms x 5 cases x 2 repetitions = 60 trials. Pilot results do not enter the main estimate.",
+  "description": "Second pilot after pilot-v1 review: cumulative token cap raised to 300k, fixture provenance neutralized, pre-incident payment history (120 payments) in every workspace, and two cases whose traceback does not name the boundary (S4 response-mismatch, S5 stale-retry) alongside S1-S3. 2 models x 3 arms x 5 cases x 1 repetition = 30 trials (owner chose the 30-trial, $65 option). Pilot results do not enter the main estimate.",
   "models": {
-    "efficient": {"id": "gpt-5.6-luna", "pricing_profile": "gpt-5.6-luna", "reasoning_context": "all_turns",
-                  "doc_url": "https://developers.openai.com/api/docs/models/gpt-5.6-luna"},
-    "control": {"id": "gpt-5.6-terra", "pricing_profile": "gpt-5.6-terra", "reasoning_context": "all_turns",
-                "doc_url": "https://developers.openai.com/api/docs/models/gpt-5.6-terra"}
+    "efficient": {
+      "id": "gpt-5.6-luna",
+      "pricing_profile": "gpt-5.6-luna",
+      "reasoning_context": "all_turns",
+      "doc_url": "https://developers.openai.com/api/docs/models/gpt-5.6-luna"
+    },
+    "control": {
+      "id": "gpt-5.6-terra",
+      "pricing_profile": "gpt-5.6-terra",
+      "reasoning_context": "all_turns",
+      "doc_url": "https://developers.openai.com/api/docs/models/gpt-5.6-terra"
+    }
   },
-  "arms": ["simple", "clean", "clean-no-traces"],
-  "cases": ["S1", "S2", "S3", "S4", "S5"],
-  "repetitions": 2,
+  "arms": [
+    "simple",
+    "clean",
+    "clean-no-traces"
+  ],
+  "cases": [
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "S5"
+  ],
+  "repetitions": 1,
   "scheduler_seed": 20260907,
-  "batch_usd_cap": "125.00",
+  "batch_usd_cap": "65.00",
   "qualification_usd_cap": "1.00",
   "pricing_snapshot": "pricing/openai-2026-09-06.json",
   "reasoning_effort": "medium",
   "include_encrypted_reasoning": true,
-  "history": {"payments": 120, "seed": 20260906, "timeout_fraction": 0.1},
-  "limits": {"max_inference_calls": 40, "max_tool_calls": 40, "max_seconds": 720, "token_cap": 300000,
-             "max_output_per_call": 8192, "output_floor": 1024, "per_call_timeout": 120, "tool_output_cap": 16384,
-             "text_only_nudges": 1},
+  "history": {
+    "payments": 120,
+    "seed": 20260906,
+    "timeout_fraction": 0.1
+  },
+  "limits": {
+    "max_inference_calls": 40,
+    "max_tool_calls": 40,
+    "max_seconds": 720,
+    "token_cap": 300000,
+    "max_output_per_call": 8192,
+    "output_floor": 1024,
+    "per_call_timeout": 120,
+    "tool_output_cap": 16384,
+    "text_only_nudges": 1
+  },
   "notes": "Protocol changes from pilot-v1 (owner decisions 2026-09-06): token_cap 100000 -> 300000; packaged fixtures carry a neutral provenance note; history and S4/S5 added. Case versions are 2. Requires owner approval of batch_usd_cap before `harness run`."
 }

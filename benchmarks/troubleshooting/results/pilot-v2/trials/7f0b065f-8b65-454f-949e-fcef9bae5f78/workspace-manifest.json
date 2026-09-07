@@ -1,0 +1,74 @@
+{
+  "arm": "clean-no-traces",
+  "case": "S4",
+  "case_version": 2,
+  "case_digest": "043b50c15ad352ea",
+  "built_at": 1788740476.185144,
+  "files": {
+    "README.md": {
+      "sha256": "66cb6ddf699101c48416a477fad71a5c841cd6f87b5f2a01f00ec22479934d8b",
+      "bytes": 3700
+    },
+    "app/adapters.py": {
+      "sha256": "deaf52244333f894be9ab122c24f6855bd78888f179410e41d7c8b82e46b39e8",
+      "bytes": 6766
+    },
+    "app/core.py": {
+      "sha256": "f01f1cba8cb639009ef0eebcec130bfb8947b78d3e9de8a27e4325b1a3ac00f1",
+      "bytes": 1841
+    },
+    "app/fixtures/success.json": {
+      "sha256": "7ca9644b8296f5ee3e89230a66820b888fb328a3bd3fb8e4a6f9bf3c36d2d56f",
+      "bytes": 746
+    },
+    "app/fixtures/timeout.json": {
+      "sha256": "aad9d636c0330e14489854a961595c3a8baa79481ad3e8d2a58523244863b671",
+      "bytes": 449
+    },
+    "app/main.py": {
+      "sha256": "0593df7269ea5df259b5b14f750ec50cc8de52c9dfc26fa5475afd1a9dfccaa3",
+      "bytes": 2612
+    },
+    "app/tracing.py": {
+      "sha256": "c29b1ca050c72daa4702a13a1e9579a054e88448d50e6fd71c3aa6de0925a596",
+      "bytes": 3190
+    },
+    "incident/exit-code.txt": {
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2
+    },
+    "incident/ledger.db": {
+      "sha256": "2371adbbd96adc0b899ba52fa8bab9af301d67901d6ec6fe13bd73b6a360925b",
+      "bytes": 36864
+    },
+    "incident/report.md": {
+      "sha256": "7bebf0f5ea0709d3ab439f2521923c0df190f32cca637b079fcc984b1b2935c1",
+      "bytes": 1161
+    },
+    "incident/stderr.txt": {
+      "sha256": "0dce483cd62b517295ca2a93e57dd294d57934d48abf9bb436300e1bdbc37cbf",
+      "bytes": 641
+    },
+    "incident/stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  },
+  "inclusion_policy": "production modules + entry point + shared fixtures; no README/demo/tests/faults",
+  "path_normalization": {
+    "workspace": "/workspace",
+    "python_prefix": "/python"
+  },
+  "history": {
+    "payments": 120,
+    "seed": 20260906,
+    "timeout_fraction": 0.1,
+    "span_seconds": 2592000,
+    "min_cents": 1000,
+    "max_cents": 40000,
+    "digest": "eb321e90f848",
+    "payments_generated": 120
+  },
+  "incident_traces": 0,
+  "total_traces": 0
+}

@@ -1,0 +1,73 @@
+{
+  "trial_id": "6a8cee76-92db-443b-b115-ebb66037173a",
+  "case": "S5",
+  "machine": {
+    "verdict": "partial",
+    "correct": false,
+    "free_text_submission": false,
+    "dimensions": {
+      "failed_boundary": {
+        "passed": false,
+        "reasons": [
+          "must identify the local retry-window rule firing before any provider request in this run"
+        ]
+      },
+      "external_outcome": {
+        "passed": true,
+        "reasons": []
+      },
+      "local_state": {
+        "passed": true,
+        "reasons": []
+      },
+      "evidence": {
+        "passed": true,
+        "reasons": []
+      },
+      "reproducibility": {
+        "passed": true,
+        "reasons": []
+      },
+      "recovery": {
+        "passed": true,
+        "reasons": []
+      }
+    },
+    "passed": [
+      "external_outcome",
+      "local_state",
+      "evidence",
+      "reproducibility",
+      "recovery"
+    ],
+    "failed": [
+      "failed_boundary"
+    ],
+    "disqualifiers": [],
+    "citations": [
+      "incident/report.md",
+      "incident/traces/trace-9930b696-3c18-473b-a06a-534fca30a6eb/trace.json",
+      "incident/reproductions/01/traces/trace-3b030648-d90e-495b-b839-fb20143d10b6/trace.json",
+      "incident/traces/trace-10e583e6-4672-4299-be28-e3210aae8da4/trace.json",
+      "incident/ledger.db",
+      "incident/reproductions/01/ledger.db",
+      "app/adapters.py",
+      "app/core.py",
+      "incident/stderr.txt"
+    ],
+    "graded_at": "2026-09-07T00:52:02.862850+00:00",
+    "grader": "machine-rubric-v1"
+  },
+  "human": {
+    "correct": true,
+    "notes": "Reviewed in full by the session operator (not blind to arm). Failed boundary, external uncertainty, local state, citations, reproduction, and recovery all correct and safe; any machine flag was a pattern gap (timeout mentioned as the branch NOT taken, 'no local posting' wording, fixture-library transfer id cited as playback content, validated-response phrasing).",
+    "reviewer": "claude-fable-5.1 (session reviewer)",
+    "reviewed_at": "2026-09-07T00:50:46.055535+00:00"
+  },
+  "final": {
+    "correct": true,
+    "source": "human",
+    "verdict": "correct",
+    "disagrees_with_machine": true
+  }
+}

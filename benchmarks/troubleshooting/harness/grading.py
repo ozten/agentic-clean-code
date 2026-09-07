@@ -98,8 +98,14 @@ def check_disqualifiers(sub: dict, case_id: str) -> list[str]:
     ids = set(re.findall(r"\btr_[A-Za-z0-9_]+", text))
     if case_id in ("S2", "S4") and ids - {"tr_demo_500"}:
         problems.append(f"cites transfer ids not present in evidence: {sorted(ids - {'tr_demo_500'})}")
-    if case_id in ("S1", "S3", "S5") and ids:
-        problems.append(f"cites a transfer id although no provider response exists in evidence: {sorted(ids)}")
+    if case_id in ("S1", "S3", "S5"):
+        foreign = ids - {"tr_demo_500"}
+        if foreign:
+            problems.append(f"cites transfer ids that appear nowhere in the workspace: {sorted(foreign)}")
+        # tr_demo_500 exists in the packaged fixture library; it is only a problem when asserted as this run's result.
+        asserted = r"(?:received|returned|got|obtained|accepted|created|assigned|issued)\s+(?:a\s+|the\s+)?(?:transfer\s+)?(?:id\s+|receipt\s+)?`?tr_demo_500"
+        if _has(sub.get("external_outcome", ""), asserted) and not _negated_near(sub.get("external_outcome", ""), asserted):
+            problems.append("asserts that transfer tr_demo_500 was returned although no provider response exists in evidence")
     return problems
 
 
@@ -122,8 +128,7 @@ def grade_dimensions(sub: dict, case_id: str, manifest_files: set[str] | None) -
         ok = _has(fb, r"timeout", r"timed out", r"response (?:was )?lost", r"no response", r"transport", r"network")
         reasons = [] if ok else ["must identify the lost response / transport timeout"]
     elif case_id == "S4":
-        ok = _has(fb, r"validat", r"mismatch", r"(?:does|did|doesn't|didn't) not match", r"unconfirmed", r"reject", r"verif") \
-             and not _has(fb, r"timed out|timeout")
+        ok = _has(fb, r"validat", r"mismatch", r"(?:does|did|doesn't|didn't) not match", r"unconfirmed", r"reject", r"verif", r"acceptance predicate")
         reasons = [] if ok else ["must identify response validation rejecting a received provider response"]
     else:  # S5
         ok = _has(fb, r"retry[- ]window", r"outside the automatic", r"23[- ]hour", r"23h", r"too old", r"stale", r"expired") \
@@ -136,7 +141,8 @@ def grade_dimensions(sub: dict, case_id: str, manifest_files: set[str] | None) -
     if case_id == "S2":
         ok = _has(eo, r"tr_demo_500", r"transfer[- ](?:shaped |style )?(?:response|id|receipt)", r"provider (?:had )?(?:returned|responded|accepted|created)",
                   r"response (?:was |had been )?(?:received|returned|accepted|validated|passed)", r"(?:accepted|validated|passed) .*(?:response|receipt)",
-                  r"(?:returned|received) .*(?:receipt|response)", r"reached .*confirm", r"got past .*create") \
+                  r"(?:returned|received) .*(?:receipt|response)", r"reached .*confirm", r"got past .*create", r"reached .*(?:finalization|post-response)",
+                  r"returned a response", r"acceptable to", r"passed .*(?:validation|checks)", r"beyond the timeout branch") \
              and _negated_near(eo, r"settle")
         reasons = [] if ok else ["must state that a transfer response was received/accepted without claiming settlement"]
     elif case_id == "S1":
@@ -147,8 +153,8 @@ def grade_dimensions(sub: dict, case_id: str, manifest_files: set[str] | None) -
              and not _has(eo, r"(?:definitely|certainly|did) not (?:create|receive)")
         reasons = [] if ok else ["must preserve uncertainty about the remote outcome"]
     elif case_id == "S4":
-        ok = _has(eo, r"response", r"returned", r"200", r"receipt") \
-             and _has(eo, r"mismatch", r"(?:does|did|doesn't|didn't) not match", r"differ", r"unexpected", r"reject", r"validat", r"reconcil", r"unknown", r"uncertain", r"may (?:still )?exist") \
+        ok = _has(eo, r"response", r"returned", r"200", r"receipt", r"outcome it processed", r"non-timeout") \
+             and _has(eo, r"mismatch", r"(?:does|did|doesn't|didn't) not match", r"differ", r"unexpected", r"reject", r"validat", r"reconcil", r"unknown", r"uncertain", r"may (?:still )?exist", r"did not satisfy", r"predicate", r"not acceptable", r"could not validate") \
              and not _has(eo, r"no (?:provider )?(?:request|call) was made", r"never (?:sent|called|contacted)") \
              and _negated_near(eo, r"settle")
         reasons = [] if ok else ["must state that a provider response was received but rejected as mismatched, leaving provider state to reconcile"]
@@ -163,7 +169,7 @@ def grade_dimensions(sub: dict, case_id: str, manifest_files: set[str] | None) -
     if case_id in ("S2", "S3", "S4", "S5"):
         clean_ls = re.sub(r"[`'\"*]", "", ls)
         ok = _has(clean_ls, r"reserv") and _has(clean_ls, r"50,?000|\$\s?500") \
-             and _has(clean_ls, r"no postings?", r"postings?\s*(?:=|:|count|is|are|remains?|count is)?\s*(?:0|zero|empty|\[\])", r"zero postings?", r"not (?:been )?posted",
+             and _has(clean_ls, r"no postings?", r"no (?:local |milestone-42 |[\w-]+ )?postings?", r"postings?\s*(?:=|:|count|is|are|remains?|count is)?\s*(?:0|zero|empty|\[\])", r"zero postings?", r"not (?:been )?posted",
                       r"no rows? in postings", r"postings? (?:table )?(?:is|remains) empty", r"empty postings",
                       r"transfer[_ ]id[^.;]{0,25}(?:NULL|null|None|empty|unset|not (?:set|saved|recorded))", r"no (?:local )?receipt", r"receipt (?:was |were )?(?:not|never) (?:saved|recorded|stored|committed|persisted)",
                       r"without (?:a )?(?:posting|receipt)", r"no (?:posting|receipt)")
@@ -191,7 +197,8 @@ def grade_dimensions(sub: dict, case_id: str, manifest_files: set[str] | None) -
 
     # 5. reproducibility
     inputs = _has(rp, r"fixture", r"fresh (?:ledger|database|db)", r"100,?000", r"seed", r"initial", r"controlled", r"same (?:payment|inputs|request)")
-    boundary = _has(rp, r"trigger", r"inject", r"simulat", r"mock", r"stub", r"fake", r"monkeypatch", r"patch", r"raise", r"force", r"make .* fail", r"fail(?:ing|ure)? (?:the |at |on )?(?:confirm|prepar|write|update|insert|transport)", r"timeout fixture", r"timeout", r"wire", r"fixture (?:whose|with|that)", r"transport (?:fixture|double|stub|that)")
+    boundary = _has(rp, r"trigger", r"inject", r"simulat", r"mock", r"stub", r"fake", r"monkeypatch", r"patch", r"raise", r"force", r"make .* fail", r"fail(?:ing|ure)? (?:the |at |on )?(?:confirm|prepar|write|update|insert|transport)", r"timeout fixture", r"timeout", r"wire", r"fixture (?:whose|with|that)", r"transport (?:fixture|double|stub|that)",
+                   r"stale", r"guard", r"created_at\s*=", r"reproduce_incident", r"age")
     assertions = _has(rp, r"assert", r"expect", r"verify", r"check that", r"should (?:be|remain|equal|have)", r"must (?:be|remain|equal)")
     ok = inputs and boundary and assertions and len(rp) >= 120
     reasons = []

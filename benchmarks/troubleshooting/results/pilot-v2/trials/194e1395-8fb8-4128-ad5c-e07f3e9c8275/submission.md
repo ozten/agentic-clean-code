@@ -1,0 +1,25 @@
+# Submission
+
+## failed_boundary
+
+The failure was in the local SQLite ledger, specifically the payment-intent INSERT, before the provider boundary. `pay()` starts the reservation transaction at `app/app.py:40-41`, debits available and credits reserved at `:50-55`, and then inserts `milestone-42` at `:56-57`. The captured exception is `sqlite3.IntegrityError: database or disk is full` at exactly `app/app.py:56` (`incident/stderr.txt:1-8`). Therefore this invocation never reached the provider fixture/request path at `app/app.py:59-75`.
+
+## evidence
+
+The report identifies the exact identity, destination, and amount as `milestone-42`, `acct_demo_contractor`, and 50000 cents (`incident/report.md:3-10`). The original stderr records exit status 1 and the INSERT failure (`incident/stderr.txt:1-8`); the reproduced run has the identical failure and traceback (`incident/reproductions/01/stderr.txt`, as reported by `reproduce_incident`). Querying both `incident/ledger.db` and the reproduction copy showed `balances = [(1, 100000, 0, 2535400)]`, no `payments` row for `milestone-42`, no corresponding `postings` row, and SQLite `integrity_check = ok`. The source shows that the provider request is only constructed/fixture-opened after the committed intent transaction (`app/app.py:59-73`). The timeout and success fixtures are recorded possible playback outcomes (`app/fixtures/timeout.json:12-14` and `app/fixtures/success.json:14-23`), not evidence that either outcome occurred in this failed invocation.
+
+## external_outcome
+
+For this application invocation, the control flow and traceback establish that it failed before the provider I/O stand-in was opened, so this run did not obtain a provider response or transfer receipt. Locally there is no `transfer_id` for this payment and no `tr_...` receipt. The artifacts cannot establish the provider's general state independently of this run (for example, they cannot rule out an earlier out-of-band attempt); they also do not establish bank settlement. In particular, the timeout fixture is not evidence of an actual timeout in this run. If a later retry reaches that fixture, `app/app.py:73-74` explicitly treats the outcome as unknown and must leave the intent reserved.
+
+## local_state
+
+The attempted reservation and intent insert were in the transaction opened at `app/app.py:40-41`; the INSERT error caused that transaction to roll back when the surrounding `with db:` exits. The resulting ledger is valid but unchanged for this payment: available is 100000 cents, reserved is 0, contractor is 2535400; `payments` and `postings` contain no `milestone-42` rows. Thus this incident did not leave 50000 cents reserved, nor did it create a posting or contractor credit. Existing rows/postings remain intact, as shown by the queried ledger and `pragma integrity_check` result `ok`.
+
+## reproduction
+
+Use the supplied controlled invocation exactly: `python3 -B app/app.py --db incident/ledger.db --payment-id milestone-42 --destination acct_demo_contractor --cents 50000 --now 1788706800`, with the supplied deployment fixture configuration and a fresh copy of the pre-command ledger. `reproduce_incident` did this and produced exit status 1 with the same `database or disk is full` exception at `app/app.py:56`. A deterministic regression test should inject/retain the same storage fault at the `payments` INSERT (not at provider I/O), assert exit 1 and that the error identifies the failed INSERT, then query the database and assert: balances are exactly `(available=100000, reserved=0, contractor=2535400)` relative to this artifact; there is no payment row for `milestone-42`; there is no posting; there is no receipt; and `pragma integrity_check` is `ok`. It should also assert the provider fixture/request was not consumed. A separate retry-path test should use a writable copy and the exact same identity, amount, destination, and idempotency key; if the timeout fixture is reached, assert a payment intent plus 50000 reserved and no posting, and retry with that same identity rather than creating another payment.
+
+## recovery
+
+Do not edit the ledger to release funds, do not create a replacement payment ID, and do not infer success from the CLI failure. First preserve/backup the artifact and correct the local storage-capacity/write fault. Confirm this artifact still has no `milestone-42` intent (so there are no currently reserved cents for this payment to free), then retry the exact original identity, 50000 cents, and `acct_demo_contractor` using the provider idempotency key `contractor-payment:milestone-42` (`app/app.py:61-66`). If the retry creates an intent and then has an ambiguous/timeout result, leave its reserved 50000 cents untouched and retry/reconcile only with that same identity within the 23-hour window (`app/app.py:59`, and the payment rules); after that window use manual reconciliation. A successful response may be finalized only when it has the matching transfer fields and a `tr_...` ID, after which the code atomically posts and moves reserved to contractor (`app/app.py:77-97`).

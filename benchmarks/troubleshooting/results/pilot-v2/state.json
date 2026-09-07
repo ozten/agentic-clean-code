@@ -1,0 +1,245 @@
+{
+  "trials": {
+    "4630f945-0af8-4d62-9105-cb3686031571": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:20:05.412697+00:00",
+      "finished_at": "2026-09-07T00:21:08.824889+00:00",
+      "stop_reason": "submitted",
+      "exact_total_tokens": 75424,
+      "telemetry_complete": true
+    },
+    "7f0b065f-8b65-454f-949e-fcef9bae5f78": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:21:08.827619+00:00",
+      "finished_at": "2026-09-07T00:22:12.099185+00:00",
+      "stop_reason": "submitted",
+      "exact_total_tokens": 126695,
+      "telemetry_complete": true
+    },
+    "7658ea3d-7aa9-4fe9-bebb-79f9b840926b": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:22:12.101966+00:00",
+      "finished_at": "2026-09-07T00:23:00.908126+00:00",
+      "stop_reason": "token_limit",
+      "exact_total_tokens": 279461,
+      "telemetry_complete": true
+    },
+    "9e4cb2bf-ba7f-4c53-a38b-c40c58949e90": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:23:00.910716+00:00",
+      "finished_at": "2026-09-07T00:23:48.998829+00:00",
+      "stop_reason": "submitted",
+      "exact_total_tokens": 243099,
+      "telemetry_complete": true
+    },
+    "76e02a39-6369-4571-a757-cfc20fbd28f9": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:23:49.000879+00:00",
+      "finished_at": "2026-09-07T00:24:34.316672+00:00",
+      "stop_reason": "submitted",
+      "exact_total_tokens": 61460,
+      "telemetry_complete": true
+    },
+    "5dac29d3-bd81-42ef-9ce4-b663a4e89de9": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:24:34.318423+00:00",
+      "finished_at": "2026-09-07T00:25:17.986839+00:00",
+      "stop_reason": "submitted",
+      "exact_total_tokens": 88237,
+      "telemetry_complete": true
+    },
+    "e1caeb05-c49c-47f4-82f9-8200438f84b3": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:25:17.988268+00:00",
+      "finished_at": "2026-09-07T00:26:28.921200+00:00",
+      "stop_reason": "submitted",
+      "exact_total_tokens": 70838,
+      "telemetry_complete": true
+    },
+    "f50050fb-036f-448b-9d5a-25a27830e0f5": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:26:28.922998+00:00",
+      "finished_at": "2026-09-07T00:27:29.682482+00:00",
+      "stop_reason": "submitted",
+      "exact_total_tokens": 100357,
+      "telemetry_complete": true
+    },
+    "dc196eab-45be-4454-bd32-1ad6bb74fb52": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:27:29.683978+00:00",
+      "finished_at": "2026-09-07T00:28:18.958908+00:00",
+      "stop_reason": "token_limit",
+      "exact_total_tokens": 284918,
+      "telemetry_complete": true
+    },
+    "f24f07a6-02c7-4280-b344-fece5dcab59d": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:28:18.961413+00:00",
+      "finished_at": "2026-09-07T00:29:12.611509+00:00",
+      "stop_reason": "token_limit",
+      "exact_total_tokens": 289651,
+      "telemetry_complete": true
+    },
+    "7c633934-a28d-4f02-a0ab-3e1cc0b3034d": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:29:12.614010+00:00",
+      "finished_at": "2026-09-07T00:30:36.662380+00:00",
+      "stop_reason": "submitted",
+      "exact_total_tokens": 138038,
+      "telemetry_complete": true
+    },
+    "10f94fb4-3644-4ff8-8156-3576d8622c2b": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:30:36.664048+00:00",
+      "finished_at": "2026-09-07T00:31:56.208668+00:00",
+      "stop_reason": "submitted",
+      "exact_total_tokens": 112605,
+      "telemetry_complete": true
+    },
+    "5d775d28-6aa8-4faa-a55f-4d288bf62e8e": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:31:56.211014+00:00",
+      "finished_at": "2026-09-07T00:32:52.824762+00:00",
+      "stop_reason": "submitted",
+      "exact_total_tokens": 82253,
+      "telemetry_complete": true
+    },
+    "87a8ebfb-52d3-44a1-adc9-02c5b5f7fa72": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:32:52.826659+00:00",
+      "finished_at": "2026-09-07T00:33:52.136228+00:00",
+      "stop_reason": "submitted",
+      "exact_total_tokens": 73269,
+      "telemetry_complete": true
+    },
+    "6a8cee76-92db-443b-b115-ebb66037173a": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:33:52.137873+00:00",
+      "finished_at": "2026-09-07T00:35:04.745333+00:00",
+      "stop_reason": "submitted",
+      "exact_total_tokens": 263953,
+      "telemetry_complete": true
+    },
+    "1d70ddc7-2b3f-458b-889a-612e09144cd4": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:35:04.747659+00:00",
+      "finished_at": "2026-09-07T00:35:53.809067+00:00",
+      "stop_reason": "submitted",
+      "exact_total_tokens": 81994,
+      "telemetry_complete": true
+    },
+    "3288ddf1-b4f9-4fae-9f35-1545c890a19e": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:35:53.811266+00:00",
+      "finished_at": "2026-09-07T00:36:55.787247+00:00",
+      "stop_reason": "submitted",
+      "exact_total_tokens": 285460,
+      "telemetry_complete": true
+    },
+    "e6e84182-6b4b-44c5-984e-88a7d12d6bbe": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:36:55.789601+00:00",
+      "finished_at": "2026-09-07T00:37:45.613178+00:00",
+      "stop_reason": "submitted",
+      "exact_total_tokens": 86931,
+      "telemetry_complete": true
+    },
+    "73c6c89f-bc72-442c-805c-46e9d16792a4": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:37:45.615443+00:00",
+      "finished_at": "2026-09-07T00:38:24.889726+00:00",
+      "stop_reason": "token_limit",
+      "exact_total_tokens": 296414,
+      "telemetry_complete": true
+    },
+    "14e601f7-39a2-432d-ac3e-9b33aba81ec9": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:38:24.891294+00:00",
+      "finished_at": "2026-09-07T00:39:14.530033+00:00",
+      "stop_reason": "submitted",
+      "exact_total_tokens": 89123,
+      "telemetry_complete": true
+    },
+    "97c69574-5a45-4fd3-817b-74ea4ff1bf8d": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:39:14.532523+00:00",
+      "finished_at": "2026-09-07T00:40:12.591240+00:00",
+      "stop_reason": "submitted",
+      "exact_total_tokens": 138946,
+      "telemetry_complete": true
+    },
+    "96f75320-8c9a-4ab5-850d-130cb633f752": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:40:12.592724+00:00",
+      "finished_at": "2026-09-07T00:41:03.385052+00:00",
+      "stop_reason": "token_limit",
+      "exact_total_tokens": 284693,
+      "telemetry_complete": true
+    },
+    "02ba3a25-3b1d-4e7b-add8-c76603480fd5": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:41:03.387975+00:00",
+      "finished_at": "2026-09-07T00:42:14.229255+00:00",
+      "stop_reason": "submitted",
+      "exact_total_tokens": 114434,
+      "telemetry_complete": true
+    },
+    "e8fef104-4903-41bf-9214-4bacf4477a24": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:42:14.231368+00:00",
+      "finished_at": "2026-09-07T00:43:19.736503+00:00",
+      "stop_reason": "submitted",
+      "exact_total_tokens": 80516,
+      "telemetry_complete": true
+    },
+    "5d48b96b-9912-4fdc-939d-1b116e3fc4bd": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:43:19.738890+00:00",
+      "finished_at": "2026-09-07T00:44:28.668886+00:00",
+      "stop_reason": "submitted",
+      "exact_total_tokens": 268901,
+      "telemetry_complete": true
+    },
+    "736907eb-4a17-42f8-87ea-3ab213b1516d": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:44:28.670858+00:00",
+      "finished_at": "2026-09-07T00:45:23.652393+00:00",
+      "stop_reason": "submitted",
+      "exact_total_tokens": 125876,
+      "telemetry_complete": true
+    },
+    "194e1395-8fb8-4128-ad5c-e07f3e9c8275": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:45:23.653944+00:00",
+      "finished_at": "2026-09-07T00:46:18.176836+00:00",
+      "stop_reason": "submitted",
+      "exact_total_tokens": 88526,
+      "telemetry_complete": true
+    },
+    "d2c1b140-3ef8-4b20-a462-20297c9251e8": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:46:18.179240+00:00",
+      "finished_at": "2026-09-07T00:47:19.339138+00:00",
+      "stop_reason": "submitted",
+      "exact_total_tokens": 132204,
+      "telemetry_complete": true
+    },
+    "7eedd4e8-95ce-4f5e-a409-45d3937f1383": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:47:19.341518+00:00",
+      "finished_at": "2026-09-07T00:48:14.576321+00:00",
+      "stop_reason": "submitted",
+      "exact_total_tokens": 90861,
+      "telemetry_complete": true
+    },
+    "2c0e93e5-64f3-4d80-938f-3b081a365e4e": {
+      "status": "completed",
+      "started_at": "2026-09-07T00:48:14.582359+00:00",
+      "finished_at": "2026-09-07T00:49:13.835711+00:00",
+      "stop_reason": "submitted",
+      "exact_total_tokens": 293072,
+      "telemetry_complete": true
+    }
+  },
+  "paused": null
+}

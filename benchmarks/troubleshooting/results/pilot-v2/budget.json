@@ -1,0 +1,1418 @@
+{
+ "cap_usd": "65.00",
+ "committed_usd": "1.91897502",
+ "reserved_usd": "0E-8",
+ "unresolved_usd": "0",
+ "by_purpose": {
+  "solving": "1.91897502",
+  "preflight": "0",
+  "qualification": "0",
+  "grading": "0",
+  "replacement": "0"
+ },
+ "unresolved": [],
+ "admissions": 429,
+ "refusals": 0,
+ "history": [
+  {
+   "at": "2026-09-07T00:42:22.757692+00:00",
+   "event": "admitted",
+   "attempt_id": "62651aeb-71d5-4413-9de2-e850f420ee9f",
+   "purpose": "solving",
+   "reserve": "0.1091065"
+  },
+  {
+   "at": "2026-09-07T00:42:23.989854+00:00",
+   "event": "settled",
+   "attempt_id": "88e20480-4906-4bd6-8472-258802ecd298",
+   "purpose": "solving",
+   "actual": "0.0018199"
+  },
+  {
+   "at": "2026-09-07T00:42:24.368527+00:00",
+   "event": "admitted",
+   "attempt_id": "ba4cc509-7269-422c-9e4a-fe88a18b1738",
+   "purpose": "solving",
+   "reserve": "0.110004"
+  },
+  {
+   "at": "2026-09-07T00:42:26.667398+00:00",
+   "event": "settled",
+   "attempt_id": "b0b499ff-9503-4f93-bd41-f39e0269b234",
+   "purpose": "solving",
+   "actual": "0.0036271"
+  },
+  {
+   "at": "2026-09-07T00:42:27.034982+00:00",
+   "event": "admitted",
+   "attempt_id": "06f1d3ad-f68d-44e9-a58d-d48c3ed8e328",
+   "purpose": "solving",
+   "reserve": "0.1236815"
+  },
+  {
+   "at": "2026-09-07T00:42:28.127071+00:00",
+   "event": "settled",
+   "attempt_id": "ce65a794-c1b4-4973-940b-2fea4085470f",
+   "purpose": "solving",
+   "actual": "0.0150749"
+  },
+  {
+   "at": "2026-09-07T00:42:28.525109+00:00",
+   "event": "admitted",
+   "attempt_id": "8c599fc7-66b0-431c-a0e6-7c573b802e7e",
+   "purpose": "solving",
+   "reserve": "0.1242665"
+  },
+  {
+   "at": "2026-09-07T00:42:38.559796+00:00",
+   "event": "settled",
+   "attempt_id": "c6998ecf-7fd0-46f6-bf1a-dff6d5188226",
+   "purpose": "solving",
+   "actual": "0.0111166"
+  },
+  {
+   "at": "2026-09-07T00:42:39.083651+00:00",
+   "event": "admitted",
+   "attempt_id": "6440e9a4-3241-482b-8c88-9dd9f4a59b1f",
+   "purpose": "solving",
+   "reserve": "0.126599"
+  },
+  {
+   "at": "2026-09-07T00:42:43.306065+00:00",
+   "event": "settled",
+   "attempt_id": "fb8f90d5-dc6d-4d70-9d18-df85f1eb780d",
+   "purpose": "solving",
+   "actual": "0.0089509"
+  },
+  {
+   "at": "2026-09-07T00:42:43.728236+00:00",
+   "event": "admitted",
+   "attempt_id": "4d8fd60d-c834-4654-88c5-a1bcc4add885",
+   "purpose": "solving",
+   "reserve": "0.1285765"
+  },
+  {
+   "at": "2026-09-07T00:42:47.133771+00:00",
+   "event": "settled",
+   "attempt_id": "cf6066bd-6f4f-4f9c-aaad-32e4c9cd37cb",
+   "purpose": "solving",
+   "actual": "0.0060705"
+  },
+  {
+   "at": "2026-09-07T00:42:47.748882+00:00",
+   "event": "admitted",
+   "attempt_id": "01ee4992-d38f-4752-a8ca-f57ff2daf8c6",
+   "purpose": "solving",
+   "reserve": "0.1293415"
+  },
+  {
+   "at": "2026-09-07T00:43:19.725034+00:00",
+   "event": "settled",
+   "attempt_id": "74fa7dd8-8359-4905-8ae2-f3d93b268954",
+   "purpose": "solving",
+   "actual": "0.0310202"
+  },
+  {
+   "at": "2026-09-07T00:43:21.272222+00:00",
+   "event": "admitted",
+   "attempt_id": "c1f9923b-c7ea-4dc0-b211-5e863cb2d1ca",
+   "purpose": "solving",
+   "reserve": "0.0101824"
+  },
+  {
+   "at": "2026-09-07T00:43:22.653531+00:00",
+   "event": "settled",
+   "attempt_id": "d50a8b7d-4b9b-467b-8531-f0b9016c837c",
+   "purpose": "solving",
+   "actual": "0.0000659"
+  },
+  {
+   "at": "2026-09-07T00:43:23.219437+00:00",
+   "event": "admitted",
+   "attempt_id": "fcf9afa3-c5c5-4c71-b17a-036180819110",
+   "purpose": "solving",
+   "reserve": "0.0121894"
+  },
+  {
+   "at": "2026-09-07T00:43:24.815490+00:00",
+   "event": "settled",
+   "attempt_id": "81da52d5-a76b-47b3-b786-412ea246ecee",
+   "purpose": "solving",
+   "actual": "0.0020825"
+  },
+  {
+   "at": "2026-09-07T00:43:25.181188+00:00",
+   "event": "admitted",
+   "attempt_id": "c6c6e8ce-0219-4836-a0a1-32fd34e31eb4",
+   "purpose": "solving",
+   "reserve": "0.0122959"
+  },
+  {
+   "at": "2026-09-07T00:43:26.203636+00:00",
+   "event": "settled",
+   "attempt_id": "9909ded9-31e9-43bd-aa2a-75402c010ef8",
+   "purpose": "solving",
+   "actual": "0.00033176"
+  },
+  {
+   "at": "2026-09-07T00:43:26.597514+00:00",
+   "event": "admitted",
+   "attempt_id": "a92b15de-32bb-4b5a-80f8-78e67a482859",
+   "purpose": "solving",
+   "reserve": "0.0124674"
+  },
+  {
+   "at": "2026-09-07T00:43:27.850259+00:00",
+   "event": "settled",
+   "attempt_id": "a9052e33-7c6c-4adb-a0ae-bbf63984ca98",
+   "purpose": "solving",
+   "actual": "0.00040648"
+  },
+  {
+   "at": "2026-09-07T00:43:28.287580+00:00",
+   "event": "admitted",
+   "attempt_id": "2f937658-5540-479a-ac93-0d19f47caf90",
+   "purpose": "solving",
+   "reserve": "0.01297365"
+  },
+  {
+   "at": "2026-09-07T00:43:29.469832+00:00",
+   "event": "settled",
+   "attempt_id": "237b30a4-33ae-412f-b8d9-6b8dd2cd011b",
+   "purpose": "solving",
+   "actual": "0.00075375"
+  },
+  {
+   "at": "2026-09-07T00:43:31.965646+00:00",
+   "event": "admitted",
+   "attempt_id": "1c2fb7b4-d1c9-44b5-a67c-d6e17df1c244",
+   "purpose": "solving",
+   "reserve": "0.0131869"
+  },
+  {
+   "at": "2026-09-07T00:43:33.586702+00:00",
+   "event": "settled",
+   "attempt_id": "a594ca5f-04ab-4c48-bc68-1e9ec184b29d",
+   "purpose": "solving",
+   "actual": "0.00053005"
+  },
+  {
+   "at": "2026-09-07T00:43:33.970903+00:00",
+   "event": "admitted",
+   "attempt_id": "4b7e6345-6101-4f8b-a5eb-2ee69dba674a",
+   "purpose": "solving",
+   "reserve": "0.01329015"
+  },
+  {
+   "at": "2026-09-07T00:43:36.708507+00:00",
+   "event": "settled",
+   "attempt_id": "bf5d3437-1e22-4e1b-9116-8de4e60d2fea",
+   "purpose": "solving",
+   "actual": "0.00055351"
+  },
+  {
+   "at": "2026-09-07T00:43:37.206789+00:00",
+   "event": "admitted",
+   "attempt_id": "dff2f4c8-04c5-4dfe-8efe-ce92ceb23fc2",
+   "purpose": "solving",
+   "reserve": "0.0133824"
+  },
+  {
+   "at": "2026-09-07T00:43:39.619061+00:00",
+   "event": "settled",
+   "attempt_id": "8fab5885-7050-461c-a417-7eccd159df08",
+   "purpose": "solving",
+   "actual": "0.00051717"
+  },
+  {
+   "at": "2026-09-07T00:43:40.256210+00:00",
+   "event": "admitted",
+   "attempt_id": "cd9233ff-0954-4275-bc45-edfef31fa211",
+   "purpose": "solving",
+   "reserve": "0.0148484"
+  },
+  {
+   "at": "2026-09-07T00:43:42.357790+00:00",
+   "event": "settled",
+   "attempt_id": "6c4d2734-69d6-4287-a42c-e1d1d29a452a",
+   "purpose": "solving",
+   "actual": "0.0018539"
+  },
+  {
+   "at": "2026-09-07T00:43:42.775992+00:00",
+   "event": "admitted",
+   "attempt_id": "63fc8d74-0b00-4148-a098-19e177becf5e",
+   "purpose": "solving",
+   "reserve": "0.01496815"
+  },
+  {
+   "at": "2026-09-07T00:43:44.553761+00:00",
+   "event": "settled",
+   "attempt_id": "65559262-6281-4a33-b8e7-4a84c09b35cf",
+   "purpose": "solving",
+   "actual": "0.00057213"
+  },
+  {
+   "at": "2026-09-07T00:43:44.895094+00:00",
+   "event": "admitted",
+   "attempt_id": "93a84caa-f637-4ca7-8ad9-798f0da05d28",
+   "purpose": "solving",
+   "reserve": "0.0152279"
+  },
+  {
+   "at": "2026-09-07T00:43:47.770244+00:00",
+   "event": "settled",
+   "attempt_id": "b66a539d-3656-407c-a64d-b7a99c3ee044",
+   "purpose": "solving",
+   "actual": "0.00088251"
+  },
+  {
+   "at": "2026-09-07T00:43:48.482173+00:00",
+   "event": "admitted",
+   "attempt_id": "e43023a9-53d4-4ca9-8797-4991cbc03a66",
+   "purpose": "solving",
+   "reserve": "0.0153199"
+  },
+  {
+   "at": "2026-09-07T00:43:51.889749+00:00",
+   "event": "settled",
+   "attempt_id": "601b07a3-40fc-4b50-a55d-5c28fe4abf55",
+   "purpose": "solving",
+   "actual": "0.00077394"
+  },
+  {
+   "at": "2026-09-07T00:43:52.436374+00:00",
+   "event": "admitted",
+   "attempt_id": "0da7bbc3-32c0-4d01-926c-fbd408ff5359",
+   "purpose": "solving",
+   "reserve": "0.01544515"
+  },
+  {
+   "at": "2026-09-07T00:43:54.361627+00:00",
+   "event": "settled",
+   "attempt_id": "54877c0b-18b6-45f8-abc6-308fec97e2f4",
+   "purpose": "solving",
+   "actual": "0.00061895"
+  },
+  {
+   "at": "2026-09-07T00:43:54.913651+00:00",
+   "event": "admitted",
+   "attempt_id": "2897c056-e977-4f87-a04c-72a48108f1b9",
+   "purpose": "solving",
+   "reserve": "0.01571115"
+  },
+  {
+   "at": "2026-09-07T00:44:01.860198+00:00",
+   "event": "settled",
+   "attempt_id": "99080052-6f44-4033-931f-a242041859b8",
+   "purpose": "solving",
+   "actual": "0.00129772"
+  },
+  {
+   "at": "2026-09-07T00:44:02.436383+00:00",
+   "event": "admitted",
+   "attempt_id": "4ece71d7-8b34-460a-883d-77c5d82d4545",
+   "purpose": "solving",
+   "reserve": "0.01599015"
+  },
+  {
+   "at": "2026-09-07T00:44:10.295575+00:00",
+   "event": "settled",
+   "attempt_id": "d7640520-4201-412f-9917-4d9e9b2cead2",
+   "purpose": "solving",
+   "actual": "0.001434"
+  },
+  {
+   "at": "2026-09-07T00:44:11.489875+00:00",
+   "event": "admitted",
+   "attempt_id": "3236d210-c308-4196-a6ab-14878e6806a9",
+   "purpose": "solving",
+   "reserve": "0.01614215"
+  },
+  {
+   "at": "2026-09-07T00:44:28.659549+00:00",
+   "event": "settled",
+   "attempt_id": "4a52033a-c147-4a89-96b9-aa4f4c8076d6",
+   "purpose": "solving",
+   "actual": "0.00239852"
+  },
+  {
+   "at": "2026-09-07T00:44:29.192714+00:00",
+   "event": "admitted",
+   "attempt_id": "c9706af5-3b55-4a5c-b2bc-b33d6d14c3ff",
+   "purpose": "solving",
+   "reserve": "0.0101824"
+  },
+  {
+   "at": "2026-09-07T00:44:30.515451+00:00",
+   "event": "settled",
+   "attempt_id": "ea906303-c3fb-4456-bf77-11241b9ed65e",
+   "purpose": "solving",
+   "actual": "0.0000659"
+  },
+  {
+   "at": "2026-09-07T00:44:30.996418+00:00",
+   "event": "admitted",
+   "attempt_id": "4f56cf36-f39c-4587-bd17-6acb619250f0",
+   "purpose": "solving",
+   "reserve": "0.01023315"
+  },
+  {
+   "at": "2026-09-07T00:44:32.128266+00:00",
+   "event": "settled",
+   "attempt_id": "d8efdb60-eb16-4285-b7c7-0af5ba10c80c",
+   "purpose": "solving",
+   "actual": "0.00011425"
+  },
+  {
+   "at": "2026-09-07T00:44:32.474026+00:00",
+   "event": "admitted",
+   "attempt_id": "94b32dfd-22aa-4ec5-90ba-859ac382eba7",
+   "purpose": "solving",
+   "reserve": "0.01049515"
+  },
+  {
+   "at": "2026-09-07T00:44:33.571027+00:00",
+   "event": "settled",
+   "attempt_id": "394d6ace-bb4a-493d-8af9-5a26145e8c6c",
+   "purpose": "solving",
+   "actual": "0.00033076"
+  },
+  {
+   "at": "2026-09-07T00:44:34.182554+00:00",
+   "event": "admitted",
+   "attempt_id": "b67f9b56-8291-48cd-bc70-cf28a1d7d81c",
+   "purpose": "solving",
+   "reserve": "0.0105924"
+  },
+  {
+   "at": "2026-09-07T00:44:35.409967+00:00",
+   "event": "settled",
+   "attempt_id": "ac0d9d78-47ed-4d71-9008-f20f29fc49da",
+   "purpose": "solving",
+   "actual": "0.00018697"
+  },
+  {
+   "at": "2026-09-07T00:44:36.025421+00:00",
+   "event": "admitted",
+   "attempt_id": "75142f4e-a0cc-4d28-a051-dff1955c2916",
+   "purpose": "solving",
+   "reserve": "0.01080565"
+  },
+  {
+   "at": "2026-09-07T00:44:37.358883+00:00",
+   "event": "settled",
+   "attempt_id": "aae3b969-f2cc-4deb-92f4-eb3ac90a637c",
+   "purpose": "solving",
+   "actual": "0.00031075"
+  },
+  {
+   "at": "2026-09-07T00:44:37.713041+00:00",
+   "event": "admitted",
+   "attempt_id": "18d65b44-5014-4e3a-b175-38020d3225b4",
+   "purpose": "solving",
+   "reserve": "0.01097715"
+  },
+  {
+   "at": "2026-09-07T00:44:39.112259+00:00",
+   "event": "settled",
+   "attempt_id": "5e61dac3-f2e4-46a1-add2-c0a86ccfccdd",
+   "purpose": "solving",
+   "actual": "0.00028726"
+  },
+  {
+   "at": "2026-09-07T00:44:39.634984+00:00",
+   "event": "admitted",
+   "attempt_id": "8baf6cbe-dccf-45cb-a6ac-1516a41f84e4",
+   "purpose": "solving",
+   "reserve": "0.0114834"
+  },
+  {
+   "at": "2026-09-07T00:44:40.741067+00:00",
+   "event": "settled",
+   "attempt_id": "537eb333-ddad-44fe-951b-5600a4b820e3",
+   "purpose": "solving",
+   "actual": "0.00063573"
+  },
+  {
+   "at": "2026-09-07T00:44:41.327517+00:00",
+   "event": "admitted",
+   "attempt_id": "0ed6db26-0073-43d7-b173-5150c2ae2f01",
+   "purpose": "solving",
+   "reserve": "0.0117404"
+  },
+  {
+   "at": "2026-09-07T00:44:42.432871+00:00",
+   "event": "settled",
+   "attempt_id": "330a2db9-3ad4-4a69-8fc4-3b8269fce1f5",
+   "purpose": "solving",
+   "actual": "0.00042938"
+  },
+  {
+   "at": "2026-09-07T00:44:42.758452+00:00",
+   "event": "admitted",
+   "attempt_id": "0708374e-98c5-459b-94ac-4f03e26d5377",
+   "purpose": "solving",
+   "reserve": "0.0117979"
+  },
+  {
+   "at": "2026-09-07T00:44:43.950854+00:00",
+   "event": "settled",
+   "attempt_id": "5206582f-cda1-483b-80da-ba4bb4c13a6b",
+   "purpose": "solving",
+   "actual": "0.00024804"
+  },
+  {
+   "at": "2026-09-07T00:44:44.526810+00:00",
+   "event": "admitted",
+   "attempt_id": "a5dd09cb-52e0-4f1f-be55-e37cc0a71d5b",
+   "purpose": "solving",
+   "reserve": "0.01185715"
+  },
+  {
+   "at": "2026-09-07T00:44:46.114878+00:00",
+   "event": "settled",
+   "attempt_id": "909ee431-5778-4790-b430-232e20042d07",
+   "purpose": "solving",
+   "actual": "0.00025559"
+  },
+  {
+   "at": "2026-09-07T00:44:46.424573+00:00",
+   "event": "admitted",
+   "attempt_id": "affee783-3f0b-43cf-b181-b4f0adae934d",
+   "purpose": "solving",
+   "reserve": "0.01186965"
+  },
+  {
+   "at": "2026-09-07T00:44:48.931892+00:00",
+   "event": "settled",
+   "attempt_id": "dbf270f0-4b0c-40aa-913e-c11e53453a73",
+   "purpose": "solving",
+   "actual": "0.00037798"
+  },
+  {
+   "at": "2026-09-07T00:44:49.299420+00:00",
+   "event": "admitted",
+   "attempt_id": "2bf21483-83a7-4fd3-9b94-7cffb645a9e8",
+   "purpose": "solving",
+   "reserve": "0.0119334"
+  },
+  {
+   "at": "2026-09-07T00:44:51.539457+00:00",
+   "event": "settled",
+   "attempt_id": "0f4598db-1e80-47b8-847f-0be754e7fb8e",
+   "purpose": "solving",
+   "actual": "0.00037863"
+  },
+  {
+   "at": "2026-09-07T00:44:51.964703+00:00",
+   "event": "admitted",
+   "attempt_id": "c85ef39d-1028-495a-a18d-56794743874d",
+   "purpose": "solving",
+   "reserve": "0.0133729"
+  },
+  {
+   "at": "2026-09-07T00:44:53.842944+00:00",
+   "event": "settled",
+   "attempt_id": "1bc31fef-d856-4725-b585-dba871921192",
+   "purpose": "solving",
+   "actual": "0.00362995"
+  },
+  {
+   "at": "2026-09-07T00:44:54.277885+00:00",
+   "event": "admitted",
+   "attempt_id": "4447f06a-847d-4b71-90bb-9023554fb4e3",
+   "purpose": "solving",
+   "reserve": "0.01345015"
+  },
+  {
+   "at": "2026-09-07T00:45:00.249984+00:00",
+   "event": "settled",
+   "attempt_id": "128638e8-1b68-4c3f-9ba5-dd2ee387bef0",
+   "purpose": "solving",
+   "actual": "0.00074519"
+  },
+  {
+   "at": "2026-09-07T00:45:00.801182+00:00",
+   "event": "admitted",
+   "attempt_id": "658dafa9-03d8-4bfa-8aa4-8993c138ad0e",
+   "purpose": "solving",
+   "reserve": "0.01361165"
+  },
+  {
+   "at": "2026-09-07T00:45:03.713574+00:00",
+   "event": "settled",
+   "attempt_id": "7c7bf4e6-a095-4ce4-8489-9d4e4d54fbbf",
+   "purpose": "solving",
+   "actual": "0.00063522"
+  },
+  {
+   "at": "2026-09-07T00:45:04.079972+00:00",
+   "event": "admitted",
+   "attempt_id": "4f5c791f-4685-499d-91da-fb94712d6368",
+   "purpose": "solving",
+   "reserve": "0.01367865"
+  },
+  {
+   "at": "2026-09-07T00:45:23.645179+00:00",
+   "event": "settled",
+   "attempt_id": "0c62e5ea-2f60-4bb2-87da-eccf16a50efa",
+   "purpose": "solving",
+   "actual": "0.00222764"
+  },
+  {
+   "at": "2026-09-07T00:45:24.068841+00:00",
+   "event": "admitted",
+   "attempt_id": "a55e9621-b651-4ed9-a953-76452091ac29",
+   "purpose": "solving",
+   "reserve": "0.0101824"
+  },
+  {
+   "at": "2026-09-07T00:45:25.485482+00:00",
+   "event": "settled",
+   "attempt_id": "06e5dbd5-46e1-498d-a5cf-39d6b0a72f75",
+   "purpose": "solving",
+   "actual": "0.0000659"
+  },
+  {
+   "at": "2026-09-07T00:45:25.871407+00:00",
+   "event": "admitted",
+   "attempt_id": "462a206a-a145-48f4-8b84-f1c24712e587",
+   "purpose": "solving",
+   "reserve": "0.01022515"
+  },
+  {
+   "at": "2026-09-07T00:45:26.952347+00:00",
+   "event": "settled",
+   "attempt_id": "1b9f6dd7-c054-4186-a01d-8ec4cf9bfa5d",
+   "purpose": "solving",
+   "actual": "0.00010745"
+  },
+  {
+   "at": "2026-09-07T00:45:27.329667+00:00",
+   "event": "admitted",
+   "attempt_id": "f1044714-9073-44ae-8ac1-08854bd65fd7",
+   "purpose": "solving",
+   "reserve": "0.0103224"
+  },
+  {
+   "at": "2026-09-07T00:45:28.554425+00:00",
+   "event": "settled",
+   "attempt_id": "47b45773-5d8e-4a82-b85f-e98644f4f5b6",
+   "purpose": "solving",
+   "actual": "0.00016537"
+  },
+  {
+   "at": "2026-09-07T00:45:28.932012+00:00",
+   "event": "admitted",
+   "attempt_id": "86fe64ee-4e9b-4c4e-a8a4-99f3c35c4af5",
+   "purpose": "solving",
+   "reserve": "0.01080415"
+  },
+  {
+   "at": "2026-09-07T00:45:30.339786+00:00",
+   "event": "settled",
+   "attempt_id": "206c81a2-e2b3-4ca8-a9c1-8d4f541f6c38",
+   "purpose": "solving",
+   "actual": "0.00056965"
+  },
+  {
+   "at": "2026-09-07T00:45:30.817879+00:00",
+   "event": "admitted",
+   "attempt_id": "4764dce0-93b6-4c6e-add5-e10bded64544",
+   "purpose": "solving",
+   "reserve": "0.01085365"
+  },
+  {
+   "at": "2026-09-07T00:45:32.949352+00:00",
+   "event": "settled",
+   "attempt_id": "c2a88f0d-aed9-4f24-89dc-e0da11003c95",
+   "purpose": "solving",
+   "actual": "0.00016754"
+  },
+  {
+   "at": "2026-09-07T00:45:33.298282+00:00",
+   "event": "admitted",
+   "attempt_id": "869bdbfe-f983-473b-8d8f-c926306b80de",
+   "purpose": "solving",
+   "reserve": "0.01091115"
+  },
+  {
+   "at": "2026-09-07T00:45:34.453224+00:00",
+   "event": "settled",
+   "attempt_id": "5c401e6a-f27e-4ced-a7a1-b45dfdd41a6b",
+   "purpose": "solving",
+   "actual": "0.0001795"
+  },
+  {
+   "at": "2026-09-07T00:45:35.008946+00:00",
+   "event": "admitted",
+   "attempt_id": "62da586f-3bf2-4f05-8274-fb9b7d6e0c5a",
+   "purpose": "solving",
+   "reserve": "0.0110009"
+  },
+  {
+   "at": "2026-09-07T00:45:37.608062+00:00",
+   "event": "settled",
+   "attempt_id": "f3cf64d7-18cc-4b8f-912b-ed57b6f42d9a",
+   "purpose": "solving",
+   "actual": "0.00036755"
+  },
+  {
+   "at": "2026-09-07T00:45:37.994005+00:00",
+   "event": "admitted",
+   "attempt_id": "425a739c-f925-443f-bb2b-e519766fdadc",
+   "purpose": "solving",
+   "reserve": "0.01105765"
+  },
+  {
+   "at": "2026-09-07T00:45:41.667312+00:00",
+   "event": "settled",
+   "attempt_id": "7c5b8955-81f6-4b9e-9bc6-12cb77624348",
+   "purpose": "solving",
+   "actual": "0.00036333"
+  },
+  {
+   "at": "2026-09-07T00:45:42.034472+00:00",
+   "event": "admitted",
+   "attempt_id": "60e924e1-9a95-420c-b367-50a87d395b20",
+   "purpose": "solving",
+   "reserve": "0.01251115"
+  },
+  {
+   "at": "2026-09-07T00:45:44.150982+00:00",
+   "event": "settled",
+   "attempt_id": "1bf38a09-6770-4ef9-b620-73f3748aed78",
+   "purpose": "solving",
+   "actual": "0.00167222"
+  },
+  {
+   "at": "2026-09-07T00:45:44.620239+00:00",
+   "event": "admitted",
+   "attempt_id": "f6198c10-34d1-488c-ad5a-5d6aba039f97",
+   "purpose": "solving",
+   "reserve": "0.01258615"
+  },
+  {
+   "at": "2026-09-07T00:45:47.075312+00:00",
+   "event": "settled",
+   "attempt_id": "589a621a-df5e-47d4-8100-1dbf820db735",
+   "purpose": "solving",
+   "actual": "0.0004304"
+  },
+  {
+   "at": "2026-09-07T00:45:47.522186+00:00",
+   "event": "admitted",
+   "attempt_id": "2f27168a-af38-4575-807a-2fece43e52b8",
+   "purpose": "solving",
+   "reserve": "0.0126614"
+  },
+  {
+   "at": "2026-09-07T00:45:54.192293+00:00",
+   "event": "settled",
+   "attempt_id": "112cba29-6690-480b-bfe4-65abab6e50fe",
+   "purpose": "solving",
+   "actual": "0.00091905"
+  },
+  {
+   "at": "2026-09-07T00:45:54.787933+00:00",
+   "event": "admitted",
+   "attempt_id": "e6c6deb2-e4d6-4aea-a136-4bbb60ae301f",
+   "purpose": "solving",
+   "reserve": "0.01280215"
+  },
+  {
+   "at": "2026-09-07T00:46:04.539093+00:00",
+   "event": "settled",
+   "attempt_id": "2c618039-7b92-4130-baf5-53a2b4348f09",
+   "purpose": "solving",
+   "actual": "0.00118497"
+  },
+  {
+   "at": "2026-09-07T00:46:05.993935+00:00",
+   "event": "admitted",
+   "attempt_id": "fa4ac037-91ee-478d-9517-8aeb3b9708e4",
+   "purpose": "solving",
+   "reserve": "0.01322715"
+  },
+  {
+   "at": "2026-09-07T00:46:18.167255+00:00",
+   "event": "settled",
+   "attempt_id": "8cff1db0-8823-4a6d-8f79-439544a3f207",
+   "purpose": "solving",
+   "actual": "0.00207328"
+  },
+  {
+   "at": "2026-09-07T00:46:18.694648+00:00",
+   "event": "admitted",
+   "attempt_id": "192434b7-bdaf-4864-ab57-6977d0f1bf07",
+   "purpose": "solving",
+   "reserve": "0.0101824"
+  },
+  {
+   "at": "2026-09-07T00:46:20.269725+00:00",
+   "event": "settled",
+   "attempt_id": "fa305f03-1450-4457-b418-5d895d6e40d0",
+   "purpose": "solving",
+   "actual": "0.0000659"
+  },
+  {
+   "at": "2026-09-07T00:46:20.883060+00:00",
+   "event": "admitted",
+   "attempt_id": "a976a273-1f6d-4adc-9b8e-b905f8697df0",
+   "purpose": "solving",
+   "reserve": "0.01023315"
+  },
+  {
+   "at": "2026-09-07T00:46:22.078750+00:00",
+   "event": "settled",
+   "attempt_id": "e7af9821-f9cd-4b86-966f-e647ce14254d",
+   "purpose": "solving",
+   "actual": "0.00011425"
+  },
+  {
+   "at": "2026-09-07T00:46:22.400807+00:00",
+   "event": "admitted",
+   "attempt_id": "0ce34fcf-d578-4698-b4c3-686f833fcdaa",
+   "purpose": "solving",
+   "reserve": "0.01049515"
+  },
+  {
+   "at": "2026-09-07T00:46:23.557509+00:00",
+   "event": "settled",
+   "attempt_id": "74fde066-c3f3-4026-9f19-f062884bdfb6",
+   "purpose": "solving",
+   "actual": "0.00033076"
+  },
+  {
+   "at": "2026-09-07T00:46:24.076311+00:00",
+   "event": "admitted",
+   "attempt_id": "03041b6b-61c3-4b3c-bec3-25dbbf003f69",
+   "purpose": "solving",
+   "reserve": "0.0105924"
+  },
+  {
+   "at": "2026-09-07T00:46:25.096474+00:00",
+   "event": "settled",
+   "attempt_id": "04bb8651-915e-4d44-a36e-f10b792d58fc",
+   "purpose": "solving",
+   "actual": "0.00018697"
+  },
+  {
+   "at": "2026-09-07T00:46:25.585694+00:00",
+   "event": "admitted",
+   "attempt_id": "5a753869-5921-48c4-b07c-76a93e3e2b5a",
+   "purpose": "solving",
+   "reserve": "0.01080565"
+  },
+  {
+   "at": "2026-09-07T00:46:27.472692+00:00",
+   "event": "settled",
+   "attempt_id": "b178e003-62c8-4e7e-970c-181a40a6d044",
+   "purpose": "solving",
+   "actual": "0.00031075"
+  },
+  {
+   "at": "2026-09-07T00:46:28.155207+00:00",
+   "event": "admitted",
+   "attempt_id": "2785e8c8-0071-4629-b11d-6dcef2fc16b3",
+   "purpose": "solving",
+   "reserve": "0.01097715"
+  },
+  {
+   "at": "2026-09-07T00:46:29.288598+00:00",
+   "event": "settled",
+   "attempt_id": "fdd4ee96-1da0-4cec-a240-4d13cbe742a9",
+   "purpose": "solving",
+   "actual": "0.00028726"
+  },
+  {
+   "at": "2026-09-07T00:46:29.980430+00:00",
+   "event": "admitted",
+   "attempt_id": "c4afca24-7334-49c0-b228-6e9ad73799f9",
+   "purpose": "solving",
+   "reserve": "0.0114834"
+  },
+  {
+   "at": "2026-09-07T00:46:31.431800+00:00",
+   "event": "settled",
+   "attempt_id": "e690ac57-56ed-400c-b603-fbc5b5c67929",
+   "purpose": "solving",
+   "actual": "0.00063813"
+  },
+  {
+   "at": "2026-09-07T00:46:31.798616+00:00",
+   "event": "admitted",
+   "attempt_id": "e29c0997-4757-4f99-ac54-d5872f1f5c2b",
+   "purpose": "solving",
+   "reserve": "0.0115409"
+  },
+  {
+   "at": "2026-09-07T00:46:32.848847+00:00",
+   "event": "settled",
+   "attempt_id": "92a27b51-c465-4869-a36c-c5c2b8241a21",
+   "purpose": "solving",
+   "actual": "0.00022748"
+  },
+  {
+   "at": "2026-09-07T00:46:33.272214+00:00",
+   "event": "admitted",
+   "attempt_id": "c53425d7-ad41-4ff6-beb4-b2c83e60c6e4",
+   "purpose": "solving",
+   "reserve": "0.0116004"
+  },
+  {
+   "at": "2026-09-07T00:46:35.736336+00:00",
+   "event": "settled",
+   "attempt_id": "31998d76-2551-44f3-b8fa-570111184467",
+   "purpose": "solving",
+   "actual": "0.00036248"
+  },
+  {
+   "at": "2026-09-07T00:46:37.575883+00:00",
+   "event": "admitted",
+   "attempt_id": "c8ef94bc-1581-41af-88b1-4006172d6e09",
+   "purpose": "solving",
+   "reserve": "0.01165065"
+  },
+  {
+   "at": "2026-09-07T00:46:40.316895+00:00",
+   "event": "settled",
+   "attempt_id": "1cdd9a9c-ddd2-413d-a8ee-a2d983ccc072",
+   "purpose": "solving",
+   "actual": "0.00033759"
+  },
+  {
+   "at": "2026-09-07T00:46:40.715029+00:00",
+   "event": "admitted",
+   "attempt_id": "e6db206e-26d5-4819-a3d9-0d1c6554d2eb",
+   "purpose": "solving",
+   "reserve": "0.01309165"
+  },
+  {
+   "at": "2026-09-07T00:46:42.999051+00:00",
+   "event": "settled",
+   "attempt_id": "ddea870e-ef7d-4e2e-acfb-cd0373f7403b",
+   "purpose": "solving",
+   "actual": "0.00171436"
+  },
+  {
+   "at": "2026-09-07T00:46:43.400254+00:00",
+   "event": "admitted",
+   "attempt_id": "7ff68022-b0e2-4df7-8ccc-4de0fe037443",
+   "purpose": "solving",
+   "reserve": "0.0131774"
+  },
+  {
+   "at": "2026-09-07T00:46:44.910445+00:00",
+   "event": "settled",
+   "attempt_id": "4584711b-0285-46c6-ad8b-6281dab0570d",
+   "purpose": "solving",
+   "actual": "0.00042879"
+  },
+  {
+   "at": "2026-09-07T00:46:45.430599+00:00",
+   "event": "admitted",
+   "attempt_id": "475c5652-a891-4def-8f77-88f70dc0c57b",
+   "purpose": "solving",
+   "reserve": "0.0132759"
+  },
+  {
+   "at": "2026-09-07T00:46:47.703362+00:00",
+   "event": "settled",
+   "attempt_id": "55978356-3c3e-429b-ab91-c7aee47b51ea",
+   "purpose": "solving",
+   "actual": "0.0005036"
+  },
+  {
+   "at": "2026-09-07T00:46:48.087790+00:00",
+   "event": "admitted",
+   "attempt_id": "5ab859e1-43e3-4d59-82ed-3dfb579f32c1",
+   "purpose": "solving",
+   "reserve": "0.01336115"
+  },
+  {
+   "at": "2026-09-07T00:46:54.372598+00:00",
+   "event": "settled",
+   "attempt_id": "932b22a6-029c-4adc-b381-571802b4432d",
+   "purpose": "solving",
+   "actual": "0.0040838"
+  },
+  {
+   "at": "2026-09-07T00:46:54.866902+00:00",
+   "event": "admitted",
+   "attempt_id": "8bd1c3c2-c975-4149-9def-a071c3b02425",
+   "purpose": "solving",
+   "reserve": "0.0134934"
+  },
+  {
+   "at": "2026-09-07T00:46:56.970010+00:00",
+   "event": "settled",
+   "attempt_id": "b92e54cb-e25d-411c-98a4-f83bc1c7e084",
+   "purpose": "solving",
+   "actual": "0.00056165"
+  },
+  {
+   "at": "2026-09-07T00:46:57.546259+00:00",
+   "event": "admitted",
+   "attempt_id": "1951c40d-dfdc-4f71-a8b5-afa6caf32203",
+   "purpose": "solving",
+   "reserve": "0.01353865"
+  },
+  {
+   "at": "2026-09-07T00:47:19.327081+00:00",
+   "event": "settled",
+   "attempt_id": "54c14eba-f1c5-4edb-aba7-94aad280ad25",
+   "purpose": "solving",
+   "actual": "0.00271123"
+  },
+  {
+   "at": "2026-09-07T00:47:19.876502+00:00",
+   "event": "admitted",
+   "attempt_id": "64228ff1-79f4-4e8c-9f4c-26809895c14e",
+   "purpose": "solving",
+   "reserve": "0.0101824"
+  },
+  {
+   "at": "2026-09-07T00:47:21.090778+00:00",
+   "event": "settled",
+   "attempt_id": "50399f76-4363-4ad4-a5b6-dbba1c2103c1",
+   "purpose": "solving",
+   "actual": "0.0000659"
+  },
+  {
+   "at": "2026-09-07T00:47:21.506744+00:00",
+   "event": "admitted",
+   "attempt_id": "574c9676-a285-4e34-99d7-5a14b0d4c7a9",
+   "purpose": "solving",
+   "reserve": "0.01022515"
+  },
+  {
+   "at": "2026-09-07T00:47:22.876344+00:00",
+   "event": "settled",
+   "attempt_id": "ef47c0bb-8a68-4364-97bb-af4fc47367b5",
+   "purpose": "solving",
+   "actual": "0.00010625"
+  },
+  {
+   "at": "2026-09-07T00:47:23.704530+00:00",
+   "event": "admitted",
+   "attempt_id": "33469032-6a2d-4253-b44e-666754fe9023",
+   "purpose": "solving",
+   "reserve": "0.01048715"
+  },
+  {
+   "at": "2026-09-07T00:47:25.394742+00:00",
+   "event": "settled",
+   "attempt_id": "dbb296bc-9c7c-4af7-8ed4-ed9d640b6b56",
+   "purpose": "solving",
+   "actual": "0.00033012"
+  },
+  {
+   "at": "2026-09-07T00:47:25.801699+00:00",
+   "event": "admitted",
+   "attempt_id": "5a644d45-64ba-49d7-909f-5f9849311f54",
+   "purpose": "solving",
+   "reserve": "0.0105844"
+  },
+  {
+   "at": "2026-09-07T00:47:26.990635+00:00",
+   "event": "settled",
+   "attempt_id": "c4c2d7e8-3388-4b92-9df5-61044bf0b1dc",
+   "purpose": "solving",
+   "actual": "0.00018633"
+  },
+  {
+   "at": "2026-09-07T00:47:27.374082+00:00",
+   "event": "admitted",
+   "attempt_id": "f083c25d-40f8-4aa0-ae6f-12dfe59b074a",
+   "purpose": "solving",
+   "reserve": "0.01106615"
+  },
+  {
+   "at": "2026-09-07T00:47:28.774224+00:00",
+   "event": "settled",
+   "attempt_id": "56a7e7e0-b59c-429f-8265-a4256973a796",
+   "purpose": "solving",
+   "actual": "0.00058221"
+  },
+  {
+   "at": "2026-09-07T00:47:29.314681+00:00",
+   "event": "admitted",
+   "attempt_id": "7e96ec8b-d0c8-44c6-a93b-84a7e89383c0",
+   "purpose": "solving",
+   "reserve": "0.01112365"
+  },
+  {
+   "at": "2026-09-07T00:47:30.576301+00:00",
+   "event": "settled",
+   "attempt_id": "34a6b495-d5e3-4bec-9c32-ad1efc09e3df",
+   "purpose": "solving",
+   "actual": "0.0001941"
+  },
+  {
+   "at": "2026-09-07T00:47:31.156295+00:00",
+   "event": "admitted",
+   "attempt_id": "b2b22d29-e832-4bb9-95fd-f732b81ea0a0",
+   "purpose": "solving",
+   "reserve": "0.01117265"
+  },
+  {
+   "at": "2026-09-07T00:47:32.617482+00:00",
+   "event": "settled",
+   "attempt_id": "f0e428b8-c66d-4784-a470-37b5f8dbdc37",
+   "purpose": "solving",
+   "actual": "0.0001902"
+  },
+  {
+   "at": "2026-09-07T00:47:33.142405+00:00",
+   "event": "admitted",
+   "attempt_id": "a5164adf-998f-4683-9772-34618c64e360",
+   "purpose": "solving",
+   "reserve": "0.01118315"
+  },
+  {
+   "at": "2026-09-07T00:47:36.954773+00:00",
+   "event": "settled",
+   "attempt_id": "0ddd5bb3-8176-4744-9711-362d094c8777",
+   "purpose": "solving",
+   "actual": "0.00015472"
+  },
+  {
+   "at": "2026-09-07T00:47:37.377063+00:00",
+   "event": "admitted",
+   "attempt_id": "9e4875c6-2c97-4f79-8710-2644f8f73928",
+   "purpose": "solving",
+   "reserve": "0.01119565"
+  },
+  {
+   "at": "2026-09-07T00:47:39.587616+00:00",
+   "event": "settled",
+   "attempt_id": "52534580-89da-4301-9796-8c0a62815c35",
+   "purpose": "solving",
+   "actual": "0.00030012"
+  },
+  {
+   "at": "2026-09-07T00:47:39.955372+00:00",
+   "event": "admitted",
+   "attempt_id": "1c7dcf9f-5d53-401e-945c-a1ef7651a5a9",
+   "purpose": "solving",
+   "reserve": "0.0112399"
+  },
+  {
+   "at": "2026-09-07T00:47:42.094860+00:00",
+   "event": "settled",
+   "attempt_id": "33450277-066d-459b-b23a-11cf17da6eaa",
+   "purpose": "solving",
+   "actual": "0.00029681"
+  },
+  {
+   "at": "2026-09-07T00:47:42.583400+00:00",
+   "event": "admitted",
+   "attempt_id": "de28eb68-046e-45ba-85ba-6fd2a6a16149",
+   "purpose": "solving",
+   "reserve": "0.01267565"
+  },
+  {
+   "at": "2026-09-07T00:47:43.842873+00:00",
+   "event": "settled",
+   "attempt_id": "168a222f-6db9-470f-9fb8-ecbf7393c131",
+   "purpose": "solving",
+   "actual": "0.00160545"
+  },
+  {
+   "at": "2026-09-07T00:47:44.192017+00:00",
+   "event": "admitted",
+   "attempt_id": "a473ce5d-846b-4510-92ea-187faf240bfc",
+   "purpose": "solving",
+   "reserve": "0.01273915"
+  },
+  {
+   "at": "2026-09-07T00:47:46.255662+00:00",
+   "event": "settled",
+   "attempt_id": "918aadf3-27be-4af0-af08-c3d8c2356363",
+   "purpose": "solving",
+   "actual": "0.00038766"
+  },
+  {
+   "at": "2026-09-07T00:47:47.133770+00:00",
+   "event": "admitted",
+   "attempt_id": "e26972f1-fec0-4909-94c2-0fa77742ff66",
+   "purpose": "solving",
+   "reserve": "0.01284065"
+  },
+  {
+   "at": "2026-09-07T00:47:51.521638+00:00",
+   "event": "settled",
+   "attempt_id": "a4cf5f55-4bc8-4766-b7be-6c6733eb5b42",
+   "purpose": "solving",
+   "actual": "0.00069954"
+  },
+  {
+   "at": "2026-09-07T00:47:52.021844+00:00",
+   "event": "admitted",
+   "attempt_id": "2f9d8318-d4bf-4ed7-905f-be9674182404",
+   "purpose": "solving",
+   "reserve": "0.0129319"
+  },
+  {
+   "at": "2026-09-07T00:48:14.567396+00:00",
+   "event": "settled",
+   "attempt_id": "6c14ca21-dfa1-4808-8ccf-3235189710c7",
+   "purpose": "solving",
+   "actual": "0.00253461"
+  },
+  {
+   "at": "2026-09-07T00:48:15.630145+00:00",
+   "event": "admitted",
+   "attempt_id": "a5b558d7-e53b-44cd-8527-e55ae62e7973",
+   "purpose": "solving",
+   "reserve": "0.0101824"
+  },
+  {
+   "at": "2026-09-07T00:48:16.768384+00:00",
+   "event": "settled",
+   "attempt_id": "f6510122-dfc9-442a-857f-d7f74c09aee1",
+   "purpose": "solving",
+   "actual": "0.0000659"
+  },
+  {
+   "at": "2026-09-07T00:48:17.182393+00:00",
+   "event": "admitted",
+   "attempt_id": "1453d64e-098a-435b-8406-86a54608bbe4",
+   "purpose": "solving",
+   "reserve": "0.0121899"
+  },
+  {
+   "at": "2026-09-07T00:48:18.412605+00:00",
+   "event": "settled",
+   "attempt_id": "04066eab-c14e-4fcc-ba21-63139f8da447",
+   "purpose": "solving",
+   "actual": "0.0020854"
+  },
+  {
+   "at": "2026-09-07T00:48:18.772415+00:00",
+   "event": "admitted",
+   "attempt_id": "59a42fbd-7887-4c9c-9fd6-c4ca267a3785",
+   "purpose": "solving",
+   "reserve": "0.0122969"
+  },
+  {
+   "at": "2026-09-07T00:48:19.967024+00:00",
+   "event": "settled",
+   "attempt_id": "9487eb7f-4541-44c1-8f00-75d707fa8bca",
+   "purpose": "solving",
+   "actual": "0.0003323"
+  },
+  {
+   "at": "2026-09-07T00:48:20.332111+00:00",
+   "event": "admitted",
+   "attempt_id": "70012c10-7f48-4d75-bc6c-7f9b2286fc80",
+   "purpose": "solving",
+   "reserve": "0.0124684"
+  },
+  {
+   "at": "2026-09-07T00:48:21.614352+00:00",
+   "event": "settled",
+   "attempt_id": "01ec5181-ad2c-488d-ac27-d51cda039ad9",
+   "purpose": "solving",
+   "actual": "0.00040656"
+  },
+  {
+   "at": "2026-09-07T00:48:21.924756+00:00",
+   "event": "admitted",
+   "attempt_id": "4b95f382-af8d-4e7c-94fe-ae628c3f823c",
+   "purpose": "solving",
+   "reserve": "0.01297465"
+  },
+  {
+   "at": "2026-09-07T00:48:23.144588+00:00",
+   "event": "settled",
+   "attempt_id": "f43a21a1-6280-4d3c-88c3-962fd337d31d",
+   "purpose": "solving",
+   "actual": "0.00075383"
+  },
+  {
+   "at": "2026-09-07T00:48:23.494594+00:00",
+   "event": "admitted",
+   "attempt_id": "3b3df739-28f4-481f-a707-597b961f0d60",
+   "purpose": "solving",
+   "reserve": "0.0131879"
+  },
+  {
+   "at": "2026-09-07T00:48:25.046796+00:00",
+   "event": "settled",
+   "attempt_id": "723ba4aa-1eb9-454f-af44-6013486f20eb",
+   "purpose": "solving",
+   "actual": "0.00050253"
+  },
+  {
+   "at": "2026-09-07T00:48:25.378635+00:00",
+   "event": "admitted",
+   "attempt_id": "b079b2cd-04dd-4f92-b320-5d2da1813a87",
+   "purpose": "solving",
+   "reserve": "0.0134449"
+  },
+  {
+   "at": "2026-09-07T00:48:27.252895+00:00",
+   "event": "settled",
+   "attempt_id": "d58d9bcc-7832-409f-b9b4-d86adffa8aea",
+   "purpose": "solving",
+   "actual": "0.00058974"
+  },
+  {
+   "at": "2026-09-07T00:48:27.672717+00:00",
+   "event": "admitted",
+   "attempt_id": "56a70c7b-bd46-48a4-81a2-9cb1eef6ec9f",
+   "purpose": "solving",
+   "reserve": "0.0135359"
+  },
+  {
+   "at": "2026-09-07T00:48:29.265822+00:00",
+   "event": "settled",
+   "attempt_id": "467e9733-eeed-4f5a-8c6a-24548da19769",
+   "purpose": "solving",
+   "actual": "0.0004527"
+  },
+  {
+   "at": "2026-09-07T00:48:29.576701+00:00",
+   "event": "admitted",
+   "attempt_id": "0b57c8e6-a102-4336-8f42-cedeeb33cdf6",
+   "purpose": "solving",
+   "reserve": "0.01362515"
+  },
+  {
+   "at": "2026-09-07T00:48:32.055175+00:00",
+   "event": "settled",
+   "attempt_id": "02e27711-8900-475d-ba29-fd27eba5091e",
+   "purpose": "solving",
+   "actual": "0.00045583"
+  },
+  {
+   "at": "2026-09-07T00:48:32.410454+00:00",
+   "event": "admitted",
+   "attempt_id": "12539838-51a7-4e7e-abff-796ef792ac6e",
+   "purpose": "solving",
+   "reserve": "0.0137494"
+  },
+  {
+   "at": "2026-09-07T00:48:33.969989+00:00",
+   "event": "settled",
+   "attempt_id": "996e70bf-b7d9-4713-9295-5e69519fd5cf",
+   "purpose": "solving",
+   "actual": "0.00050037"
+  },
+  {
+   "at": "2026-09-07T00:48:34.489257+00:00",
+   "event": "admitted",
+   "attempt_id": "d91fe136-8f93-407b-94e2-e86cf911287c",
+   "purpose": "solving",
+   "reserve": "0.01385565"
+  },
+  {
+   "at": "2026-09-07T00:48:36.429571+00:00",
+   "event": "settled",
+   "attempt_id": "101389f6-21aa-4f1c-869e-a9e7896ae811",
+   "purpose": "solving",
+   "actual": "0.00055591"
+  },
+  {
+   "at": "2026-09-07T00:48:36.858346+00:00",
+   "event": "admitted",
+   "attempt_id": "b43d65e6-d0dc-4252-b0d4-280b2f669d87",
+   "purpose": "solving",
+   "reserve": "0.01395715"
+  },
+  {
+   "at": "2026-09-07T00:48:41.534910+00:00",
+   "event": "settled",
+   "attempt_id": "1e5e567c-a50e-49ab-93ac-b8ee1ac6f787",
+   "purpose": "solving",
+   "actual": "0.00056926"
+  },
+  {
+   "at": "2026-09-07T00:48:41.909910+00:00",
+   "event": "admitted",
+   "attempt_id": "1e2f332e-08c7-48df-90ed-4147983cfdc8",
+   "purpose": "solving",
+   "reserve": "0.0153914"
+  },
+  {
+   "at": "2026-09-07T00:48:43.939482+00:00",
+   "event": "settled",
+   "attempt_id": "322e756c-dc0c-40d9-aeac-4cb469c2edd8",
+   "purpose": "solving",
+   "actual": "0.00180453"
+  },
+  {
+   "at": "2026-09-07T00:48:44.583175+00:00",
+   "event": "admitted",
+   "attempt_id": "dd4bdbb9-b17a-4145-96bb-f5b5df56992e",
+   "purpose": "solving",
+   "reserve": "0.01551265"
+  },
+  {
+   "at": "2026-09-07T00:48:46.200179+00:00",
+   "event": "settled",
+   "attempt_id": "1a443991-6a3f-410a-9825-90d11e1a6f3b",
+   "purpose": "solving",
+   "actual": "0.00066027"
+  },
+  {
+   "at": "2026-09-07T00:48:46.594350+00:00",
+   "event": "admitted",
+   "attempt_id": "24b62445-be9c-4f92-a231-136a55670e9f",
+   "purpose": "solving",
+   "reserve": "0.0156229"
+  },
+  {
+   "at": "2026-09-07T00:48:49.433138+00:00",
+   "event": "settled",
+   "attempt_id": "bb304318-36d4-4057-8b75-35903c114ae2",
+   "purpose": "solving",
+   "actual": "0.00587155"
+  },
+  {
+   "at": "2026-09-07T00:48:50.285903+00:00",
+   "event": "admitted",
+   "attempt_id": "ab2d10d2-7dcf-44d2-8a6b-8959b775898f",
+   "purpose": "solving",
+   "reserve": "0.01571265"
+  },
+  {
+   "at": "2026-09-07T00:48:52.039293+00:00",
+   "event": "settled",
+   "attempt_id": "b1703c18-3c22-466e-9822-b4da77a97b19",
+   "purpose": "solving",
+   "actual": "0.00062689"
+  },
+  {
+   "at": "2026-09-07T00:48:52.410668+00:00",
+   "event": "admitted",
+   "attempt_id": "aa1b6c59-2b93-4299-8519-75233928c502",
+   "purpose": "solving",
+   "reserve": "0.01583615"
+  },
+  {
+   "at": "2026-09-07T00:48:57.684417+00:00",
+   "event": "settled",
+   "attempt_id": "7a230941-65ce-43b4-b3ec-7aefcc8be118",
+   "purpose": "solving",
+   "actual": "0.00097502"
+  },
+  {
+   "at": "2026-09-07T00:48:58.084641+00:00",
+   "event": "admitted",
+   "attempt_id": "2664b8e6-89cb-46d0-b5f2-094666be3109",
+   "purpose": "solving",
+   "reserve": "0.0159969"
+  },
+  {
+   "at": "2026-09-07T00:49:13.826490+00:00",
+   "event": "settled",
+   "attempt_id": "ad6f7f61-a28b-4b2d-840d-db32bd2ab245",
+   "purpose": "solving",
+   "actual": "0.00242135"
+  }
+ ]
+}

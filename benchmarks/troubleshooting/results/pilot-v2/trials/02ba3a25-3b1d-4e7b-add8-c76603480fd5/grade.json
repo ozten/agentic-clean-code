@@ -1,0 +1,69 @@
+{
+  "trial_id": "02ba3a25-3b1d-4e7b-add8-c76603480fd5",
+  "case": "S4",
+  "machine": {
+    "verdict": "correct",
+    "correct": true,
+    "free_text_submission": false,
+    "dimensions": {
+      "failed_boundary": {
+        "passed": true,
+        "reasons": []
+      },
+      "external_outcome": {
+        "passed": true,
+        "reasons": []
+      },
+      "local_state": {
+        "passed": true,
+        "reasons": []
+      },
+      "evidence": {
+        "passed": true,
+        "reasons": []
+      },
+      "reproducibility": {
+        "passed": true,
+        "reasons": []
+      },
+      "recovery": {
+        "passed": true,
+        "reasons": []
+      }
+    },
+    "passed": [
+      "failed_boundary",
+      "external_outcome",
+      "local_state",
+      "evidence",
+      "reproducibility",
+      "recovery"
+    ],
+    "failed": [],
+    "disqualifiers": [],
+    "citations": [
+      "incident/report.md",
+      "incident/stderr.txt",
+      "incident/reproductions/01/stderr.txt",
+      "app/adapters.py",
+      "app/fixtures/success.json",
+      "incident/ledger.db",
+      "incident/reproductions/01/ledger.db",
+      "app/core.py"
+    ],
+    "graded_at": "2026-09-07T00:52:02.653383+00:00",
+    "grader": "machine-rubric-v1"
+  },
+  "human": {
+    "correct": true,
+    "notes": "Reviewed in full by the session operator (not blind to arm). Failed boundary, external uncertainty, local state, citations, reproduction, and recovery all correct and safe; any machine flag was a pattern gap (timeout mentioned as the branch NOT taken, 'no local posting' wording, fixture-library transfer id cited as playback content, validated-response phrasing).",
+    "reviewer": "claude-fable-5.1 (session reviewer)",
+    "reviewed_at": "2026-09-07T00:50:46.655777+00:00"
+  },
+  "final": {
+    "correct": true,
+    "source": "human",
+    "verdict": "correct",
+    "disagrees_with_machine": false
+  }
+}

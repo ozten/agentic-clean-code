@@ -1,0 +1,57 @@
+{
+  "snapshot_id": "openai-2026-09-06",
+  "provider": "openai",
+  "currency": "USD",
+  "effective_date": "2026-09-06",
+  "source_urls": [
+    "https://developers.openai.com/api/docs/pricing",
+    "https://developers.openai.com/api/docs/guides/prompt-caching",
+    "https://developers.openai.com/api/docs/models/gpt-5.6-luna",
+    "https://developers.openai.com/api/docs/models/gpt-5.6-terra",
+    "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+    "https://developers.openai.com/api/docs/models/gpt-5.4"
+  ],
+  "notes": "Rate-card values read from the official pricing page on 2026-09-06 under service_tier=default. Cache reads are 0.1x and, for GPT-5.6 and later, cache writes 1.25x the ordinary input rate. Models older than GPT-5.6 have no separate cache-write category (cache_write_category=none). Prompts above 272K input tokens use the long-context bracket; the harness rejects any request in that bracket. These are rate-card estimates, not invoices.",
+  "profiles": {
+    "gpt-5.6-luna": {
+      "model": "gpt-5.6-luna",
+      "snapshot": null,
+      "usd_per_million": {"ordinary_input": "0.20", "cached_input": "0.02", "cache_write": "0.25", "output": "1.20"},
+      "cache_write_category": "priced",
+      "long_context": {"input_threshold_tokens": 272000, "input_multiplier": "2", "output_multiplier": "1.5"},
+      "context_window": 400000,
+      "reasoning_efforts": ["none", "low", "medium", "high", "xhigh", "max"],
+      "doc_url": "https://developers.openai.com/api/docs/models/gpt-5.6-luna"
+    },
+    "gpt-5.6-terra": {
+      "model": "gpt-5.6-terra",
+      "snapshot": null,
+      "usd_per_million": {"ordinary_input": "2.00", "cached_input": "0.20", "cache_write": "2.50", "output": "12.00"},
+      "cache_write_category": "priced",
+      "long_context": {"input_threshold_tokens": 272000, "input_multiplier": "2", "output_multiplier": "1.5"},
+      "context_window": 400000,
+      "reasoning_efforts": ["none", "low", "medium", "high", "xhigh", "max"],
+      "doc_url": "https://developers.openai.com/api/docs/models/gpt-5.6-terra"
+    },
+    "gpt-5.4-mini": {
+      "model": "gpt-5.4-mini",
+      "snapshot": "gpt-5.4-mini-2026-03-17",
+      "usd_per_million": {"ordinary_input": "0.75", "cached_input": "0.075", "cache_write": "0", "output": "4.50"},
+      "cache_write_category": "none",
+      "long_context": null,
+      "context_window": 272000,
+      "reasoning_efforts": ["none", "low", "medium", "high", "xhigh"],
+      "doc_url": "https://developers.openai.com/api/docs/models/gpt-5.4-mini"
+    },
+    "gpt-5.4": {
+      "model": "gpt-5.4",
+      "snapshot": null,
+      "usd_per_million": {"ordinary_input": "2.50", "cached_input": "0.25", "cache_write": "0", "output": "15.00"},
+      "cache_write_category": "none",
+      "long_context": null,
+      "context_window": 272000,
+      "reasoning_efforts": ["none", "low", "medium", "high", "xhigh"],
+      "doc_url": "https://developers.openai.com/api/docs/models/gpt-5.4"
+    }
+  }
+}

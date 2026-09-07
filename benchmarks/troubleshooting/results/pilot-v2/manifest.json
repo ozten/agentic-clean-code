@@ -1,0 +1,117 @@
+{
+  "experiment_version": "pilot-v2",
+  "phase": "pilot",
+  "description": "Second pilot after pilot-v1 review: cumulative token cap raised to 300k, fixture provenance neutralized, pre-incident payment history (120 payments) in every workspace, and two cases whose traceback does not name the boundary (S4 response-mismatch, S5 stale-retry) alongside S1-S3. 2 models x 3 arms x 5 cases x 1 repetition = 30 trials (owner chose the 30-trial, $65 option). Pilot results do not enter the main estimate.",
+  "models": {
+    "efficient": {
+      "id": "gpt-5.6-luna",
+      "pricing_profile": "gpt-5.6-luna",
+      "reasoning_context": "all_turns",
+      "doc_url": "https://developers.openai.com/api/docs/models/gpt-5.6-luna"
+    },
+    "control": {
+      "id": "gpt-5.6-terra",
+      "pricing_profile": "gpt-5.6-terra",
+      "reasoning_context": "all_turns",
+      "doc_url": "https://developers.openai.com/api/docs/models/gpt-5.6-terra"
+    }
+  },
+  "arms": [
+    "simple",
+    "clean",
+    "clean-no-traces"
+  ],
+  "cases": [
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "S5"
+  ],
+  "repetitions": 1,
+  "scheduler_seed": 20260907,
+  "batch_usd_cap": "65.00",
+  "qualification_usd_cap": "1.00",
+  "pricing_snapshot": "pricing/openai-2026-09-06.json",
+  "reasoning_effort": "medium",
+  "include_encrypted_reasoning": true,
+  "history": {
+    "payments": 120,
+    "seed": 20260906,
+    "timeout_fraction": 0.1
+  },
+  "limits": {
+    "max_inference_calls": 40,
+    "max_tool_calls": 40,
+    "max_seconds": 720,
+    "token_cap": 300000,
+    "max_output_per_call": 8192,
+    "output_floor": 1024,
+    "per_call_timeout": 120,
+    "tool_output_cap": 16384,
+    "text_only_nudges": 1
+  },
+  "notes": "Protocol changes from pilot-v1 (owner decisions 2026-09-06): token_cap 100000 -> 300000; packaged fixtures carry a neutral provenance note; history and S4/S5 added. Case versions are 2. Requires owner approval of batch_usd_cap before `harness run`.",
+  "run_id": "pilot-v2",
+  "frozen_at": "2026-09-07T00:19:54.263837+00:00",
+  "manifest_source": "benchmarks/troubleshooting/manifests/pilot-v2.json",
+  "harness_source_sha256": "d994321a8da003e10718fe15ea98915eb73577a31d3aae2fb3356cba9526d042",
+  "openai_sdk_version": "3.8.0",
+  "python_version": "3.12.4 (main, Jun  6 2024, 18:26:44) [Clang 15.0.0 (clang-1500.3.9.4)]",
+  "platform": "macOS-26.4.1-arm64-arm-64bit",
+  "machine": "arm64",
+  "sandbox": "macOS Seatbelt (sandbox-exec), deny-default profile per trial",
+  "cases_frozen": {
+    "S1": {
+      "slug": "preparation-failure",
+      "version": 2,
+      "digest": "e3205d2212cc19b2"
+    },
+    "S2": {
+      "slug": "confirmation-failure",
+      "version": 2,
+      "digest": "3148376b1cb2d8aa"
+    },
+    "S3": {
+      "slug": "response-lost",
+      "version": 2,
+      "digest": "1b518173d2f7849c"
+    },
+    "S4": {
+      "slug": "response-mismatch",
+      "version": 2,
+      "digest": "043b50c15ad352ea"
+    },
+    "S5": {
+      "slug": "stale-retry",
+      "version": 2,
+      "digest": "aa2851d8529c2b5f"
+    }
+  },
+  "fixed_request_settings": {
+    "stream": false,
+    "store": false,
+    "background": false,
+    "service_tier": "default",
+    "parallel_tool_calls": false,
+    "truncation": "disabled"
+  },
+  "history_profile": {
+    "payments": 120,
+    "seed": 20260906,
+    "timeout_fraction": 0.1,
+    "span_seconds": 2592000,
+    "min_cents": 1000,
+    "max_cents": 40000,
+    "digest": "eb321e90f848"
+  },
+  "tool_schema_sha256": "f60e4427bcf0f8c91cfc8a068201450cc721fb452a797c398a8a34b8c35405de",
+  "instructions_sha256": "64143942ab889ac43578cd87c6d1a4741807505d064f1ddb452a435afed6440f",
+  "task_prompt_sha256": "29b09ece0f23311a70c3e7898d23d50450e4372e7aef6425736d3b725d5ed345",
+  "workspace_brief_sha256": "008717cc8e8a6dc5c5645f2bd9d2f9c1a187aba6f09593d6ed9e6cc09215d4d1",
+  "pricing_snapshot_sha256": "fd2154c7766ba87c8915013dcd36e0c1e43be463151a9d2620d0ebf4ab4dbce3",
+  "openai_project_id": null,
+  "concurrency": 1,
+  "text_only_policy": "one reminder to call submit_diagnosis, then a second text-only turn ends the trial as submitted_text",
+  "manifest_sha256": "c2d753e44bc220694b47c1fe201c0a1f510b804aa4c7494b69b9f49748ff6987"
+}

@@ -1,0 +1,73 @@
+{
+  "trial_id": "5d48b96b-9912-4fdc-939d-1b116e3fc4bd",
+  "case": "S1",
+  "machine": {
+    "verdict": "unsupported",
+    "correct": false,
+    "free_text_submission": false,
+    "dimensions": {
+      "failed_boundary": {
+        "passed": true,
+        "reasons": []
+      },
+      "external_outcome": {
+        "passed": false,
+        "reasons": [
+          "must state that no provider request was made"
+        ]
+      },
+      "local_state": {
+        "passed": true,
+        "reasons": []
+      },
+      "evidence": {
+        "passed": false,
+        "reasons": [
+          "cites files that do not exist in the workspace: ['incident/reproductions/01/traces/trace-b566f5c2-0d7f-4b4a-a0c5-dd4966fcb932/trace.json']"
+        ]
+      },
+      "reproducibility": {
+        "passed": true,
+        "reasons": []
+      },
+      "recovery": {
+        "passed": true,
+        "reasons": []
+      }
+    },
+    "passed": [
+      "failed_boundary",
+      "local_state",
+      "reproducibility",
+      "recovery"
+    ],
+    "failed": [
+      "external_outcome",
+      "evidence"
+    ],
+    "disqualifiers": [],
+    "citations": [
+      "incident/report.md",
+      "incident/stderr.txt",
+      "incident/reproductions/01/traces/trace-b566f5c2-0d7f-4b4a-a0c5-dd4966fcb932/trace.json",
+      "app/tracing.py",
+      "incident/ledger.db",
+      "app/adapters.py",
+      "app/core.py"
+    ],
+    "graded_at": "2026-09-07T00:52:02.808510+00:00",
+    "grader": "machine-rubric-v1"
+  },
+  "human": {
+    "correct": true,
+    "notes": "Correct in substance (prepare INSERT boundary, no provider request, untouched funds, reproduction with assertions, safe retry). One cited trace path has a mangled GUID (the submission itself notes the real directory name); flagged for owner review as a citation-accuracy judgement call.",
+    "reviewer": "claude-fable-5.1 (session reviewer)",
+    "reviewed_at": "2026-09-07T00:52:02.584964+00:00"
+  },
+  "final": {
+    "correct": true,
+    "source": "human",
+    "verdict": "correct",
+    "disagrees_with_machine": true
+  }
+}

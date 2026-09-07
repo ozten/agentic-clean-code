@@ -1,0 +1,25 @@
+# Submission
+
+## failed_boundary
+
+The failure was at the local SQLite ledger's `prepare` operation, specifically inserting the durable payment intent (app/adapters.py:44-61, at line 59), before the provider boundary. `pay` calls `ledger.prepare` before computing the retry key or calling `transfers.create` (app/core.py:47-53). The recorded process error is `sqlite3.IntegrityError: database or disk is full` at adapters.py:59 (incident/stderr.txt:1-10). Thus this incident did not fail at Stripe request encoding, provider acceptance, or local confirmation; it failed while creating the intent.
+
+## evidence
+
+The operator invocation and its inputs are recorded in incident/report.md:3-10. incident/stderr.txt:3-10 shows the stack stops in `ledger.prepare`, at the `INSERT INTO payments` statement, with `database or disk is full`; incident/exit-code.txt is `1` and stdout is empty. The exact invocation reproduced with `reproduce_incident` (reproduction 1, incident/reproductions/01) with the same error and stack, independently confirming the boundary. Direct SQLite inspection of incident/ledger.db returned `target []` for `payments where id='milestone-42'`, balances `(1, 100000, 0, 2535400)`, and 120 payments and 120 postings. The target's expected request is also explicitly recorded in app/fixtures/timeout.json:4-15 (same destination, 50000 cents, and idempotency key), and the success fixture records the expected transfer shape/id in app/fixtures/success.json:4-23.
+
+## external_outcome
+
+For this run, the application reached no provider request: the only provider call is after successful prepare (app/core.py:47-53), while the observed exception occurred inside prepare. There is consequently no transfer id or provider response establishing acceptance. The evidence does not prove the provider's complete historical state or exclude an independently pre-existing provider transfer with this identity; it only establishes that this attempted run did not reach the provider. Had a request actually timed out, the transport would explicitly classify the outcome as unknown (app/adapters.py:139-147), but this run failed earlier and did not exercise that path.
+
+## local_state
+
+The failed SQLite transaction left no `milestone-42` row and no posting. The observed balances are available=100000 cents, reserved=0, contractor=2535400 cents; therefore this attempt did not leave the 50000 cents reserved. The absence of the target row and unchanged/zero reservation are consistent with the transaction in `prepare` (app/adapters.py:45-61) rolling back when the insert raises. Existing payments/postings remain matched at 120 each. No receipt or transfer id exists locally for this payment.
+
+## reproduction
+
+Use the supplied `reproduce_incident` command, which starts from the ledger snapshot immediately before the operator command, then assert exit status 1, empty stdout, and stderr containing `database or disk is full`, `app/core.py`, and `app/adapters.py` line 59. For a regression test, use the controlled inputs from incident/report.md: payment_id `milestone-42`, destination `acct_demo_contractor`, cents `50000`, now `1788706800`, and the same provider fixture/environment; alternatively inject a deterministic SQLite `IntegrityError` at the payments INSERT and a no-call transport. Assert the provider transport has zero calls (prepare fails before `transfers.create`), `payments` has no target row, `postings` has no target row, the balance is exactly available=100000/reserved=0/contractor=2535400 for the supplied snapshot, and the process returns failure. Also assert that a successful retry must use the exact request/idempotency key shown in app/fixtures/timeout.json:8-10 and, after a transfer response, create exactly one posting and move exactly 50000 from reserved to contractor; never assert success merely from process retry or create a second identity.
+
+## recovery
+
+Do not delete or edit the payment, release funds, or create a replacement payment id. First remediate the local storage/SQLite write-capacity problem and verify the database is healthy and still has no target row. Because this run demonstrably made no provider call, retry the same `milestone-42` identity with the unchanged 50000 cents and `acct_demo_contractor` destination (the application will reserve before its next request and use `contractor-payment:milestone-42`). If any independent provider evidence later suggests a request may have occurred, stop automatic retry and manually reconcile that same identity; retain any resulting reserved funds until a matching `tr_...` receipt is verified and atomically confirmed. Never make uncertain reserved funds available again.

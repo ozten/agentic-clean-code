@@ -1,0 +1,73 @@
+{
+  "trial_id": "2c0e93e5-64f3-4d80-938f-3b081a365e4e",
+  "case": "S2",
+  "machine": {
+    "verdict": "partial",
+    "correct": false,
+    "free_text_submission": false,
+    "dimensions": {
+      "failed_boundary": {
+        "passed": false,
+        "reasons": [
+          "must locate the local confirmation write that failed after the provider response"
+        ]
+      },
+      "external_outcome": {
+        "passed": false,
+        "reasons": [
+          "must state that a transfer response was received/accepted without claiming settlement"
+        ]
+      },
+      "local_state": {
+        "passed": true,
+        "reasons": []
+      },
+      "evidence": {
+        "passed": true,
+        "reasons": []
+      },
+      "reproducibility": {
+        "passed": true,
+        "reasons": []
+      },
+      "recovery": {
+        "passed": true,
+        "reasons": []
+      }
+    },
+    "passed": [
+      "local_state",
+      "evidence",
+      "reproducibility",
+      "recovery"
+    ],
+    "failed": [
+      "failed_boundary",
+      "external_outcome"
+    ],
+    "disqualifiers": [],
+    "citations": [
+      "incident/traces/trace-2f568bc3-1d92-4235-8b22-e240cc1c54f7/trace.json",
+      "incident/traces/trace-52d23920-9360-4e94-952d-aa6ef8a9f508/trace.json",
+      "incident/traces/trace-c95709e6-2eb6-4ac9-894f-94cc2854d8b9/trace.json",
+      "incident/reproductions/01/traces/trace-49fc33fa-c676-4341-8026-895d63d062a9/trace.json",
+      "app/adapters.py",
+      "app/core.py",
+      "incident/stderr.txt"
+    ],
+    "graded_at": "2026-09-07T00:52:02.710819+00:00",
+    "grader": "machine-rubric-v1"
+  },
+  "human": {
+    "correct": true,
+    "notes": "Reviewed in full by the session operator (not blind to arm). Failed boundary, external uncertainty, local state, citations, reproduction, and recovery all correct and safe; any machine flag was a pattern gap (timeout mentioned as the branch NOT taken, 'no local posting' wording, fixture-library transfer id cited as playback content, validated-response phrasing).",
+    "reviewer": "claude-fable-5.1 (session reviewer)",
+    "reviewed_at": "2026-09-07T00:50:47.170813+00:00"
+  },
+  "final": {
+    "correct": true,
+    "source": "human",
+    "verdict": "correct",
+    "disagrees_with_machine": true
+  }
+}

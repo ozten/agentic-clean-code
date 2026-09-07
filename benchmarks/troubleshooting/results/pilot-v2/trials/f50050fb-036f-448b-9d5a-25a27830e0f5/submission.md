@@ -1,0 +1,44 @@
+# Submission
+
+## failed_boundary
+
+The failure is after provider-create returned and at the local receipt/persistence boundary: `pay()` calls `ledger.confirm(payment, receipt)` at `/workspace/app/core.py:53`; `SqliteLedger.confirm()` had begun its SQLite transaction and then failed on `UPDATE payments SET transfer_id = ? WHERE id = ?` at `/workspace/app/adapters.py:64-79` (specifically line 78). The error is `sqlite3.IntegrityError: database or disk is full`, not a provider error. Since the posting insert and balance movement precede that statement in the same `with self.db` transaction (lines 64-79), the exception rolled that confirmation transaction back.
+
+The intent/reservation boundary had already completed earlier: `prepare()` reserves and inserts the intent in one transaction at `/workspace/app/adapters.py:44-61`, before `pay()` constructs the key and calls the transfer interface (`/workspace/app/core.py:47-53`).
+
+## evidence
+
+* The operator inputs are `milestone-42`, `acct_demo_contractor`, 50000 cents, and now=1788706800 in `/workspace/incident/report.md:3-11`.
+* `/workspace/incident/stderr.txt:1-11` identifies the failure and stack precisely: `main.py:51` -> `core.py:53` -> `adapters.py:78`, with `database or disk is full`. `/workspace/incident/exit-code.txt` is 1.
+* Independent re-execution by the supplied tool produced exit status 1 and the same stack at `/workspace/incident/reproductions/01/stderr.txt`; its ledger still contains the unreceipted intent and reservation (queried from `/workspace/incident/reproductions/01/ledger.db`).
+* The post-incident database query of `/workspace/incident/ledger.db` found `payments(id='milestone-42', destination='acct_demo_contractor', cents=50000, created_at=1788706800, transfer_id=NULL)`, no `postings` row for that payment, and `balances=(id=1, available=50000, reserved=50000, contractor=2535400)`. `PRAGMA integrity_check` returned `ok` in that query.
+* Reaching `confirm` establishes that `StripeTransfers.create` returned a receipt to the application. That method only returns after a status-200, matching transfer-shaped response with a `tr_` id (`/workspace/app/adapters.py:105-125`), and it sends the stable key `contractor-payment:<payment_id>` (lines 106-114). The matching local playback candidate is `/workspace/app/fixtures/success.json:3-25`, which specifies the incident request/key and `tr_demo_500`; however, the report explicitly says the deployment fixture configuration was not captured (`/workspace/incident/report.md:13-16`). Therefore that file is not sufficient proof it was the selected incident fixture or proof of a live remote transfer.
+* Atomic rollback is supported by the confirmation transaction scope and order in `/workspace/app/adapters.py:64-79`; the absent posting/receipt and unchanged reserved balance are the observed result.
+
+## external_outcome
+
+Known: the application's configured transfer adapter returned a response acceptable to `StripeTransfers.create`; otherwise execution could not have reached `core.py:53`. The request constructed by the adapter uses payment `milestone-42`, amount 50000 USD cents, destination `acct_demo_contractor`, transfer group `milestone-42`, and idempotency key `contractor-payment:milestone-42` (`/workspace/app/adapters.py:105-125`).
+
+Unknown: there is no captured provider trace, selected fixture path, provider query result, or durable remote receipt in the incident artifacts. The configuration is explicitly absent. Thus the evidence does not independently establish whether a real provider accepted a transfer, its transfer id, or any bank settlement. If the selected playback was the supplied success fixture, it models acceptance as `tr_demo_500`, but it remains only a local fixture (`success.json:1, 13-25`) rather than evidence of live settlement. Treat the remote outcome/receipt as unresolved operationally until reconciliation or an idempotent retry yields the same receipt.
+
+## local_state
+
+The durable intent exists with the original immutable identity/tuple and created_at=1788706800, but receipt is NULL. The $500 is still reserved: available is 50000 cents and reserved is 50000 cents; contractor is 2535400 cents. There is no posting for `milestone-42`. This is the correct conservative local state for a failed confirmation: the prepare transaction committed, whereas the later confirm transaction did not. It must not be interpreted as a declined payment or as $500 available to spend.
+
+## reproduction
+
+Use either the supplied deterministic observation command (`reproduce_incident`), which starts from the pre-command ledger and has twice shown the same line-78 failure, or a focused regression test with no network:
+
+1. Create a fresh SQLite ledger in `scratch/`, seed it with 100000 cents, and use `Payment('milestone-42', 'acct_demo_contractor', 50000)` with `now=1788706800`.
+2. Use `SingleResponse.load('/workspace/app/fixtures/success.json')` behind `StripeTransfers`. This controlled fixture requires exactly the expected POST/key/body and returns a matching 200 transfer response (`/workspace/app/fixtures/success.json:3-25`; enforcement is `/workspace/app/adapters.py:128-151`).
+3. Before calling `pay`, install a test-only SQLite `BEFORE UPDATE OF transfer_id ON payments` trigger that raises an SQLite error such as `RAISE(FAIL, 'database or disk is full')`. This injects the fault at exactly the incident statement (`adapters.py:78`), after the local posting/balance statements have executed but before transaction commit. Call `pay` and assert the raised DB error.
+4. Assert exactly one transport call and assert its idempotency key is `contractor-payment:milestone-42`, amount 50000, destination `acct_demo_contractor`, and transfer group `milestone-42`. Assert `payments` has precisely the original tuple/created_at and NULL `transfer_id`; zero posting rows exist for it; balances are available=50000, reserved=50000, contractor=0 in this fresh-ledger test. These assertions prove confirmation is atomic: neither the early posting/balance updates nor the receipt survives the final-write failure.
+5. Remove the injected fault and retry before `created_at + 23*60*60`, using exactly the same payment id, destination, cents, and key. Have the idempotent test transport return the same transfer receipt; assert one posting, that receipt, available=50000/reserved=0/contractor=50000, and no second identity or reservation. Also test at exactly/outside 23 hours that `retry_key` raises `NeedsReconciliation`, as specified at `/workspace/app/core.py:39-44`, with no provider call.
+
+The production observation variant is the exact command in `/workspace/incident/report.md:7-11` under `reproduce_incident`; expected exit is 1, the line-78 error, a NULL receipt/no posting, and the same reservation.
+
+## recovery
+
+Do not release the 50000-cent reservation and do not create a replacement payment. First preserve the existing row and remediate the local SQLite/storage condition. If action occurs while `now - 1788706800 < 23 hours`, rerun only the same durable payment tuple (`milestone-42`, `acct_demo_contractor`, 50000) so `prepare()` reuses its created_at and the provider key remains `contractor-payment:milestone-42` (`/workspace/app/adapters.py:47-52`, `/workspace/app/core.py:39-44`). That permits the provider's idempotency behavior to return the original outcome rather than initiating a new transfer; on a matching receipt, retry local confirmation and atomically record it.
+
+If the window has expired, if the provider result conflicts, or if the remote outcome cannot be established, route it to manual reconciliation and retain the reservation. Only reconciliation based on the original identity/key may resolve the record; neither an uncertain transfer nor a local write failure makes those reserved funds spendable again.

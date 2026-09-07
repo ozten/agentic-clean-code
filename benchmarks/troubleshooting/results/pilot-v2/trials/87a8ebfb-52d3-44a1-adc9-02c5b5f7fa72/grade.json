@@ -1,0 +1,68 @@
+{
+  "trial_id": "87a8ebfb-52d3-44a1-adc9-02c5b5f7fa72",
+  "case": "S5",
+  "machine": {
+    "verdict": "correct",
+    "correct": true,
+    "free_text_submission": false,
+    "dimensions": {
+      "failed_boundary": {
+        "passed": true,
+        "reasons": []
+      },
+      "external_outcome": {
+        "passed": true,
+        "reasons": []
+      },
+      "local_state": {
+        "passed": true,
+        "reasons": []
+      },
+      "evidence": {
+        "passed": true,
+        "reasons": []
+      },
+      "reproducibility": {
+        "passed": true,
+        "reasons": []
+      },
+      "recovery": {
+        "passed": true,
+        "reasons": []
+      }
+    },
+    "passed": [
+      "failed_boundary",
+      "external_outcome",
+      "local_state",
+      "evidence",
+      "reproducibility",
+      "recovery"
+    ],
+    "failed": [],
+    "disqualifiers": [],
+    "citations": [
+      "incident/report.md",
+      "app/app.py",
+      "incident/stderr.txt",
+      "incident/exit-code.txt",
+      "incident/reproductions/01/stderr.txt",
+      "incident/reproductions/01/ledger.db",
+      "app/fixtures/timeout.json"
+    ],
+    "graded_at": "2026-09-07T00:52:02.969244+00:00",
+    "grader": "machine-rubric-v1"
+  },
+  "human": {
+    "correct": true,
+    "notes": "Correct: retry-window guard as the boundary, earlier attempt's outcome unknown, reservation retained, reproduction names the stale-age fault, assertions, and the 23h edge; recovery reconciles under the same key.",
+    "reviewer": "claude-fable-5.1 (session reviewer)",
+    "reviewed_at": "2026-09-07T00:52:02.496484+00:00"
+  },
+  "final": {
+    "correct": true,
+    "source": "human",
+    "verdict": "correct",
+    "disagrees_with_machine": false
+  }
+}

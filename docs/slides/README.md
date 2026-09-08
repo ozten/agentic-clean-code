@@ -12,7 +12,7 @@ Use Left/Right arrows, Space, or Page Up/Down to present. Slide 7 has four payme
 - URL fragments such as `#6` and `#7.2` link to a slide or recovery step.
 - Browser **Print / Save as PDF** prints all eleven visible slides. The recovery slide prints a table containing all four attempts.
 - The take-home assignment slide ("One interaction. One rule. One offline test.") is currently hidden with the `hidden` attribute; it stays in the file and is skipped by navigation and print. Remove the attribute on its `<section>` to restore it.
-- Slide 9 is a full-screen keyword grid: simulation, service virtualization, fault injection, chaos engineering, time-travel testing, automated infosec, types, assertions/contracts, property-based testing, fuzzing, model checking, and formal proofs. Leave it visible briefly for a photograph.
+- Slide 9 is a full-screen keyword grid ordered roughly from easiest to hardest to adopt: types, assertions/contracts, service virtualization, fault injection, time-travel testing, property-based testing, fuzzing, automated infosec, chaos engineering, full-stack simulation, model checking, and formal proofs. Leave it visible briefly for a photograph.
 - Slide 10 is the Q & A screen after the five-minute talk: a large embedded QR code links to https://github.com/ozten/agentic-clean-code. The QR code was generated locally and independently decoded to verify its destination; no runtime QR service is required.
 
 ## Five-minute sequence

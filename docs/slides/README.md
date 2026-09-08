@@ -10,8 +10,9 @@ Use Left/Right arrows, Space, or Page Up/Down to present. Slide 5 has four payme
 - **F**: fullscreen (browser support permitting).
 - **Home / End**: first / last slide.
 - URL fragments such as `#4` and `#5.2` link to a slide or recovery step.
-- Browser **Print / Save as PDF** prints all eight slides. The recovery slide prints a table containing all four attempts.
-- The final slide links to the three guides and repository and provides a copyable assignment.
+- Browser **Print / Save as PDF** prints all nine slides. The recovery slide prints a table containing all four attempts.
+- Slide 8 links to the three guides and repository and provides a copyable assignment.
+- Slide 9 is the Q & A screen after the five-minute talk: a large embedded QR code links to https://github.com/ozten/agentic-clean-code. The QR code was generated locally and independently decoded to verify its destination; no runtime QR service is required.
 
 ## Five-minute sequence
 
@@ -25,6 +26,7 @@ Use Left/Right arrows, Space, or Page Up/Down to present. Slide 5 has four payme
 | 3:40–4:00 | Captured interaction → fixture → behavior assertion |
 | 4:00–4:25 | What the diagnosis pilot measured |
 | 4:25–5:00 | The assignment to take home |
+| After 5:00 | Q & A · repository QR code |
 
 These are rehearsal targets, not measured speaking times. The HTML speaker notes are the current presentation sequence; they adapt the [earlier Markdown talk draft](../ai_tinkerers_talk_sept_2026.md) with an interfaces/adapters explanation before the code comparison and a separate, brief pilot-results slide.
 

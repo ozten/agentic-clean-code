@@ -14,7 +14,7 @@ Read the relevant guide before modifying environmental interfaces, tests, or tra
 
 Accepted project decisions: [paths to applicable ADRs].
 
-Keep deterministic computation independent of concrete environmental adapters. Use existing interfaces and project conventions; introduce a new boundary when it provides a concrete testability or reproduction benefit.
+Keep deterministic computation independent of concrete environmental adapters. Use existing functions, modules, interfaces, and project conventions where they provide enough control. Introduce a new boundary only when it provides a concrete testability or reproduction benefit; additional layers or packages are not required.
 
 Application configuration selects stub, pass-through, recorder, or playback per interface. Default production to pass-through and development to recorder. Integration tests directly construct stub and playback adapters without inheriting application defaults. Recorder mode makes real calls under existing project authorization.
 
@@ -28,4 +28,15 @@ Verification commands:
 - Dependency/boundary checks: [exact command, or state that no automated check exists]
 - Reproduce a captured failure: [exact command and fixture location, or state that replay is not implemented]
 
-For bug fixes, use available boundary traces to establish a reproduction and verify an assertion of the expected behavior. Report the commands run and any gaps. Do not claim a check passed unless it ran successfully.
+For a change affecting an environmental interaction, state the observable invariant it must preserve and identify the failure that threatens it. Reuse a relevant existing check or add a focused assertion when coverage is missing. Check application behavior and prohibited effects, not only that an exception occurred or playback completed.
+
+For bug fixes, use available evidence, including boundary traces where useful, to establish a reproduction and verify an assertion of expected behavior. A fixture supplies inputs and outcomes; the expected behavior comes from the project rule. Do not change fixtures or weaken assertions merely to make a check pass.
+
+Report verification with:
+
+- The invariant checked and the exact command run.
+- The observed result and supporting test output or artifact.
+- Any inference drawn from that evidence, stated separately from observations.
+- Remaining unknowns, unrun checks, and limits of the controlled environment.
+
+For example, a captured response establishes what the application observed at that boundary; it does not establish the remote system's final state. Do not claim a check passed unless it ran successfully.

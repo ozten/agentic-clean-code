@@ -1,6 +1,6 @@
 # Reusable architecture guidance
 
-Use these documents to help your coding agent build software whose behavior you can test repeatedly and whose failures you can reproduce. The central mechanism is interfaces separating deterministic code from nondeterministic environments: APIs, storage, clocks, randomness, and processes.
+Use these documents to help your coding agent build software whose behavior you can test repeatedly and whose failures you can reproduce. Start with one rule that changes must preserve and control the environmental interaction that threatens it: an API, storage, a clock, randomness, or a process. Existing functions and modules may provide enough control; introduce an interface when it enables a concrete test or reproduction.
 
 ## Supply deliberate engineering guidance
 
@@ -12,7 +12,7 @@ Agentic Clean Code makes those quality expectations concrete: interfaces separat
 
 Run the [contractor-payment example](../examples/contractor-payment/README.md): a lost API response, a failed local confirmation write, and recovery using one response per invocation. It uses documented Stripe request shapes and synthetic fixtures, requires no accounts, and moves no money. The [example adoption ADR](decisions/001-agentic-clean-architecture.md) explains its decisions and limits.
 
-For a matching baseline, try the [simple Python app](../examples/contractor-payment-simple/README.md) and [troubleshooting comparison](../benchmarks/troubleshooting/README.md). The comparison checks happy-path and failure-state parity, then exposes the difference in available evidence. Token measurements remain uncollected.
+For a matching baseline, try the [simple Python app](../examples/contractor-payment-simple/README.md) and [troubleshooting comparison](../benchmarks/troubleshooting/README.md). The comparison checks happy-path and failure-state parity, then exposes the difference in available evidence. The [30-trial pilot-v2](../benchmarks/troubleshooting/results/pilot-v2/analysis/report.md) found no token savings from traces: each arm without traces submitted 10/10 diagnoses, while the traces arm submitted 5/10 and hit the token cap in five trials. All submitted answers were judged correct in session review. The task did not require agents to implement fixes or regression tests.
 
 ## Start with one boundary
 
@@ -25,7 +25,7 @@ For a matching baseline, try the [simple Python app](../examples/contractor-paym
 
 Example adoption request:
 
-> Read docs/guides/interfaces.md, docs/guides/testing.md, and docs/guides/traces-and-replay.md. Inspect this project and identify one external dependency that makes testing expensive or hard to reproduce. Explain the smallest useful interface and its tradeoffs, write a proposed decision using docs/templates/architecture-decision.md (or adapt the contractor-payment ADR if copied), and implement a controlled test adapter using the project's existing conventions. Verify a meaningful behavior without live service calls. Record exact commands and remaining gaps. Follow existing project authorization for external calls.
+> Read docs/guides/interfaces.md, docs/guides/testing.md, and docs/guides/traces-and-replay.md. Inspect this project and identify one external dependency that makes testing expensive or hard to reproduce. Explain the smallest useful interface and its tradeoffs, write a proposed decision using docs/templates/architecture-decision.md (or adapt the contractor-payment ADR if copied), and implement a controlled test adapter using the project's existing conventions. State one observable rule the change must preserve and verify it under a controlled failure without live service calls. Reuse existing boundaries where sufficient. Report the exact command, observed result, supporting artifact, and remaining uncertainty; distinguish observations from inferences. Follow existing project authorization for external calls.
 
 ## What to read
 

@@ -166,7 +166,7 @@ text is resent on every later call. Median cache-read share of input: 85%.
 - S4 (mismatched response): every arm that submitted identified response validation as the boundary. The no-trace arms said,
   honestly, that the artifacts do not retain which field mismatched; only a traces-arm agent could have read the body, and
   both traces-arm S4 trials ran out of budget after finding the right trace by correlating the global trace id.
-- S5 (stale retry): all six trials submitted and all were correct. The control model's traces-arm answer cited the earlier
+- S5 (stale retry): five of six trials submitted and all five were correct; the efficient model in the traces arm hit the token cap. The control model's traces-arm answer cited the earlier
   attempt's TimeoutError trace directly; the no-trace arms inferred the earlier attempt from `created_at` being 24 hours old
   and kept its outcome unknown. Reconstruction from state alone succeeded here.
 - S1 and S3 behaved as in pilot-v1; S2 remains at ceiling.

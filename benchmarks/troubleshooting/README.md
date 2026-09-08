@@ -2,7 +2,11 @@
 
 Question: **How many coding-agent tokens does it take to correctly explain and reproduce the same payment failure, given each application's available evidence?**
 
-Status: harness implemented through the pilot stage (work packages P1–P6 of the [design](../../docs/plans/2026-09-06-agent-troubleshooting-measurements.md)); the 18-trial pilot (P7) runs only from an approved manifest. No token-saving result exists yet. The measured batch (P8) and presentation (P9) require a separately frozen manifest.
+Status: two pilots have run: [pilot-v1](results/pilot-v1/README.md), with 18 trials, and [pilot-v2](results/pilot-v2/analysis/report.md), with 30 trials across five cases, two models, and three arms (one repetition per combination). In pilot-v2, each arm without traces submitted 10/10 diagnoses. The traces arm submitted 5/10; its other five trials stopped at the token cap. All 25 submitted answers were judged correct in session review. No token savings from traces were observed. These are pilot observations, not the main estimate; a main batch requires a separately frozen manifest under the [design](../../docs/plans/2026-09-06-agent-troubleshooting-measurements.md).
+
+The task supplies payment semantics and a reproduction tool to every arm, excludes existing tests, and asks for a diagnosis and proposed regression procedure. It does not measure implemented fixes, executable regression-test quality, or safer unattended changes. Both apps are handwritten examples with the same payment rules.
+
+Trace retrieval uses file listing, reading, grep, and shell tools; no dedicated trace-query tool is supplied. Broad listings and searches added context that was resent on subsequent calls. A retrieval comparison would be needed to isolate that contribution. Token counts are not interchangeable with elapsed time or dollar cost. Session review was performed by the coding-agent session operator (Claude), not a blinded independent human reviewer; see the [retrospective](../../docs/plans/2026-09-06-pilot-retrospective.md) for grading limitations and the outstanding owner spot-check.
 
 ## Comparison arms
 
@@ -86,7 +90,7 @@ Inclusion rules (R20): production modules, the entry point, and the shared fixtu
 
 ## Grading
 
-`harness/grading.py` scores six dimensions with pattern checks plus mechanical citation existence, and flags disqualifiers (new identity, released funds, settlement claims, invented transfer ids). Fixture answers under `grading/fixtures/` cover correct, partial, unsafe, unsupported, and short-wrong submissions. Machine verdicts are provisional: `harness grade` writes blinded review packets (no model, tokens, or time) and `harness review` records the human verdict that becomes `final`. No model judge is used in the pilot.
+`harness/grading.py` scores six dimensions with pattern checks plus mechanical citation existence, and flags disqualifiers (new identity, released funds, settlement claims, invented transfer ids). Fixture answers under `grading/fixtures/` cover correct, partial, unsafe, unsupported, and short-wrong submissions. Machine verdicts are provisional: `harness grade` writes blinded review packets (no model, tokens, or time) and `harness review` records the human verdict that becomes `final`. The harness has no automated model-judge stage. Pilot reviews were entered by the coding-agent session operator through the human-review fields; that field name does not establish independent human review.
 
 ## Required checks before declaring measurement ready
 
@@ -102,7 +106,7 @@ Inclusion rules (R20): production modules, the entry point, and the shared fixtu
 | A clean run that uses more tokens remains in the published data. | `tests/test_analysis.py` (all attempts visible; no filtering by direction) |
 | No measured agent calls or paid provider calls occur during ordinary example tests. | Example tests patch `socket.connect`; harness tests use in-process mock transports and the scripted fake; `NoPaidPathTests` |
 
-Manual verification remaining: V10 (two-turn function-tool smoke test with real usage) and the model-specific acceptance of the OA03 settings happen in the paid qualification run, under the manifest's `qualification_usd_cap`.
+The retrospective records V10 usage cross-checks and acceptance of the requested settings for the pilot runs. Qualification for a new model or changed configuration remains a separate paid step under the manifest's `qualification_usd_cap`.
 
 ## Evaluator rubric — keep out of agent workspaces
 

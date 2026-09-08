@@ -7,11 +7,13 @@ It is a handwritten teaching baseline, not the output of a sampled coding harnes
 From the repository root:
 
 ```sh
-python3 -B examples/contractor-payment-simple/app.py
+python3 -B examples/contractor-payment-simple/app.py --db /tmp/simple-payment-ledger.db \
+  --payment-id milestone-42 --destination acct_demo_contractor --cents 50000 --now 1788706800 \
+  --fixture examples/contractor-payment/fixtures/success.json
 python3 -B benchmarks/troubleshooting/compare.py
 ```
 
-The first command runs the happy path. `app.py --db PATH --payment-id ID --destination ACCT --cents N --now T --fixture FILE` runs one payment against a ledger file (created and funded if absent), the same interface the clean app's `main.py` offers. The second compares this app with the [clean architecture app](../contractor-payment/README.md), using the same successful synthetic provider response and the same injected confirmation-write failure.
+The first command runs the happy path, creating and funding the ledger if absent. Use a fresh database path to start a new scenario; repeating the command against its confirmed ledger returns the saved receipt. `app.py --db PATH --payment-id ID --destination ACCT --cents N --now T --fixture FILE` runs one payment against a ledger file (created and funded if absent), the same interface the clean app's `main.py` offers. The second compares this app with the [clean architecture app](../contractor-payment/README.md), using the same successful synthetic provider response and the same injected confirmation-write failure.
 
 Both produce an error and a full ordinary traceback. The clean app additionally captures correlated boundary traces. Both retain the same local reservation and can recover once storage is available. No real API calls or payments occur.
 

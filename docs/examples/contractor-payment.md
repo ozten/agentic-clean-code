@@ -40,7 +40,7 @@ The same pattern works for a small end-to-end entry point: wire its dependencies
 
 The [comparison scaffold](../../benchmarks/troubleshooting/README.md) uses the same successful response and an injected failure at the same local confirmation write in two Python implementations. Both preserve the reservation. The simple app emits an ordinary error and traceback; the clean app also records correlated HTTP and ledger traces. A third arm uses the clean code without recorders.
 
-The comparison is a narrower incident than the multi-invocation recovery demo above. It measures a prospective diagnosis task, not a live provider outcome or a type-checking benefit. Agent usage has not been measured.
+The comparison is a narrower incident than the multi-invocation recovery demo above. The separate [pilot-v2 diagnosis experiment](../../benchmarks/troubleshooting/results/pilot-v2/analysis/report.md) collected usage across five cases and found no token savings from traces. It evaluated explanations and proposed reproduction procedures, not implemented fixes, live provider outcomes, or a type-checking benefit.
 
 ## Presentation use
 

@@ -10,9 +10,10 @@ Use Left/Right arrows, Space, or Page Up/Down to present. Slide 6 has four payme
 - **F**: fullscreen (browser support permitting).
 - **Home / End**: first / last slide.
 - URL fragments such as `#5` and `#6.2` link to a slide or recovery step.
-- Browser **Print / Save as PDF** prints all ten slides. The recovery slide prints a table containing all four attempts.
+- Browser **Print / Save as PDF** prints all eleven slides. The recovery slide prints a table containing all four attempts.
 - Slide 9 links to the three guides and repository and provides a copyable assignment.
-- Slide 10 is the Q & A screen after the five-minute talk: a large embedded QR code links to https://github.com/ozten/agentic-clean-code. The QR code was generated locally and independently decoded to verify its destination; no runtime QR service is required.
+- Slide 10 is a full-screen keyword grid: simulation, service virtualization, fault injection, chaos engineering, time-travel testing, automated infosec, types, assertions/contracts, property-based testing, fuzzing, model checking, and formal proofs. Leave it visible briefly for a photograph.
+- Slide 11 is the Q & A screen after the five-minute talk: a large embedded QR code links to https://github.com/ozten/agentic-clean-code. The QR code was generated locally and independently decoded to verify its destination; no runtime QR service is required.
 
 ## Five-minute sequence
 
@@ -26,7 +27,8 @@ Use Left/Right arrows, Space, or Page Up/Down to present. Slide 6 has four payme
 | 2:35–3:40 | Four attempts: submit, retry, recover, click again |
 | 3:40–4:00 | Captured interaction → fixture → behavior assertion |
 | 4:00–4:25 | What the diagnosis pilot measured |
-| 4:25–5:00 | The assignment to take home |
+| 4:25–4:50 | The assignment to take home |
+| 4:50–5:00 | Keywords for other Software Architecture techniques |
 | After 5:00 | Q & A · repository QR code |
 
 These are rehearsal targets, not measured speaking times. The HTML speaker notes are the current presentation sequence; they adapt the [earlier Markdown talk draft](../ai_tinkerers_talk_sept_2026.md) with an interfaces/adapters explanation before the code comparison and a separate, brief pilot-results slide.

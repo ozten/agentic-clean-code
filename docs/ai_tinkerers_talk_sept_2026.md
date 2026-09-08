@@ -2,7 +2,7 @@
 
 **Austin King · AI Tinkerers Seattle · September 2026**
 
-Five-minute talk draft. Slide cues and preparation notes are not spoken. Timing is a rehearsal target; allow pauses for the payment-state reveals. Uses the existing demo and tests. The [HTML slide deck](slides/index.html) adapts this draft into nine talk slides plus a Q & A slide, explaining interfaces and the four adapter types and showing an HTTP error trace before the side-by-side code comparison. Its embedded speaker notes and [timing guide](slides/README.md) are the current presentation sequence.
+Five-minute talk draft. Slide cues and preparation notes are not spoken. Timing is a rehearsal target; allow pauses for the payment-state reveals. Uses the existing demo and tests. The [HTML slide deck](slides/index.html) adapts this draft into ten talk slides plus a Q & A slide, explaining interfaces and the four adapter types and showing an HTTP error trace before the side-by-side code comparison. Its embedded speaker notes and [timing guide](slides/README.md) are the current presentation sequence.
 
 ## Slide 1 — $500. Connection lost. Retry? [0:00–0:40]
 
@@ -98,4 +98,4 @@ Whose engineering taste is your agent inheriting? Put yours in the checks its ch
 - The benchmark supplies payment rules and a reproduction tool, excludes existing tests, and asks for diagnosis plus a proposed reproduction procedure. It does not evaluate implemented fixes or executable regression-test quality. Raw trace browsing adds reading overhead; no dedicated trace-query tool was supplied. Avoid generalizing token ratios into dollar or time savings.
 - Architecture and verification guidance is a proposed practice; safer high-volume agent work remains a motivation, not a measured result of this pilot. No new benchmark is required for this talk.
 - Add the public repository URL and QR after checking the published destination. Repository handoff: [adoption guide](README.md), [interfaces](guides/interfaces.md), [testing](guides/testing.md), [traces and replay](guides/traces-and-replay.md), and [agent instructions](templates/agent-instructions.md).
-- Further techniques belong in the [adoption guide's further experiments](README.md#further-experiments), not the spoken five-minute sequence. Keep GUIDs, file layout, adapter modes, and request headers in the repo.
+- The HTML deck includes a full-screen technique keyword grid immediately before Q & A. Allow roughly ten seconds for a photograph; do not read the terms aloud. The [adoption guide's further experiments](README.md#further-experiments) provides follow-up context. Keep GUIDs, file layout, adapter modes, and request headers in the repo.

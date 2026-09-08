@@ -2,7 +2,7 @@
 
 **Austin King · AI Tinkerers Seattle · September 2026**
 
-Five-minute talk draft. Slide cues and preparation notes are not spoken. Timing is a rehearsal target; allow pauses for the payment-state reveals. Uses the existing demo and tests. The [HTML slide deck](slides/index.html) adapts this draft into ten talk slides plus a Q & A slide, explaining interfaces and the four adapter types and showing an HTTP error trace before the side-by-side code comparison. Its embedded speaker notes and [timing guide](slides/README.md) are the current presentation sequence.
+Five-minute talk draft. Slide cues and preparation notes are not spoken. Timing is a rehearsal target; allow pauses for the payment-state reveals. Uses the existing demo and tests. The [HTML slide deck](slides/index.html) adapts this draft into an opening title slide, ten content slides, and a Q & A slide, explaining interfaces and the four adapter types and showing an HTTP error trace before the side-by-side code comparison. Its embedded speaker notes and [timing guide](slides/README.md) are the current presentation sequence.
 
 ## Slide 1 — $500. Connection lost. Retry? [0:00–0:40]
 

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "trace_id": "5a8b644c-0837-46f7-a3d8-89fc467ce25e",
+  "global_trace_id": "talk-http-error-demo",
+  "interface": "http",
+  "operation": "send",
+  "inputs": {
+    "method": "POST",
+    "url": "https://api.stripe.com/v1/transfers",
+    "headers": {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Idempotency-Key": "contractor-payment:milestone-42"
+    },
+    "body": "amount=50000&currency=usd&destination=acct_demo_contractor&transfer_group=milestone-42"
+  },
+  "outputs": {
+    "status": 503,
+    "body": {
+      "error": {
+        "message": "Service temporarily unavailable."
+      }
+    }
+  },
+  "metadata": {
+    "complete": true,
+    "error_code": null,
+    "started_at_unix": 1788880942.754632
+  }
+}

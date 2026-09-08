@@ -1,26 +1,27 @@
 # AI Tinkerers HTML slides
 
-Open [index.html](index.html) directly in a modern browser. The deck is a self-contained HTML file with inline CSS, JavaScript, and speaker notes; no server, build step, external fonts, or network connection is needed to present it. Repository and guide links require access to their destinations.
+Open [index.html](index.html) directly in a modern browser. The deck is an HTML file with inline CSS, JavaScript, and speaker notes plus one local image in `images/`; no server, build step, external fonts, or network connection is needed to present it. Repository and guide links require access to their destinations.
 
-Use Left/Right arrows, Space, or Page Up/Down to present. Slide 7 has four payment attempts; advancing walks through each attempt before leaving the slide. You can also select an attempt directly. On touch screens, swipe horizontally.
+Use Left/Right arrows, Space, or Page Up/Down to present. Slide 8 has four payment attempts; advancing walks through each attempt before leaving the slide. You can also select an attempt directly. On touch screens, swipe horizontally.
 
-- **W** on slide 6 (or click **Wiring** beside `prepare`): show the actual adapter construction patterns. **Esc** closes the callout. Use this optional explanation for questions; the preceding interfaces slide covers the concepts in the main talk.
+- **W** on slide 7 (or click **Wiring** beside `prepare`): show the actual adapter construction patterns. **Esc** closes the callout. Use this optional explanation for questions; the preceding interfaces slide covers the concepts in the main talk.
 - **N**: toggle speaker notes with suggested timing.
 - **O**: slide overview; **Esc** closes overlays.
 - **F**: fullscreen (browser support permitting).
 - **Home / End**: first / last slide.
-- URL fragments such as `#6` and `#7.2` link to a slide or recovery step.
-- Browser **Print / Save as PDF** prints all eleven visible slides. The recovery slide prints a table containing all four attempts.
+- URL fragments such as `#7` and `#8.2` link to a slide or recovery step.
+- Browser **Print / Save as PDF** prints all twelve visible slides. The recovery slide prints a table containing all four attempts.
 - The take-home assignment slide ("One interaction. One rule. One offline test.") is currently hidden with the `hidden` attribute; it stays in the file and is skipped by navigation and print. Remove the attribute on its `<section>` to restore it.
-- Slide 9 is a full-screen 4 × 4 keyword grid ordered roughly from easiest to hardest to adopt: linting, types, assertions/contracts, service virtualization, fault injection, time-travel testing, property-based testing, fuzzing, mutation testing, consumer-driven contract testing (Pact), automated infosec, chaos engineering, deterministic simulation, full-stack simulation, model checking, and formal proofs. Leave it visible briefly for a photograph.
-- Slide 10 is the Q & A screen after the five-minute talk: a large embedded QR code links to https://github.com/ozten/agentic-clean-code. The QR code was generated locally and independently decoded to verify its destination; no runtime QR service is required.
+- Slide 10 is a full-screen 4 × 4 keyword grid ordered roughly from easiest to hardest to adopt: linting, types, assertions/contracts, service virtualization, fault injection, time-travel testing, property-based testing, fuzzing, mutation testing, consumer-driven contract testing (Pact), automated infosec, chaos engineering, deterministic simulation, full-stack simulation, model checking, and formal proofs. Leave it visible briefly for a photograph.
+- Slide 11 is the Q & A screen after the five-minute talk: a large embedded QR code links to https://github.com/ozten/agentic-clean-code. The QR code was generated locally and independently decoded to verify its destination; no runtime QR service is required.
 
 ## Five-minute sequence
 
 | Time | Slide |
 |---|---|
 | 0:00–0:05 | Title · Whose engineering taste is your agent inheriting? |
-| 0:05–0:25 | $500. Connection lost. Retry? |
+| 0:05–0:15 | Cartoon: vibe coding · idealized architecture · agentic architecture |
+| 0:15–0:25 | $500. Connection lost. Retry? |
 | 0:25–1:00 | State your invariants; simulate failure paths; check behavior |
 | 1:00–1:35 | Interfaces and four adapters: stub, passthrough, record, playback |
 | 1:35–2:00 | View an HTTP trace: replay a 503 status and error message |
@@ -46,4 +47,4 @@ For changes to the layout, check 1600 × 1000 and a smaller viewport, all four r
 
 The wiring callout uses existing constructors: `SqliteLedger`, `LedgerRecorder`, `SingleResponse.load`, `Recorder`, and `StripeTransfers`. It shows direct SQLite, wrapped ledger recording, and HTTP fixture playback with optional recording. Setup/imports, ledger seeding/cleanup, and correlation-ID creation are omitted. No mode-string factory, ledger playback, or live HTTP adapter is implied. The callout is optional and omitted from print output.
 
-Slide 5 displays selected fields from [a synthetic HTTP 503 trace](fixtures/http-503-trace.json). The full trace was generated by the existing recorder, converted to playback, and checked to return status 503 and the stored error message. A local payment invocation with that replay retained the reservation and made no posting. This is not a live capture. The HTTP adapter currently rejects a non-200 response before inspecting its error body, so the displayed message is a transport response payload, not the application’s printed exception message.
+Slide 6 displays selected fields from [a synthetic HTTP 503 trace](fixtures/http-503-trace.json). The full trace was generated by the existing recorder, converted to playback, and checked to return status 503 and the stored error message. A local payment invocation with that replay retained the reservation and made no posting. This is not a live capture. The HTTP adapter currently rejects a non-200 response before inspecting its error body, so the displayed message is a transport response payload, not the application’s printed exception message.
